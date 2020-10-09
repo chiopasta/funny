@@ -81,6 +81,7 @@ class SendServer {
             }
         }catch(e: Exception)
         {
+            Log.d("bitx_log", "err:$e")
             return ""
         }
         return ""
