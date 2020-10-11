@@ -58,7 +58,8 @@ class LoginAcitivty : AppCompatActivity() {
             else {
                 val json = JSONObject(result)
                 val success = json.getBoolean("success")
-
+                setResult(Activity.RESULT_OK, Intent().putExtra("BackPress", userId))
+                finish()
 //                if(success)
 //                {
 //                    val addRunnable = Runnable {
