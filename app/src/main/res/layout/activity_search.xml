@@ -45,6 +45,7 @@
                     android:layout_height="wrap_content"
                     android:text="인원"></TextView>
                 <RadioGroup
+                    android:id="@+id/ppl_rg"
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
