@@ -124,6 +124,13 @@
             android:layout_height="wrap_content"></TextView>
     </LinearLayout>
 
+    <TextView
+        android:layout_below="@id/type_ll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/search_box_tv"
+        android:text="검색해 주세요"></TextView>
+
     <ListView
         android:id="@+id/game_listview"
         android:layout_below="@id/type_ll"
