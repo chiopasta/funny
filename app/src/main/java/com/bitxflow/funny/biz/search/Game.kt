@@ -6,6 +6,7 @@ class Game {
     var contents: String? = null
     var type : String?= null
     lateinit var people : IntArray
+    var img_url : String? = null
 
     constructor() {}
     constructor(gameID: String?, contents: String?) : super() {

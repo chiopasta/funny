@@ -10,6 +10,7 @@ import android.widget.BaseAdapter
 import android.widget.ImageView
 import android.widget.TextView
 import com.bitxflow.funny.R
+import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.game_list.view.*
 import java.util.ArrayList
 
@@ -45,8 +46,8 @@ class GameListAdapter(
             convertView.findViewById<View>(R.id.game_list_title) as TextView
 //        val contents_tx =
 //            convertView.findViewById<View>(R.id.gmae) as TextView
-//        val img_iv =
-//            convertView.findViewById<View>(R.id.photo_list_iv) as ImageView
+        val img_iv =
+            convertView.findViewById<View>(R.id.game_list_iv) as ImageView
 
 //        val replyContent: String? = member[position].contents
         title_tx.text = member[position].title
@@ -54,7 +55,7 @@ class GameListAdapter(
 //        contents_tx.movementMethod = LinkMovementMethod.getInstance()
 
 //        UrlImageViewHelper.setUrlDrawable(img_iv, member[position].pUrl,R.drawable.profileimage)
-//        Glide.with(convertView).load(member[position].pUrl).placeholder(R.drawable.loading).override(1000,600).into(img_iv)
+        Glide.with(convertView).load(member[position].img_url).placeholder(R.drawable.loading).override(1000,600).into(img_iv)
 
         return convertView
     }
