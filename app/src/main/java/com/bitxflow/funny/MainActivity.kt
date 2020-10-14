@@ -14,11 +14,10 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        setContentView(R.layout.activity_main)
-
         val nextIntent = Intent(this, LoginAcitivty::class.java)
         startActivityForResult(nextIntent,LOGIN_ACTIVITY)
 
+        setContentView(R.layout.activity_main)
 
         search_bt.setOnClickListener {
             val intent = Intent(this, SearchActivity::class.java)

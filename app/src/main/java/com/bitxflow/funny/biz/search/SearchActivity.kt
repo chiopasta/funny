@@ -55,25 +55,45 @@ class SearchActivity : AppCompatActivity() {
 //            val radioButton = (RadioButton)findViewById(id)
             search_box_tv.text = ""
 
+            val search_title = search_et.text.toString()
+            Log.d("bitx_log","title:" + search_title)
+
             var gameList2 : ArrayList<Game> = ArrayList()
+            ///////////////////// 조건 검색
+            if(search_title.equals(""))
+            {
 
-            //타입검색
-//            gameList2.addAll(gameList.filter{it.type == "순발력"})
+                //타입검색
+//              gameList2.addAll(gameList.filter{it.type == "순발력"})
 
-            gameList2.addAll(gameList.filter{it.people.contains(2)})
+                gameList2.addAll(gameList.filter{it.people.contains(2)})
 
 
-            val adapter = GameListAdapter(applicationContext , gameList2 )
-            adapter.notifyDataSetChanged()
-            game_listview.adapter = adapter
+                val adapter = GameListAdapter(applicationContext , gameList2 )
+                adapter.notifyDataSetChanged()
+                game_listview.adapter = adapter
 
-            when(ppl_rg.checkedRadioButtonId){
-                R.id.ppl2_radio_bt -> ppl=2
-                R.id.ppl3_radio_bt -> ppl=3
-                R.id.ppl4_radio_bt -> ppl=4
+                when(ppl_rg.checkedRadioButtonId){
+                    R.id.ppl2_radio_bt -> ppl=2
+                    R.id.ppl3_radio_bt -> ppl=3
+                    R.id.ppl4_radio_bt -> ppl=4
+                }
+
+                Toast.makeText(applicationContext,"ppl?:" + ppl,Toast.LENGTH_SHORT).show()
+            }
+            else //////////////이름검색
+            {
+                gameList2.addAll(gameList.filter{it.title!!.contains(search_title)})
+
+                val adapter = GameListAdapter(applicationContext , gameList2 )
+                adapter.notifyDataSetChanged()
+                game_listview.adapter = adapter
+
+
             }
 
-            Toast.makeText(applicationContext,"ppl?:" + ppl,Toast.LENGTH_SHORT).show()
+
+
         }
 
     }
