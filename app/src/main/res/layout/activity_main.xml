@@ -1,33 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <RelativeLayout
+        android:id="@+id/main_nav_rl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:text="funny funny"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp">
+        </TextView>
+    </RelativeLayout>
 
     <Button
+        android:layout_below="@+id/main_nav_rl"
+        android:id="@+id/intro_bt"
+        android:layout_width="300dp"
+        android:text="이용안내"
+        android:layout_height="200dp"></Button>
+
+    <Button
+        android:layout_alignTop="@id/intro_bt"
+        android:layout_toRightOf="@+id/intro_bt"
         android:id="@+id/search_bt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="게임검색"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="0dp"></Button>
+        android:layout_width="300dp"
+        android:layout_height="200dp"
+        android:text="게임검색"></Button>
 
     <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Button"
-        app:layout_constraintTop_toBottomOf="@+id/search_bt"
-         />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:layout_alignTop="@id/intro_bt"
+        android:layout_toRightOf="@id/search_bt"
+        android:id="@+id/question_bt"
+        android:layout_width="300dp"
+        android:layout_height="200dp"
+        android:text="간단 문의" />
+
+    <Button
+        android:layout_below="@id/intro_bt"
+        android:id="@+id/first_bt"
+        android:text="초심자 게임코스"
+        android:layout_width="300dp"
+        android:layout_height="100dp">
+
+    </Button>
+
+    <Button
+        android:layout_below="@id/first_bt"
+        android:id="@+id/snack_bt"
+        android:text="커피 음료 "
+        android:layout_width="300dp"
+        android:layout_height="100dp">
+    </Button>
+
+    <Button
+        android:layout_alignTop="@id/first_bt"
+        android:layout_toRightOf="@id/first_bt"
+        android:id="@+id/coupon_bt"
+        android:layout_width="300dp"
+        android:text="쿠폰 발급하기"
+        android:layout_height="200dp"></Button>
+
+    <Button
+        android:layout_alignTop="@id/coupon_bt"
+        android:layout_toRightOf="@id/coupon_bt"
+        android:id="@+id/recommend_game_bt"
+        android:layout_width="300dp"
+        android:text="추천 게임목록"
+        android:layout_height="200dp"></Button>
+
+    <RelativeLayout
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+        <TextView
+            android:text="WIFI : abcef04fgg"
+            android:layout_width="match_parent"
+            android:layout_centerInParent="true"
+            android:layout_height="wrap_content"></TextView>
+    </RelativeLayout>
+</RelativeLayout>
