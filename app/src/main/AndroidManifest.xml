@@ -11,9 +11,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".biz.search.SearchActivity"></activity>
-        <activity android:name=".biz.login.LoginAcitivty" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".biz.search.SearchActivity"
+            android:screenOrientation="landscape"/>
+        <activity android:name=".biz.login.LoginAcitivty"
+            android:screenOrientation="landscape"/>
+        <activity android:name=".MainActivity"
+            android:screenOrientation="landscape">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
