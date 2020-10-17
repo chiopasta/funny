@@ -28,7 +28,9 @@ class SearchActivity : AppCompatActivity() {
 
         val game = Game()
         game.title = "abcd"
-        game.type = "추리"
+        val str = "추리,순발력,퍼즐"
+        var abc = str.split(",")
+        game.type = abc
         game.img_url = "https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAxOTEyMDNfMjA4%2FMDAxNTc1MzUyNDU0NjU2.5baBn7OpRGonQIUUlrpjVOusF4g4UAek4j_PqhZ2JGcg.Wvnz79SMBX51Hhq_eiR_6hvlDT1zCQpP2SUj29cjP2Mg.JPEG.qnsegtgk%2F%2525B7%2525E7%2525B9%2525CC%2525C5%2525A5%2525BA%2525EA%252B%2525C6%2525AE%2525B7%2525A1%2525BA%2525ED.jpg&type=sc960_832"
         val numbers = intArrayOf(2,3,4)
         game.people = numbers
@@ -36,15 +38,17 @@ class SearchActivity : AppCompatActivity() {
 
         val game2 = Game()
         game2.title = "efg"
-        game2.type = "순발력"
+        val str2 = "추리,구라,유아"
+        game2.type = str2.split(",")
+
         val numbers2 = intArrayOf(3,4,5,6)
         game2.people = numbers2
         gameList.add(game2)
 
 
-        val adapter = GameListAdapter(applicationContext , gameList )
-        adapter.notifyDataSetChanged()
-        game_listview.adapter = adapter
+//        val adapter = GameListAdapter(applicationContext , gameList )
+//        adapter.notifyDataSetChanged()
+//        game_listview.adapter = adapter
 
 
         search_bt.setOnClickListener {
@@ -61,9 +65,9 @@ class SearchActivity : AppCompatActivity() {
             {
 
                 //타입검색
-//              gameList2.addAll(gameList.filter{it.type == "순발력"})
+              gameList2.addAll(gameList.filter{it.type.contains("순발력")})
 
-                gameList2.addAll(gameList.filter{it.people.contains(2)})
+//                gameList2.addAll(gameList.filter{it.people.contains(2)})
 
 
                 val adapter = GameListAdapter(applicationContext , gameList2 )

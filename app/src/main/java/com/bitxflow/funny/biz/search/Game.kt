@@ -4,7 +4,7 @@ class Game {
     var gameID: String? = null
     var title: String? = null
     var contents: String? = null
-    var type : String?= null
+    lateinit var type : List<String>
     lateinit var people : IntArray
     var img_url : String? = null
 
