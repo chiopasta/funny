@@ -7,6 +7,7 @@ class Game {
     lateinit var type : List<String>
     lateinit var people : IntArray
     var img_url : String? = null
+    var level : String? = null
 
     constructor() {}
     constructor(gameID: String?, contents: String?) : super() {

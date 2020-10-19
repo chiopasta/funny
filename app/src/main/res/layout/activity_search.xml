@@ -91,29 +91,37 @@
                     android:layout_height="wrap_content"
                     android:text="난이도"></TextView>
                 <RadioGroup
+                    android:id="@+id/level_rg"
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
                     <RadioButton
-                        android:id="@+id/level1_radio_bt"
+                        android:id="@+id/level0_radio_bt"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:checked="true"
-                        android:text="1">
+                        android:text="상관없음">
+                    </RadioButton>
+
+                    <RadioButton
+                        android:id="@+id/level1_radio_bt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="쉬움">
                     </RadioButton>
 
                     <RadioButton
                         android:id="@+id/level2_radio_bt"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="2">
+                        android:text="중간">
                     </RadioButton>
 
                     <RadioButton
                         android:id="@+id/level3_radio_bt"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="3">
+                        android:text="어려움">
                     </RadioButton>
                 </RadioGroup>
             </LinearLayout>
@@ -131,6 +139,42 @@
             android:text="장르선택"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"></TextView>
+
+        <RadioGroup
+            android:id="@+id/type_rg"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <RadioButton
+                android:id="@+id/type0_radio_bt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="상관없음">
+            </RadioButton>
+
+            <RadioButton
+                android:id="@+id/type_speed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="순발력">
+            </RadioButton>
+
+            <RadioButton
+                android:id="@+id/type_inference"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="추리">
+            </RadioButton>
+
+            <RadioButton
+                android:id="@+id/type_gura"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="구라">
+            </RadioButton>
+        </RadioGroup>
+
     </LinearLayout>
 
     <TextView
