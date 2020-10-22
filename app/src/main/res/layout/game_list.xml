@@ -5,9 +5,10 @@
 
     <ImageView
         android:id="@+id/game_list_iv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_width="300dp"
+        android:layout_height="300dp">
     </ImageView>
+
     <TextView
         android:layout_toRightOf="@id/game_list_iv"
         android:layout_alignParentTop="true"
@@ -16,5 +17,103 @@
         android:text="게임제목"
         android:id="@+id/game_list_title"/>
 
+    <ImageView
+        android:id="@+id/game_list_hit"
+        android:layout_toRightOf="@id/game_list_title"
+        android:layout_alignBottom="@id/game_list_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+    </ImageView>
 
+    <TextView
+        android:id="@+id/eng_title"
+        android:layout_below="@+id/game_list_title"
+        android:layout_alignLeft="@id/game_list_title"
+        android:layout_width="wrap_content"
+        android:textColor="#BDBDBD"
+        android:text="KUSHI express"
+        android:layout_height="wrap_content"></TextView>
+
+    <LinearLayout
+        android:id="@+id/circle_ll"
+        android:layout_alignLeft="@+id/game_list_title"
+        android:layout_below="@id/eng_title"
+        android:layout_width="wrap_content"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:id="@+id/rl1"
+            android:layout_width="50dp"
+            android:layout_height="50dp">
+            <ImageView
+                android:layout_centerInParent="true"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+            </ImageView>
+
+            <TextView
+                android:id="@+id/people_tx"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="2~4인"
+                android:layout_centerInParent="true"></TextView>
+
+            <TextView
+                android:text="인원"
+                android:textColor="#BDBDBD"
+                android:layout_above="@+id/people_tx"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                ></TextView>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl2"
+            android:layout_width="50dp"
+            android:layout_height="50dp">
+            <ImageView
+                android:layout_centerInParent="true"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+            </ImageView>
+
+            <TextView
+                android:id="@+id/play_time_tx"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="2~4인"
+                android:layout_centerInParent="true"></TextView>
+
+            <TextView
+                android:text="플레이"
+                android:textColor="#BDBDBD"
+                android:layout_above="@+id/play_time_tx"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                ></TextView>
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/show_tx"
+        android:layout_below="@id/circle_ll"
+        android:layout_alignLeft="@id/game_list_title"
+        android:layout_width="wrap_content"
+        android:text="간단 게임소개"
+        android:layout_height="wrap_content">
+    </TextView>
+
+    <TextView
+        android:id="@+id/content"
+        android:textColor="#BDBDBD"
+        android:layout_alignLeft="@id/game_list_title"
+        android:layout_below="@id/show_tx"
+        android:layout_width="wrap_content"
+        android:text="손이 빠르다고 소문난 어쩌고"
+        android:layout_height="wrap_content">
+    </TextView>
 </RelativeLayout>
