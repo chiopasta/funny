@@ -51,7 +51,7 @@
 
     <Button
         android:layout_below="@id/first_bt"
-        android:id="@+id/snack_bt"
+        android:id="@+id/product_bt"
         android:text="커피 음료 "
         android:layout_width="300dp"
         android:layout_height="100dp">

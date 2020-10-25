@@ -9,6 +9,7 @@ import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.bitxflow.funny.biz.login.LoginAcitivty
+import com.bitxflow.funny.biz.product.ProductActivity
 import com.bitxflow.funny.biz.search.SearchActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -26,6 +27,11 @@ class MainActivity : AppCompatActivity() {
         hideSystemUI()
         search_bt.setOnClickListener {
             val intent = Intent(this, SearchActivity::class.java)
+            startActivity(intent)
+        }
+
+        product_bt.setOnClickListener {
+            val intent = Intent(this, ProductActivity::class.java)
             startActivity(intent)
         }
     }
