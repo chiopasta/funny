@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@drawable/background"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
@@ -10,67 +11,98 @@
         android:id="@+id/main_nav_rl"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-        <TextView
-            android:text="funny funny"
-            android:layout_width="wrap_content"
-            android:layout_height="30dp">
-        </TextView>
+
+        <ImageView
+            android:src="@drawable/logo"
+            android:layout_width="200dp"
+            android:layout_height="100dp"></ImageView>
     </RelativeLayout>
 
     <Button
+        android:layout_margin="15dp"
         android:layout_below="@+id/main_nav_rl"
         android:id="@+id/intro_bt"
         android:layout_width="300dp"
-        android:text="이용안내"
+        android:background="@drawable/intro"
         android:layout_height="200dp"></Button>
 
     <Button
+
         android:layout_alignTop="@id/intro_bt"
         android:layout_toRightOf="@+id/intro_bt"
         android:id="@+id/search_bt"
+        android:background="@drawable/search"
         android:layout_width="300dp"
         android:layout_height="200dp"
-        android:text="게임검색"></Button>
+        ></Button>
 
     <Button
+        android:layout_marginLeft="15dp"
         android:layout_alignTop="@id/intro_bt"
         android:layout_toRightOf="@id/search_bt"
         android:id="@+id/question_bt"
         android:layout_width="300dp"
         android:layout_height="200dp"
-        android:text="간단 문의" />
+        android:background="@drawable/qna"
+        />
 
     <Button
+        android:layout_alignLeft="@id/intro_bt"
         android:layout_below="@id/intro_bt"
-        android:id="@+id/first_bt"
-        android:text="초심자 게임코스"
+        android:id="@+id/game_charge"
+        android:background="@drawable/gamebill"
         android:layout_width="300dp"
         android:layout_height="100dp">
 
     </Button>
 
     <Button
-        android:layout_below="@id/first_bt"
+        android:layout_marginTop="15dp"
+        android:layout_alignLeft="@id/intro_bt"
+        android:layout_below="@id/game_charge"
         android:id="@+id/product_bt"
-        android:text="커피 음료 "
+        android:background="@drawable/dessert"
         android:layout_width="300dp"
         android:layout_height="100dp">
     </Button>
 
     <Button
-        android:layout_alignTop="@id/first_bt"
-        android:layout_toRightOf="@id/first_bt"
-        android:id="@+id/coupon_bt"
+        android:layout_marginLeft="15dp"
+        android:layout_alignTop="@id/game_charge"
+        android:layout_toRightOf="@id/game_charge"
+        android:id="@+id/beginner"
         android:layout_width="300dp"
-        android:text="쿠폰 발급하기"
-        android:layout_height="200dp"></Button>
+        android:background="@drawable/beginner"
+        android:layout_height="100dp"></Button>
 
     <Button
-        android:layout_alignTop="@id/coupon_bt"
-        android:layout_toRightOf="@id/coupon_bt"
+        android:layout_marginTop="15dp"
+        android:layout_alignLeft="@id/beginner"
+        android:layout_below="@id/beginner"
+        android:id="@+id/coupon"
+        android:background="@drawable/coupon"
+        android:layout_width="200dp"
+        android:layout_height="100dp"></Button>
+
+    <Button
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignTop="@id/coupon"
+        android:layout_alignRight="@id/beginner"
+        android:background="@drawable/wifi"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginRight="1dp"
+        android:layout_toRightOf="@+id/coupon"></Button>
+
+    <Button
+        android:layout_marginLeft="15dp"
+        android:layout_alignBottom="@id/coupon"
+        android:layout_alignTop="@id/beginner"
+        android:layout_toRightOf="@id/beginner"
         android:id="@+id/recommend_game_bt"
         android:layout_width="300dp"
-        android:text="추천 게임목록"
+        android:background="@drawable/recommend"
         android:layout_height="200dp"></Button>
 
     <RelativeLayout
