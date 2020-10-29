@@ -5,42 +5,93 @@
     android:layout_height="match_parent"
     android:focusable="true"
     android:focusableInTouchMode="true"
+    android:background="#ffffff"
     tools:context=".biz.search.SearchActivity">
 
     <RelativeLayout
         android:id="@+id/nav_rl"
+        android:background="@drawable/background"
         android:layout_alignParentTop="true"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="200dp">
+
+        <ImageView
+            android:layout_alignParentLeft="true"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/logo"
+            android:layout_width="100dp"
+            android:layout_height="100dp"></ImageView>
+
         <EditText
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="15dp"
+            android:background="#ffffff"
             android:layout_width="200dp"
+            android:textColor="#000000"
             android:hint="게임 이름"
             android:layout_height="wrap_content"
             android:id="@+id/search_et">
 
         </EditText>
+
         <Button
+            android:layout_alignTop="@id/search_et"
+            android:layout_alignBottom="@id/search_et"
+            android:background="@drawable/search_bt"
             android:id="@+id/search_bt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             android:layout_toRightOf="@+id/search_et"
-            android:text="검색하기"/>
+            />
     </RelativeLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_below="@id/nav_rl"
+        android:id="@+id/top_txt_ll"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/top_txt"
+            android:src="@drawable/top_txt"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"></ImageView>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/top_orange_line"
+        android:layout_below="@+id/top_txt_ll"
+        android:background="#ffc000"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"></TextView>
 
     <LinearLayout
         android:id="@+id/ppl_ll"
-        android:layout_below="@+id/nav_rl"
+        android:layout_below="@+id/top_orange_line"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="인원구성"></TextView>
+        <RelativeLayout
+            android:background="#3b3b3b"
+            android:layout_width="300dp"
+            android:layout_height="200dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="30dp"
+                android:text="인원구성 (필수)"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textColor="#ffffff"></TextView>
+
+        </RelativeLayout>
 
         <LinearLayout
+            android:background="#faf9f5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
@@ -50,6 +101,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
                 <TextView
+                    android:textColor="#5b5757"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="인원"></TextView>
@@ -59,10 +111,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
                     <RadioButton
+                        android:button="@android:color/transparent"
+                        android:background="@drawable/btn_round"
                         android:id="@+id/ppl2_radio_bt"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:checked="true"
+                        android:layout_gravity="center"
+                        android:textColor="#3b3b3b"
                         android:text="2인">
                     </RadioButton>
 
@@ -87,6 +142,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
                 <TextView
+                    android:textColor="#5b5757"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="난이도"></TextView>
