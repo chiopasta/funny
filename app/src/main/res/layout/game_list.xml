@@ -1,119 +1,282 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff">
 
     <ImageView
         android:id="@+id/game_list_iv"
         android:layout_width="300dp"
-        android:layout_height="300dp">
-    </ImageView>
+        android:layout_height="300dp"></ImageView>
 
     <TextView
-        android:layout_toRightOf="@id/game_list_iv"
-        android:layout_alignParentTop="true"
+        android:id="@+id/game_list_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="5dp"
+        android:layout_toRightOf="@id/game_list_iv"
+        android:fontFamily="@font/bmdo"
         android:text="게임제목"
-        android:id="@+id/game_list_title"/>
+        android:textColor="#383838"
+        android:textSize="25sp" />
 
     <ImageView
         android:id="@+id/game_list_hit"
-        android:layout_toRightOf="@id/game_list_title"
+        android:layout_width="50dp"
+        android:layout_height="20dp"
         android:layout_alignBottom="@id/game_list_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-    </ImageView>
+        android:layout_marginLeft="20dp"
+        android:layout_toRightOf="@id/game_list_title"
+        android:background="@drawable/hit"></ImageView>
 
     <TextView
         android:id="@+id/eng_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/game_list_title"
         android:layout_alignLeft="@id/game_list_title"
-        android:layout_width="wrap_content"
-        android:textColor="#BDBDBD"
+        android:fontFamily="@font/bmdo"
         android:text="KUSHI express"
-        android:layout_height="wrap_content"></TextView>
+        android:textColor="#858585"></TextView>
 
     <LinearLayout
         android:id="@+id/circle_ll"
-        android:layout_alignLeft="@+id/game_list_title"
-        android:layout_below="@id/eng_title"
         android:layout_width="wrap_content"
-        android:orientation="horizontal"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_below="@id/eng_title"
+        android:layout_alignLeft="@+id/game_list_title"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal">
 
         <RelativeLayout
             android:id="@+id/rl1"
-            android:layout_width="50dp"
-            android:layout_height="50dp">
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:background="@drawable/round">
+
             <ImageView
-                android:layout_centerInParent="true"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
-            </ImageView>
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"></ImageView>
 
             <TextView
                 android:id="@+id/people_tx"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="2~4인"
-                android:layout_centerInParent="true"></TextView>
-
-            <TextView
-                android:text="인원"
-                android:textColor="#BDBDBD"
-                android:layout_above="@+id/people_tx"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:fontFamily="@font/malgunbd"
+                android:gravity="center_vertical"
+                android:text="2~4인"
+                android:textColor="#464646"
+                android:textSize="20sp"></TextView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/people_tx"
                 android:layout_centerHorizontal="true"
-                ></TextView>
+                android:layout_marginBottom="3dp"
+                android:fontFamily="@font/malgun"
+                android:text="인원"
+                android:textColor="#BDBDBD"
+                android:textSize="10sp"></TextView>
         </RelativeLayout>
 
         <RelativeLayout
             android:id="@+id/rl2"
-            android:layout_width="50dp"
-            android:layout_height="50dp">
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:background="@drawable/round">
+
             <ImageView
-                android:layout_centerInParent="true"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
-            </ImageView>
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"></ImageView>
 
             <TextView
                 android:id="@+id/play_time_tx"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="2~4인"
-                android:layout_centerInParent="true"></TextView>
-
-            <TextView
-                android:text="플레이"
-                android:textColor="#BDBDBD"
-                android:layout_above="@+id/play_time_tx"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:fontFamily="@font/malgunbd"
+                android:gravity="center_vertical"
+                android:text="15분"
+                android:textColor="#464646"
+                android:textSize="20sp"></TextView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/play_time_tx"
                 android:layout_centerHorizontal="true"
-                ></TextView>
+                android:layout_marginBottom="3dp"
+                android:fontFamily="@font/malgun"
+                android:text="플레이"
+                android:textColor="#BDBDBD"
+                android:textSize="10sp"></TextView>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl3"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:background="@drawable/round">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"></ImageView>
+
+            <TextView
+                android:id="@+id/exp_game_time_tx"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:fontFamily="@font/malgunbd"
+                android:gravity="center_vertical"
+                android:text="5분"
+                android:textColor="#464646"
+                android:textSize="20sp"></TextView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/exp_game_time_tx"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="3dp"
+                android:fontFamily="@font/malgun"
+                android:text="게임설명"
+                android:textColor="#BDBDBD"
+                android:textSize="10sp"></TextView>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl4"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:background="@drawable/round">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"></ImageView>
+
+            <TextView
+                android:id="@+id/type_tx"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:fontFamily="@font/malgunbd"
+                android:gravity="center_vertical"
+                android:text="순발력"
+                android:textColor="#464646"
+                android:textSize="20sp"></TextView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/type_tx"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="3dp"
+                android:fontFamily="@font/malgun"
+                android:text="장르"
+                android:textColor="#BDBDBD"
+                android:textSize="10sp"></TextView>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl5"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:background="@drawable/round">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"></ImageView>
+
+            <TextView
+                android:id="@+id/level_tx"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:fontFamily="@font/malgunbd"
+                android:gravity="center_vertical"
+                android:text="쉬움"
+                android:textColor="#464646"
+                android:textSize="20sp"></TextView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/level_tx"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="3dp"
+                android:fontFamily="@font/malgun"
+                android:text="난이도"
+                android:textColor="#BDBDBD"
+                android:textSize="10sp"></TextView>
         </RelativeLayout>
 
     </LinearLayout>
 
     <TextView
         android:id="@+id/show_tx"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_below="@id/circle_ll"
         android:layout_alignLeft="@id/game_list_title"
-        android:layout_width="wrap_content"
+        android:layout_marginTop="15dp"
+        android:fontFamily="@font/malgunbd"
         android:text="간단 게임소개"
-        android:layout_height="wrap_content">
-    </TextView>
+        android:textColor="#2a2a2a"></TextView>
 
     <TextView
         android:id="@+id/content"
-        android:textColor="#BDBDBD"
-        android:layout_alignLeft="@id/game_list_title"
-        android:layout_below="@id/show_tx"
         android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/show_tx"
+        android:layout_alignLeft="@id/game_list_title"
+        android:fontFamily="@font/malgun"
         android:text="손이 빠르다고 소문난 어쩌고"
-        android:layout_height="wrap_content">
-    </TextView>
+        android:textColor="#383838"></TextView>
+
+    <RelativeLayout
+        android:layout_marginLeft="100dp"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_toRightOf="@id/circle_ll">
+
+        <TextView
+            android:id="@+id/exp_buttons_center"
+            android:layout_width="1dp"
+            android:layout_height="1dp"
+            android:layout_centerVertical="true"></TextView>
+
+        <Button
+            android:id="@+id/exp_url_bt"
+            android:layout_width="205dp"
+            android:layout_height="50dp"
+            android:layout_above="@+id/exp_buttons_center"
+            android:background="@drawable/exp_url_button"></Button>
+
+        <Button
+            android:id="@+id/exp_txt_bt"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/exp_txt_bt"
+            android:layout_below="@id/exp_buttons_center"
+            android:layout_width="100dp"
+            android:layout_height="50dp">
+        </Button>
+
+        <Button
+            android:layout_marginLeft="5dp"
+            android:layout_alignTop="@id/exp_txt_bt"
+            android:id="@+id/setting_bt"
+            android:background="@drawable/setting_bt"
+            android:layout_toRightOf="@id/exp_txt_bt"
+            android:layout_width="100dp"
+            android:layout_height="50dp"></Button>
+    </RelativeLayout>
 </RelativeLayout>

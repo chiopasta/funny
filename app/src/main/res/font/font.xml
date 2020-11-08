@@ -4,4 +4,13 @@
         android:fontStyle="normal"
         android:fontWeight="400"
         android:font="@font/bmdo"/>
+    <font
+        android:fontStyle="normal"
+        android:fontWeight="400"
+        android:font="@font/malgun"/>
+
+    <font
+        android:fontStyle="normal"
+        android:fontWeight="400"
+        android:font="@font/malgunbd"/>
 </font-family>
