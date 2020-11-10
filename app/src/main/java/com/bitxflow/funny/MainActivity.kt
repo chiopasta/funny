@@ -1,24 +1,37 @@
 package com.bitxflow.funny
 
 import android.app.Activity
+import android.content.ComponentName
 import android.content.Intent
+import android.content.IntentFilter
+import android.content.pm.PackageManager
 import android.os.Bundle
 import android.util.Log
 import android.view.KeyEvent
+import android.view.MotionEvent
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.bitxflow.funny.biz.login.LoginAcitivty
 import com.bitxflow.funny.biz.product.ProductActivity
 import com.bitxflow.funny.biz.search.SearchActivity
+import com.bitxflow.funny.send.SystemKeyEventReceiver
 import kotlinx.android.synthetic.main.activity_main.*
 
 
 class MainActivity : AppCompatActivity() {
     private val LOGIN_ACTIVITY : Int = 0
+    private var mSystemKeyEventReceiver:SystemKeyEventReceiver? = null
+    private val TAG = "bitx_log"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        this.packageManager.setComponentEnabledSetting(
+            ComponentName(this, MainActivity::class.java),
+            PackageManager.COMPONENT_ENABLED_STATE_ENABLED,
+            PackageManager.DONT_KILL_APP
+        )
 
         val nextIntent = Intent(this, LoginAcitivty::class.java)
         startActivityForResult(nextIntent,LOGIN_ACTIVITY)
@@ -34,6 +47,7 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, ProductActivity::class.java)
             startActivity(intent)
         }
+
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -53,7 +67,15 @@ class MainActivity : AppCompatActivity() {
 
     override fun onWindowFocusChanged(hasFocus: Boolean) {
         super.onWindowFocusChanged(hasFocus)
-        if (hasFocus) hideSystemUI()
+
+        Log.d("bitx_log", "Focus changed !")
+
+        if (!hasFocus) {
+            Log.d("bitx_log", "Lost focus !")
+            val closeDialog = Intent(Intent.ACTION_CLOSE_SYSTEM_DIALOGS)
+            sendBroadcast(closeDialog)
+            hideSystemUI()
+        }
     }
 
     private fun hideSystemUI() {
@@ -72,5 +94,33 @@ class MainActivity : AppCompatActivity() {
     }
 
 
+    override fun onUserLeaveHint() {
+//        super.onUserLeaveHint()
+        Log.d("bitx_log","home button?")
+    }
 
+
+    override fun onTouchEvent(event: MotionEvent): Boolean {
+        val X = event.x.toInt()
+        val Y = event.y.toInt()
+        val eventaction = event.action
+        if (Y < 400) {
+            onWindowFocusChanged(true)
+        }
+        return true
+    }
+    override fun onKeyDown(keyCode: Int, event: KeyEvent?): Boolean {
+        if (keyCode == KeyEvent.KEYCODE_HOME) {
+            Log.i("Home Button", "Clicked")
+        }
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            finish()
+        }
+        return false
+    }
+
+
+    fun showToast(msg:String) {
+        Toast.makeText(this@MainActivity,msg, Toast.LENGTH_SHORT).show()
+    }
 }

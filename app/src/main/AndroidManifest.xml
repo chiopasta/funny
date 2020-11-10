@@ -3,6 +3,8 @@
     package="com.bitxflow.funny">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.EXPAND_STATUS_BAR"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
 
     <application
         android:allowBackup="true"
@@ -28,6 +30,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <receiver android:name=".send.SystemDialogReceiver">
+            <intent-filter>
+                <action android:name="android.intent.
+                 action.CLOSE_SYSTEM_DIALOGS" />
+            </intent-filter>
+        </receiver>
+
     </application>
+
 
 </manifest>

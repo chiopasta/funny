@@ -6,10 +6,13 @@ import android.os.AsyncTask
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
+import android.widget.ArrayAdapter
 import android.widget.Toast
 import com.bitxflow.funny.R
 import com.bitxflow.funny.send.SendServer
 import kotlinx.android.synthetic.main.activity_search.*
+import kotlinx.android.synthetic.main.search_header.*
 import org.json.JSONObject
 import java.util.ArrayList
 
@@ -65,9 +68,17 @@ class SearchActivity : AppCompatActivity() {
         game4.people = numbers4
         gameList.add(game4)
 
+        val header: View =
+            layoutInflater.inflate(R.layout.search_header, null, false)
+
+        var baseArrayList : ArrayList<String> = ArrayList()
+        baseArrayList.add("검색해주세요")
+        val adapter = ArrayAdapter(applicationContext , android.R.layout.simple_list_item_1,baseArrayList)
+        adapter.notifyDataSetChanged()
+        game_listview.adapter = adapter
+        game_listview.addHeaderView(header)
 
         search_bt.setOnClickListener {
-            search_box_tv.text = ""
 
             val search_title = search_et.text.toString()
 
@@ -123,7 +134,6 @@ class SearchActivity : AppCompatActivity() {
                 game_listview.adapter = adapter
 
             }
-
 
 
         }
