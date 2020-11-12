@@ -15,13 +15,11 @@ import androidx.appcompat.app.AppCompatActivity
 import com.bitxflow.funny.biz.login.LoginAcitivty
 import com.bitxflow.funny.biz.product.ProductActivity
 import com.bitxflow.funny.biz.search.SearchActivity
-import com.bitxflow.funny.send.SystemKeyEventReceiver
 import kotlinx.android.synthetic.main.activity_main.*
 
 
 class MainActivity : AppCompatActivity() {
     private val LOGIN_ACTIVITY : Int = 0
-    private var mSystemKeyEventReceiver:SystemKeyEventReceiver? = null
     private val TAG = "bitx_log"
 
     override fun onCreate(savedInstanceState: Bundle?) {

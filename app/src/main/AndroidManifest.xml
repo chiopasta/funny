@@ -31,12 +31,6 @@
             </intent-filter>
         </activity>
 
-        <receiver android:name=".send.SystemDialogReceiver">
-            <intent-filter>
-                <action android:name="android.intent.
-                 action.CLOSE_SYSTEM_DIALOGS" />
-            </intent-filter>
-        </receiver>
 
     </application>
 

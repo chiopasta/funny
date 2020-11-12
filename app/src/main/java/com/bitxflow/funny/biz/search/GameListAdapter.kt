@@ -50,12 +50,12 @@ class GameListAdapter(
             convertView.findViewById<View>(R.id.game_list_iv) as ImageView
 
 //        val replyContent: String? = member[position].contents
-        title_tx.text = member[position].title
+        title_tx.text = member[position].name
 //        contents_tx.text = Html.fromHtml(replyContent)
 //        contents_tx.movementMethod = LinkMovementMethod.getInstance()
 
 //        UrlImageViewHelper.setUrlDrawable(img_iv, member[position].pUrl,R.drawable.profileimage)
-        Glide.with(convertView).load(member[position].img_url).placeholder(R.drawable.loading).override(1000,600).into(img_iv)
+        Glide.with(convertView).load(member[position].expImg).placeholder(R.drawable.loading).override(1000,600).into(img_iv)
 
         return convertView
     }
