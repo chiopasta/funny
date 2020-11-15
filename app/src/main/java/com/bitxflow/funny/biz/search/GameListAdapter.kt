@@ -12,6 +12,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.content.ContextCompat.startActivity
 import com.bitxflow.funny.R
+import com.bitxflow.funny.biz.video.VideoActivity
 import com.bumptech.glide.Glide
 import java.util.*
 
@@ -56,14 +57,13 @@ class GameListAdapter(
         title_tx.text = member[position].name
         //TODO url button 으로 바꿔야함 !!!
         title_tx.setOnClickListener {
-//            val Intent = Intent(_context, VideoActivity::class.java)
-//            Intent.setFlags(android.content.Intent.FLAG_ACTIVITY_NEW_TASK)
-//            Log.d("bitx_log","url? ::::" +  member[position].expUrl)
-//            Intent.putExtra("url",member[position].expUrl)
-//            _context.startActivity(Intent)
-            val intent = Intent(Intent.ACTION_VIEW, Uri.parse(member[position].expUrl))
-            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-            _context.startActivity(intent)
+            val Intent = Intent(_context, VideoActivity::class.java)
+            Intent.setFlags(android.content.Intent.FLAG_ACTIVITY_NEW_TASK)
+            Intent.putExtra("url",member[position].expUrl)
+            _context.startActivity(Intent)
+//            val intent = Intent(Intent.ACTION_VIEW, Uri.parse(member[position].expUrl))
+//            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+//            _context.startActivity(intent)
         }
 
 //        contents_tx.text = Html.fromHtml(replyContent)
