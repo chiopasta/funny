@@ -92,33 +92,5 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-    override fun onUserLeaveHint() {
-//        super.onUserLeaveHint()
-        Log.d("bitx_log","home button?")
-    }
 
-
-    override fun onTouchEvent(event: MotionEvent): Boolean {
-        val X = event.x.toInt()
-        val Y = event.y.toInt()
-        val eventaction = event.action
-        if (Y < 400) {
-            onWindowFocusChanged(true)
-        }
-        return true
-    }
-    override fun onKeyDown(keyCode: Int, event: KeyEvent?): Boolean {
-        if (keyCode == KeyEvent.KEYCODE_HOME) {
-            Log.i("Home Button", "Clicked")
-        }
-        if (keyCode == KeyEvent.KEYCODE_BACK) {
-            finish()
-        }
-        return false
-    }
-
-
-    fun showToast(msg:String) {
-        Toast.makeText(this@MainActivity,msg, Toast.LENGTH_SHORT).show()
-    }
 }

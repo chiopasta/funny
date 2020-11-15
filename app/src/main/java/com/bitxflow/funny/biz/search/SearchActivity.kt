@@ -241,6 +241,7 @@ class SearchActivity : AppCompatActivity() {
             val numbers = intArrayOf(2,3,4,5,6)
             game.people = numbers
             game.level = "쉬움";
+            game.expUrl="https://youtu.be/5VkE9fEj7sM"
             gameList.add(game)
 
             val game2 = Game()

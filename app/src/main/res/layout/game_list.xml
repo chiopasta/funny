@@ -10,7 +10,7 @@
         android:layout_height="300dp"></ImageView>
 
     <TextView
-        android:id="@+id/game_list_title"
+        android:id="@+id/game_list_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -25,17 +25,17 @@
         android:id="@+id/game_list_hit"
         android:layout_width="50dp"
         android:layout_height="20dp"
-        android:layout_alignBottom="@id/game_list_title"
+        android:layout_alignBottom="@id/game_list_name"
         android:layout_marginLeft="20dp"
-        android:layout_toRightOf="@id/game_list_title"
+        android:layout_toRightOf="@id/game_list_name"
         android:background="@drawable/hit"></ImageView>
 
     <TextView
         android:id="@+id/eng_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/game_list_title"
-        android:layout_alignLeft="@id/game_list_title"
+        android:layout_below="@+id/game_list_name"
+        android:layout_alignLeft="@id/game_list_name"
         android:fontFamily="@font/bmdo"
         android:text="KUSHI express"
         android:textColor="#858585"></TextView>
@@ -45,7 +45,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/eng_title"
-        android:layout_alignLeft="@+id/game_list_title"
+        android:layout_alignLeft="@+id/game_list_name"
         android:layout_marginTop="20dp"
         android:orientation="horizontal">
 
@@ -226,7 +226,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/circle_ll"
-        android:layout_alignLeft="@id/game_list_title"
+        android:layout_alignLeft="@id/game_list_name"
         android:layout_marginTop="15dp"
         android:fontFamily="@font/malgunbd"
         android:text="간단 게임소개"
@@ -237,7 +237,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/show_tx"
-        android:layout_alignLeft="@id/game_list_title"
+        android:layout_alignLeft="@id/game_list_name"
         android:fontFamily="@font/malgun"
         android:text="손이 빠르다고 소문난 어쩌고"
         android:textColor="#383838"></TextView>

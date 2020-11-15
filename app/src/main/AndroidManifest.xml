@@ -3,7 +3,7 @@
     package="com.bitxflow.funny">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.EXPAND_STATUS_BAR"/>
+    <uses-permission android:name="android.permission.EXPAND_STATUS_BAR" />
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
 
     <application
@@ -14,7 +14,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Design.NoActionBar"
         android:windowSoftInputMode="adjustResize">
-        <activity android:name=".biz.product.ProductActivity"></activity>
+        <activity android:name=".biz.video.VideoActivity"></activity>
+        <activity android:name=".biz.product.ProductActivity" />
         <activity
             android:name=".biz.search.SearchActivity"
             android:screenOrientation="landscape" />
@@ -30,9 +31,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-
     </application>
-
 
 </manifest>

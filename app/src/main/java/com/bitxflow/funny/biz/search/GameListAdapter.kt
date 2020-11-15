@@ -1,18 +1,20 @@
 package com.bitxflow.funny.biz.search
 
 import android.content.Context
-import android.text.Html
-import android.text.method.LinkMovementMethod
+import android.content.Intent
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.content.ContextCompat.startActivity
 import com.bitxflow.funny.R
 import com.bumptech.glide.Glide
-import kotlinx.android.synthetic.main.game_list.view.*
-import java.util.ArrayList
+import java.util.*
+
 
 class GameListAdapter(
     context: Context,
@@ -43,14 +45,27 @@ class GameListAdapter(
         val res: Int = R.layout.game_list
         val convertView = mInflater.inflate(res, parent, false)
         val title_tx =
-            convertView.findViewById<View>(R.id.game_list_title) as TextView
+            convertView.findViewById<View>(R.id.game_list_name) as TextView
 //        val contents_tx =
 //            convertView.findViewById<View>(R.id.gmae) as TextView
         val img_iv =
             convertView.findViewById<View>(R.id.game_list_iv) as ImageView
-
+        val expUrl_bt =
+            convertView.findViewById<View>(R.id.exp_url_bt) as Button
 //        val replyContent: String? = member[position].contents
         title_tx.text = member[position].name
+        //TODO url button 으로 바꿔야함 !!!
+        title_tx.setOnClickListener {
+//            val Intent = Intent(_context, VideoActivity::class.java)
+//            Intent.setFlags(android.content.Intent.FLAG_ACTIVITY_NEW_TASK)
+//            Log.d("bitx_log","url? ::::" +  member[position].expUrl)
+//            Intent.putExtra("url",member[position].expUrl)
+//            _context.startActivity(Intent)
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse(member[position].expUrl))
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+            _context.startActivity(intent)
+        }
+
 //        contents_tx.text = Html.fromHtml(replyContent)
 //        contents_tx.movementMethod = LinkMovementMethod.getInstance()
 
