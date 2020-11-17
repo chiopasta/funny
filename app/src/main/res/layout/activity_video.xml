@@ -11,8 +11,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 
-    <WebView
-        android:id="@+id/video_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"></WebView>
+<!--    <WebView-->
+<!--        android:id="@+id/video_view"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"></WebView>-->
+<!--    https://youtu.be/5VkE9fEj7sM-->
+    <kr.co.prnd.YouTubePlayerView
+        android:id="@+id/you_tube_player_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:videoId="vXbKDaUxdi0" />
 </RelativeLayout>

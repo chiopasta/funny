@@ -16,6 +16,7 @@ class VideoActivity : AppCompatActivity() {
         val url = intent.extras!!.getString("url").toString()
         Log.d("bitx_log","url? : $url")
 
-        video_view.loadUrl(url)
+//        video_view.loadUrl(url)
+
     }
 }
