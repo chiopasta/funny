@@ -245,27 +245,22 @@
     <RelativeLayout
         android:layout_marginLeft="100dp"
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/circle_ll"
         android:layout_toRightOf="@id/circle_ll">
-
-        <TextView
-            android:id="@+id/exp_buttons_center"
-            android:layout_width="1dp"
-            android:layout_height="1dp"
-            android:layout_centerVertical="true"></TextView>
 
         <Button
             android:id="@+id/exp_url_bt"
             android:layout_width="205dp"
             android:layout_height="50dp"
-            android:layout_above="@+id/exp_buttons_center"
+            android:layout_alignParentTop="true"
             android:background="@drawable/exp_url_button"></Button>
 
         <Button
+            android:layout_below="@id/exp_url_bt"
             android:id="@+id/exp_txt_bt"
             android:layout_marginTop="5dp"
             android:background="@drawable/exp_txt_bt"
-            android:layout_below="@id/exp_buttons_center"
             android:layout_width="100dp"
             android:layout_height="50dp">
         </Button>
