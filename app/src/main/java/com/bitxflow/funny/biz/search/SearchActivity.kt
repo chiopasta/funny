@@ -1,10 +1,14 @@
 package com.bitxflow.funny.biz.search
 
+import android.app.Activity
+import android.content.Context
 import android.os.AsyncTask
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.MotionEvent
 import android.view.View
+import android.view.inputmethod.InputMethodManager
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import com.bitxflow.funny.R
@@ -76,7 +80,15 @@ class SearchActivity : AppCompatActivity() {
         game_listview.adapter = adapter
         game_listview.addHeaderView(header)
 
+        nav_rl.setOnClickListener{
+            it.hideKeyboard()
+        }
+        header.setOnClickListener {
+            it.hideKeyboard()
+        }
         search_bt.setOnClickListener {
+
+            it.hideKeyboard()
 
             val search_title = search_et.text.toString()
 
@@ -138,6 +150,11 @@ class SearchActivity : AppCompatActivity() {
 
         testTask().execute()
 
+    }
+
+    fun View.hideKeyboard() {
+        val imm = context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        imm.hideSoftInputFromWindow(windowToken, 0)
     }
 
     internal inner class getGameListTask : AsyncTask<String, String, String>() {

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    android:background="#ffffff"
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff">
 
     <RelativeLayout
         android:id="@+id/top_txt_ll"
@@ -23,42 +23,43 @@
     </RelativeLayout>
 
     <TextView
+        android:id="@+id/top_orange_line"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
         android:layout_below="@id/top_txt_ll"
         android:layout_marginLeft="30dp"
-        android:id="@+id/top_orange_line"
-        android:background="#ffc000"
-        android:layout_width="match_parent"
-        android:layout_height="2dp"></TextView>
+        android:background="#ffc000"></TextView>
 
     <LinearLayout
-        android:layout_marginLeft="30dp"
         android:id="@+id/ppl_ll"
-        android:layout_below="@+id/top_orange_line"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/top_orange_line"
+        android:layout_marginLeft="30dp"
         android:orientation="horizontal">
 
         <RelativeLayout
-            android:background="#3b3b3b"
             android:layout_width="300dp"
-            android:layout_height="100dp">
+            android:layout_height="100dp"
+            android:background="#3b3b3b">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="30dp"
-                android:text="인원구성 (필수)"
                 android:fontFamily="@font/bmdo"
+                android:text="인원구성 (필수)"
                 android:textColor="#ffffff"></TextView>
 
         </RelativeLayout>
 
         <LinearLayout
-            android:background="#faf9f5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:background="#faf9f5"
+            android:orientation="vertical"
+            android:paddingLeft="10dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -66,57 +67,56 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:gravity="center_vertical"
-                    android:textColor="#5b5757"
                     android:layout_width="50dp"
                     android:layout_height="match_parent"
-                    android:text="인원" />
+                    android:gravity="center_vertical"
+                    android:text="인원"
+                    android:textColor="#5b5757" />
+
                 <RadioGroup
                     android:id="@+id/ppl_rg"
-                    android:orientation="horizontal"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
                     <RadioButton
-                        android:button="@android:color/transparent"
-                        android:background="@drawable/btn_round"
-                        android:layout_gravity="center"
-                        android:textColor="#3b3b3b"
                         android:id="@+id/ppl2_radio_bt"
                         android:layout_width="60dp"
                         android:layout_height="40dp"
-                        android:text="   2인">
-                    </RadioButton>
+                        android:layout_gravity="center"
+                        android:background="@drawable/btn_round"
+                        android:button="@android:color/transparent"
+                        android:checked="true"
+                        android:text="   2인"
+                        android:textColor="#3b3b3b"></RadioButton>
 
                     <RadioButton
-                        android:button="@android:color/transparent"
                         android:id="@+id/ppl3_radio_bt"
-                        android:background="@drawable/btn_round"
                         android:layout_width="60dp"
                         android:layout_height="40dp"
-                        android:textColor="#3b3b3b"
-                        android:text="    3인">
-                    </RadioButton>
+                        android:background="@drawable/btn_round"
+                        android:button="@android:color/transparent"
+                        android:text="    3인"
+                        android:textColor="#3b3b3b"></RadioButton>
 
                     <RadioButton
-                        android:button="@android:color/transparent"
-                        android:background="@drawable/btn_round"
-                        android:layout_gravity="center"
-                        android:textColor="#3b3b3b"
                         android:id="@+id/ppl4_radio_bt"
                         android:layout_width="60dp"
                         android:layout_height="40dp"
-                        android:text="    4인">
-                    </RadioButton>
+                        android:layout_gravity="center"
+                        android:background="@drawable/btn_round"
+                        android:button="@android:color/transparent"
+                        android:text="    4인"
+                        android:textColor="#3b3b3b"></RadioButton>
 
                     <RadioButton
-                        android:button="@android:color/transparent"
-                        android:background="@drawable/btn_round"
-                        android:textColor="#3b3b3b"
                         android:id="@+id/ppl5_radio_bt"
                         android:layout_width="60dp"
                         android:layout_height="40dp"
-                        android:text="    5인">
-                    </RadioButton>
+                        android:background="@drawable/btn_round"
+                        android:button="@android:color/transparent"
+                        android:text="    5인"
+                        android:textColor="#3b3b3b"></RadioButton>
 
                 </RadioGroup>
             </LinearLayout>
@@ -125,57 +125,56 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
+
                 <TextView
-                    android:gravity="center_vertical"
-                    android:textColor="#5b5757"
                     android:layout_width="50dp"
                     android:layout_height="match_parent"
-                    android:text="난이도"></TextView>
+                    android:gravity="center_vertical"
+                    android:text="난이도"
+                    android:textColor="#5b5757"></TextView>
+
                 <RadioGroup
                     android:id="@+id/level_rg"
-                    android:orientation="horizontal"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
                     <RadioButton
-                        android:button="@android:color/transparent"
-                        android:background="@drawable/btn_round"
-                        android:textColor="#3b3b3b"
                         android:id="@+id/level0_radio_bt"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:background="@drawable/btn_round"
+                        android:button="@android:color/transparent"
                         android:checked="true"
-                        android:text="상관없음">
-                    </RadioButton>
+                        android:text="     상관없음"
+                        android:textColor="#3b3b3b"></RadioButton>
 
                     <RadioButton
-                        android:button="@android:color/transparent"
-                        android:background="@drawable/btn_round"
-                        android:textColor="#3b3b3b"
                         android:id="@+id/level1_radio_bt"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="쉬움">
-                    </RadioButton>
+                        android:background="@drawable/btn_round"
+                        android:button="@android:color/transparent"
+                        android:text="     쉬움"
+                        android:textColor="#3b3b3b"></RadioButton>
 
                     <RadioButton
-                        android:button="@android:color/transparent"
-                        android:background="@drawable/btn_round"
-                        android:textColor="#3b3b3b"
                         android:id="@+id/level2_radio_bt"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="중간">
-                    </RadioButton>
+                        android:background="@drawable/btn_round"
+                        android:button="@android:color/transparent"
+                        android:text="     중간"
+                        android:textColor="#3b3b3b"></RadioButton>
 
                     <RadioButton
-                        android:button="@android:color/transparent"
-                        android:background="@drawable/btn_round"
-                        android:textColor="#3b3b3b"
                         android:id="@+id/level3_radio_bt"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="어려움">
-                    </RadioButton>
+                        android:background="@drawable/btn_round"
+                        android:button="@android:color/transparent"
+                        android:text="     어려움"
+                        android:textColor="#3b3b3b"></RadioButton>
                 </RadioGroup>
             </LinearLayout>
 
@@ -184,151 +183,148 @@
 
 
     <LinearLayout
-        android:layout_alignLeft="@id/ppl_ll"
-        android:layout_below="@+id/ppl_ll"
-        android:layout_width="match_parent"
         android:id="@+id/play_time_ll"
-        android:layout_height="wrap_content">
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ppl_ll"
+        android:layout_alignLeft="@id/ppl_ll">
 
         <RelativeLayout
-            android:background="#c03737"
             android:layout_width="300dp"
-            android:layout_height="100dp">
+            android:layout_height="100dp"
+            android:background="#c03737">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="30dp"
-                android:text="플레이시간"
                 android:fontFamily="@font/bmdo"
+                android:text="플레이시간"
                 android:textColor="#ffffff"></TextView>
 
         </RelativeLayout>
 
         <RadioGroup
             android:id="@+id/time_rg"
-            android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:orientation="horizontal">
+
             <RadioButton
-                android:button="@android:color/transparent"
-                android:background="@drawable/btn_round"
-                android:textColor="#3b3b3b"
                 android:id="@+id/time0_radio_bt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="@drawable/btn_round"
+                android:button="@android:color/transparent"
                 android:checked="true"
-                android:text="상관없음">
-            </RadioButton>
+                android:text="     상관없음"
+                android:textColor="#3b3b3b"></RadioButton>
 
             <RadioButton
-                android:button="@android:color/transparent"
-                android:background="@drawable/btn_round"
-                android:textColor="#3b3b3b"
                 android:id="@+id/time_short"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="10분이하">
-            </RadioButton>
+                android:background="@drawable/btn_round"
+                android:button="@android:color/transparent"
+                android:text="     10분이하"
+                android:textColor="#3b3b3b"></RadioButton>
 
             <RadioButton
-                android:button="@android:color/transparent"
-                android:background="@drawable/btn_round"
-                android:textColor="#3b3b3b"
                 android:id="@+id/time_10"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="  10분">
-            </RadioButton>
+                android:background="@drawable/btn_round"
+                android:button="@android:color/transparent"
+                android:text="    10분"
+                android:textColor="#3b3b3b"></RadioButton>
 
             <RadioButton
-                android:button="@android:color/transparent"
-                android:background="@drawable/btn_round"
-                android:textColor="#3b3b3b"
                 android:id="@+id/time_20"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="  20분">
-            </RadioButton>
+                android:background="@drawable/btn_round"
+                android:button="@android:color/transparent"
+                android:text="     20분"
+                android:textColor="#3b3b3b"></RadioButton>
         </RadioGroup>
 
     </LinearLayout>
 
     <LinearLayout
-        android:layout_alignLeft="@id/ppl_ll"
-        android:layout_below="@+id/play_time_ll"
-        android:layout_width="match_parent"
         android:id="@+id/type_ll"
-        android:layout_height="wrap_content">
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/play_time_ll"
+        android:layout_alignLeft="@id/ppl_ll">
+
         <RelativeLayout
-            android:background="#447184"
             android:layout_width="300dp"
-            android:layout_height="100dp">
+            android:layout_height="100dp"
+            android:background="#447184">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="30dp"
-                android:text="장르선택"
                 android:fontFamily="@font/bmdo"
+                android:text="장르선택"
                 android:textColor="#ffffff"></TextView>
 
         </RelativeLayout>
 
         <RadioGroup
             android:id="@+id/type_rg"
-            android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:orientation="horizontal">
+
             <RadioButton
-                android:button="@android:color/transparent"
-                android:background="@drawable/btn_round"
-                android:textColor="#3b3b3b"
                 android:id="@+id/type0_radio_bt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="@drawable/btn_round"
+                android:button="@android:color/transparent"
                 android:checked="true"
-                android:text="상관없음">
-            </RadioButton>
+                android:text="   상관없음"
+                android:textColor="#3b3b3b"></RadioButton>
 
             <RadioButton
-                android:button="@android:color/transparent"
-                android:background="@drawable/btn_round"
-                android:textColor="#3b3b3b"
                 android:id="@+id/type_speed"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="순발력">
-            </RadioButton>
+                android:background="@drawable/btn_round"
+                android:button="@android:color/transparent"
+                android:text="순발력"
+                android:textColor="#3b3b3b"></RadioButton>
 
             <RadioButton
-                android:button="@android:color/transparent"
-                android:background="@drawable/btn_round"
-                android:textColor="#3b3b3b"
                 android:id="@+id/type_inference"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="추리">
-            </RadioButton>
+                android:background="@drawable/btn_round"
+                android:button="@android:color/transparent"
+                android:text="추리"
+                android:textColor="#3b3b3b"></RadioButton>
 
             <RadioButton
                 android:id="@+id/type_gura"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="구라">
-            </RadioButton>
+                android:text="구라"></RadioButton>
         </RadioGroup>
 
     </LinearLayout>
 
     <TextView
-        android:layout_alignLeft="@id/ppl_ll"
         android:id="@+id/bottom_orange_line"
-        android:layout_below="@+id/type_ll"
-        android:background="#ffc000"
         android:layout_width="match_parent"
-        android:layout_height="2dp"></TextView>
+        android:layout_height="2dp"
+        android:layout_below="@+id/type_ll"
+        android:layout_alignLeft="@id/ppl_ll"
+        android:background="#ffc000"></TextView>
 
 </RelativeLayout>
