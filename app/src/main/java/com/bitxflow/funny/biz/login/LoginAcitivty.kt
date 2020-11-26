@@ -1,8 +1,11 @@
 package com.bitxflow.funny.biz.login
 
+import android.Manifest
 import android.app.Activity
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.os.AsyncTask
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -24,24 +27,7 @@ class LoginAcitivty : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
-
-        val sslContext: SSLContext = SSLContext.getInstance("TLSv1.2")
-        sslContext.init(null, null, null)
-        try {
-            ProviderInstaller.installIfNeeded(applicationContext)
-            val sslContext: SSLContext
-            sslContext = SSLContext.getInstance("TLSv1.2")
-            sslContext.init(null, null, null)
-            sslContext.createSSLEngine()
-        } catch (e: GooglePlayServicesRepairableException) {
-            e.printStackTrace()
-        } catch (e: GooglePlayServicesNotAvailableException) {
-            e.printStackTrace()
-        } catch (e: NoSuchAlgorithmException) {
-            e.printStackTrace()
-        } catch (e: KeyManagementException) {
-            e.printStackTrace()
-        }
+        checkPermission()
 
 
         login_bt.setOnClickListener{
@@ -131,4 +117,29 @@ class LoginAcitivty : AppCompatActivity() {
             }
         }
     }
+
+    fun checkPermission() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            if (checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                != PackageManager.PERMISSION_GRANTED
+                || checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE)
+                != PackageManager.PERMISSION_GRANTED
+            ) { // Should we show an explanation?
+                if (shouldShowRequestPermissionRationale(Manifest.permission.WRITE_EXTERNAL_STORAGE)) { // Explain to the user why we need to write the permission.
+                    Toast.makeText(this, "Read/Write external storage", Toast.LENGTH_SHORT).show()
+                }
+                requestPermissions(
+                    arrayOf(
+                        Manifest.permission.READ_EXTERNAL_STORAGE,
+                        Manifest.permission.WRITE_EXTERNAL_STORAGE
+                    ),
+                    100
+                )
+                // MY_PERMISSION_REQUEST_STORAGE is an
+// app-defined int constant
+            } else { // 다음 부분은 항상 허용일 경우에 해당이 됩니다.
+            }
+        }
+    }
+
 }

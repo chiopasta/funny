@@ -12,6 +12,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.content.ContextCompat.startActivity
 import com.bitxflow.funny.R
+import com.bitxflow.funny.biz.video.MemoryVideoView
 import com.bitxflow.funny.biz.video.VideoActivity
 import com.bumptech.glide.Glide
 import java.util.*
@@ -66,6 +67,15 @@ class GameListAdapter(
 //            _context.startActivity(intent)
         }
 
+        expUrl_bt.setOnClickListener {
+            val Intent = Intent(_context, MemoryVideoView::class.java)
+            Intent.setFlags(android.content.Intent.FLAG_ACTIVITY_NEW_TASK)
+            Intent.putExtra("url",member[position].expUrl)
+            _context.startActivity(Intent)
+//            val intent = Intent(Intent.ACTION_VIEW, Uri.parse(member[position].expUrl))
+//            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+//            _context.startActivity(intent)
+        }
 //        contents_tx.text = Html.fromHtml(replyContent)
 //        contents_tx.movementMethod = LinkMovementMethod.getInstance()
 
