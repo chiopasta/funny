@@ -56,12 +56,13 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:background="#faf9f5"
             android:orientation="vertical"
             android:paddingLeft="10dp">
 
             <LinearLayout
+                android:layout_marginTop="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
@@ -70,6 +71,7 @@
                     android:layout_width="50dp"
                     android:layout_height="match_parent"
                     android:gravity="center_vertical"
+                    android:textSize="12sp"
                     android:text="인원"
                     android:textColor="#5b5757" />
 
@@ -81,8 +83,9 @@
 
                     <RadioButton
                         android:id="@+id/ppl2_radio_bt"
-                        android:layout_width="60dp"
-                        android:layout_height="40dp"
+                        android:layout_width="48dp"
+                        android:layout_height="28dp"
+                        android:textSize="15sp"
                         android:layout_gravity="center"
                         android:background="@drawable/btn_round"
                         android:button="@android:color/transparent"
@@ -92,8 +95,10 @@
 
                     <RadioButton
                         android:id="@+id/ppl3_radio_bt"
-                        android:layout_width="60dp"
-                        android:layout_height="40dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_gravity="center"
+                        android:layout_width="48dp"
+                        android:layout_height="28dp"
                         android:background="@drawable/btn_round"
                         android:button="@android:color/transparent"
                         android:text="    3인"
@@ -101,9 +106,10 @@
 
                     <RadioButton
                         android:id="@+id/ppl4_radio_bt"
-                        android:layout_width="60dp"
-                        android:layout_height="40dp"
+                        android:layout_marginLeft="5dp"
                         android:layout_gravity="center"
+                        android:layout_width="48dp"
+                        android:layout_height="28dp"
                         android:background="@drawable/btn_round"
                         android:button="@android:color/transparent"
                         android:text="    4인"
@@ -111,17 +117,53 @@
 
                     <RadioButton
                         android:id="@+id/ppl5_radio_bt"
-                        android:layout_width="60dp"
-                        android:layout_height="40dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_gravity="center"
+                        android:layout_width="48dp"
+                        android:layout_height="28dp"
                         android:background="@drawable/btn_round"
                         android:button="@android:color/transparent"
                         android:text="    5인"
+                        android:textColor="#3b3b3b"></RadioButton>
+
+                    <RadioButton
+                        android:id="@+id/ppl6_radio_bt"
+                        android:layout_marginLeft="5dp"
+                        android:layout_gravity="center"
+                        android:layout_width="48dp"
+                        android:layout_height="28dp"
+                        android:background="@drawable/btn_round"
+                        android:button="@android:color/transparent"
+                        android:text="    6인"
+                        android:textColor="#3b3b3b"></RadioButton>
+
+                    <RadioButton
+                        android:id="@+id/ppl7_radio_bt"
+                        android:layout_marginLeft="5dp"
+                        android:layout_gravity="center"
+                        android:layout_width="48dp"
+                        android:layout_height="28dp"
+                        android:background="@drawable/btn_round"
+                        android:button="@android:color/transparent"
+                        android:text="    7인"
+                        android:textColor="#3b3b3b"></RadioButton>
+
+                    <RadioButton
+                        android:id="@+id/ppl8_radio_bt"
+                        android:layout_marginLeft="5dp"
+                        android:layout_gravity="center"
+                        android:layout_width="73dp"
+                        android:layout_height="28dp"
+                        android:background="@drawable/btn_round"
+                        android:button="@android:color/transparent"
+                        android:text="    8인이상"
                         android:textColor="#3b3b3b"></RadioButton>
 
                 </RadioGroup>
             </LinearLayout>
 
             <LinearLayout
+                android:layout_marginTop="15dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
@@ -130,6 +172,7 @@
                     android:layout_width="50dp"
                     android:layout_height="match_parent"
                     android:gravity="center_vertical"
+                    android:textSize="12sp"
                     android:text="난이도"
                     android:textColor="#5b5757"></TextView>
 
@@ -141,39 +184,47 @@
 
                     <RadioButton
                         android:id="@+id/level0_radio_bt"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:layout_gravity="center"
+                        android:layout_width="73dp"
+                        android:layout_height="28dp"
                         android:background="@drawable/btn_round"
                         android:button="@android:color/transparent"
                         android:checked="true"
-                        android:text="     상관없음"
+                        android:text="    상관없음"
                         android:textColor="#3b3b3b"></RadioButton>
 
                     <RadioButton
                         android:id="@+id/level1_radio_bt"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:layout_gravity="center"
+                        android:layout_width="48dp"
+                        android:layout_height="28dp"
                         android:background="@drawable/btn_round"
                         android:button="@android:color/transparent"
-                        android:text="     쉬움"
+                        android:text="   쉬움"
                         android:textColor="#3b3b3b"></RadioButton>
 
                     <RadioButton
                         android:id="@+id/level2_radio_bt"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:layout_gravity="center"
+                        android:layout_width="48dp"
+                        android:layout_height="28dp"
                         android:background="@drawable/btn_round"
                         android:button="@android:color/transparent"
-                        android:text="     중간"
+                        android:text="   중간"
                         android:textColor="#3b3b3b"></RadioButton>
 
                     <RadioButton
                         android:id="@+id/level3_radio_bt"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:layout_gravity="center"
+                        android:layout_width="68dp"
+                        android:layout_height="28dp"
                         android:background="@drawable/btn_round"
                         android:button="@android:color/transparent"
-                        android:text="     어려움"
+                        android:text="   어려움"
                         android:textColor="#3b3b3b"></RadioButton>
                 </RadioGroup>
             </LinearLayout>
