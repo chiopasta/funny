@@ -102,6 +102,10 @@ class SearchActivity : AppCompatActivity() {
                     R.id.ppl2_radio_bt -> ppl=2
                     R.id.ppl3_radio_bt -> ppl=3
                     R.id.ppl4_radio_bt -> ppl=4
+                    R.id.ppl5_radio_bt -> ppl=5
+                    R.id.ppl6_radio_bt -> ppl=6
+                    R.id.ppl7_radio_bt -> ppl=7
+                    R.id.ppl8_radio_bt -> ppl=8
                 }
 
                 when(level_rg.checkedRadioButtonId){
@@ -223,9 +227,9 @@ class SearchActivity : AppCompatActivity() {
 
                         val strPpl = people.split(",")
                         var numbers = ArrayList<Int>()
-                        for(j in 0 until strPpl.size)
+                        for(element in strPpl)
                         {
-                            numbers.add(Integer.parseInt(strPpl[j]))
+                            numbers.add(Integer.parseInt(element))
                         }
                         game.people = numbers.toIntArray()
                         gameList.add(game)
