@@ -11,8 +11,11 @@ import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.ArrayAdapter
 import android.widget.Toast
+import com.bitxflow.funny.DB.GameDB
+import com.bitxflow.funny.DB.GameDatabase
 import com.bitxflow.funny.R
 import com.bitxflow.funny.send.SendServer
+import com.google.android.youtube.player.internal.i
 import kotlinx.android.synthetic.main.activity_search.*
 import kotlinx.android.synthetic.main.search_header.*
 import org.json.JSONObject
@@ -20,6 +23,7 @@ import java.util.ArrayList
 
 class SearchActivity : AppCompatActivity() {
     var gameList : ArrayList<Game> = ArrayList()
+    private var gameDatabase : GameDatabase? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,6 +32,60 @@ class SearchActivity : AppCompatActivity() {
         var ppl = 0;
         var level = ""
         var type = ""
+
+        gameDatabase = GameDatabase.getInstance(baseContext)
+
+        val addRunnable = Runnable {
+
+            val games : List<GameDB>? = gameDatabase?.gameDao()?.getGames()
+            if(games!!.isNotEmpty())
+            {
+                for(item in games)
+                {
+                    item.name
+                    val gameID = item.id
+                    val name = item.name
+                    val engName = item.engName
+                    val gameTime = item.gameTime
+                    val expTime = item.expTime
+                    val expText = item.expText
+                    val expImg = item.expImg
+                    val expUrl = item.expUrl
+                    val type = item.type
+                    val level = item.level
+                    val people = item.people
+                    val recommend = item.recommend
+                    val hit = item.hit
+                    val memo = item.memo
+
+                    val game = Game()
+                    game.gameID = gameID.toString()
+                    game.name = name
+                    game.engName = engName
+                    game.gameTime = gameTime
+                    game.expTime = expTime
+                    game.expText = expText
+                    game.expUrl = expUrl
+                    game.expImg = expImg
+                    game.type = type!!.split(",")
+                    game.level = level
+                    game.recommend = recommend
+                    game.hit = hit!!.toInt()
+                    game.memo = memo
+
+                    val strPpl = people!!.split(",")
+                    var numbers = ArrayList<Int>()
+                    for(element in strPpl)
+                    {
+                        numbers.add(Integer.parseInt(element))
+                    }
+                    game.people = numbers.toIntArray()
+                    gameList.add(game)
+                }
+            }
+        }
+        val addThread = Thread(addRunnable)
+        addThread.start()
 
 //        val game = Game()
 //        game.title = "할리갈리"
