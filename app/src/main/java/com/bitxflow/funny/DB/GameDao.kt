@@ -21,5 +21,5 @@ interface GameDao {
     fun deleteAll()
 
     @Delete
-    fun deleteUser(game : GameDB)
+    fun deleteGame(game : GameDB)
 }
