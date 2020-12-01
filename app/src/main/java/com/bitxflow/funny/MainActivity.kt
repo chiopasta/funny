@@ -12,6 +12,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.bitxflow.funny.DB.GameDB
 import com.bitxflow.funny.DB.GameDatabase
+import com.bitxflow.funny.biz.fee.FeeActivity
 import com.bitxflow.funny.biz.login.LoginAcitivty
 import com.bitxflow.funny.biz.product.ProductActivity
 import com.bitxflow.funny.biz.search.SearchActivity
@@ -47,6 +48,10 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        game_fee_bt.setOnClickListener {
+            val intent = Intent(this, FeeActivity::class.java)
+            startActivity(intent)
+        }
 
     }
 

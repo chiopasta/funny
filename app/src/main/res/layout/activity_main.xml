@@ -49,7 +49,7 @@
     <Button
         android:layout_alignLeft="@id/intro_bt"
         android:layout_below="@id/intro_bt"
-        android:id="@+id/game_charge"
+        android:id="@+id/game_fee_bt"
         android:background="@drawable/gamebill"
         android:layout_width="300dp"
         android:layout_height="100dp">
@@ -59,7 +59,7 @@
     <Button
         android:layout_marginTop="15dp"
         android:layout_alignLeft="@id/intro_bt"
-        android:layout_below="@id/game_charge"
+        android:layout_below="@id/game_fee_bt"
         android:id="@+id/product_bt"
         android:background="@drawable/dessert"
         android:layout_width="300dp"
@@ -68,8 +68,8 @@
 
     <Button
         android:layout_marginLeft="15dp"
-        android:layout_alignTop="@id/game_charge"
-        android:layout_toRightOf="@id/game_charge"
+        android:layout_alignTop="@id/game_fee_bt"
+        android:layout_toRightOf="@id/game_fee_bt"
         android:id="@+id/beginner"
         android:layout_width="300dp"
         android:background="@drawable/beginner"
