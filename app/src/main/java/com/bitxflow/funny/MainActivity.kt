@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.bitxflow.funny.DB.GameDB
 import com.bitxflow.funny.DB.GameDatabase
 import com.bitxflow.funny.biz.fee.FeeActivity
+import com.bitxflow.funny.biz.intro.IntroActivity
 import com.bitxflow.funny.biz.login.LoginAcitivty
 import com.bitxflow.funny.biz.product.ProductActivity
 import com.bitxflow.funny.biz.search.SearchActivity
@@ -26,12 +27,6 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        this.packageManager.setComponentEnabledSetting(
-            ComponentName(this, MainActivity::class.java),
-            PackageManager.COMPONENT_ENABLED_STATE_ENABLED,
-            PackageManager.DONT_KILL_APP
-        )
 
         val nextIntent = Intent(this, LoginAcitivty::class.java)
         startActivityForResult(nextIntent,LOGIN_ACTIVITY)
@@ -50,6 +45,11 @@ class MainActivity : AppCompatActivity() {
 
         game_fee_bt.setOnClickListener {
             val intent = Intent(this, FeeActivity::class.java)
+            startActivity(intent)
+        }
+
+        intro_bt.setOnClickListener {
+            val intent = Intent(this, IntroActivity::class.java)
             startActivity(intent)
         }
 
