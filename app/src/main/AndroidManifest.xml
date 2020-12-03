@@ -17,10 +17,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar"
         android:windowSoftInputMode="adjustResize">
-        <activity android:name=".biz.intro.IntroActivity"></activity>
+        <activity android:name=".biz.coupon.CouponActivity"></activity>
+        <activity android:name=".biz.intro.IntroActivity" />
         <activity
             android:name=".biz.fee.FeeActivity"
-            android:screenOrientation="landscape"></activity>
+            android:screenOrientation="landscape" />
         <activity
             android:name=".biz.video.VideoActivity"
             android:screenOrientation="landscape" />
