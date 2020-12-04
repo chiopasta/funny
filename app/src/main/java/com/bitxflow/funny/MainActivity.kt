@@ -16,6 +16,7 @@ import com.bitxflow.funny.biz.fee.FeeActivity
 import com.bitxflow.funny.biz.intro.IntroActivity
 import com.bitxflow.funny.biz.login.LoginAcitivty
 import com.bitxflow.funny.biz.product.ProductActivity
+import com.bitxflow.funny.biz.recommend.RecommendActivity
 import com.bitxflow.funny.biz.search.SearchActivity
 import com.bitxflow.funny.send.SendServer
 import kotlinx.android.synthetic.main.activity_main.*
@@ -50,6 +51,11 @@ class MainActivity : AppCompatActivity() {
 
         intro_bt.setOnClickListener {
             val intent = Intent(this, IntroActivity::class.java)
+            startActivity(intent)
+        }
+
+        recommend_game_bt.setOnClickListener {
+            val intent = Intent(this, RecommendActivity::class.java)
             startActivity(intent)
         }
 

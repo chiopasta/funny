@@ -17,7 +17,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar"
         android:windowSoftInputMode="adjustResize">
-        <activity android:name=".biz.coupon.CouponActivity"></activity>
+        <activity android:name=".biz.recommend.RecommendActivity"></activity>
+        <activity android:name=".biz.coupon.CouponActivity" />
         <activity android:name=".biz.intro.IntroActivity" />
         <activity
             android:name=".biz.fee.FeeActivity"
