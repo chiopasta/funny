@@ -163,59 +163,68 @@ class LoginAcitivty : AppCompatActivity() {
 
         override fun onPostExecute(result: String) {
             if (result == "") {
-                Toast.makeText(baseContext, "서버 통신오류, 다시 시도해주세요", Toast.LENGTH_SHORT).show()
-//                Toast.makeText(baseContext, "디비 삽입", Toast.LENGTH_SHORT).show()
+//                Toast.makeText(baseContext, "서버 통신오류, 다시 시도해주세요", Toast.LENGTH_SHORT).show()
+                Toast.makeText(baseContext, "디비 삽입", Toast.LENGTH_SHORT).show()
 
-//                val addRunnable = Runnable {
-//
-//                    gameDatabase?.gameDao()?.deleteAll()
-//                    val games: List<GameDB>? = gameDatabase?.gameDao()?.getGames()
-//
-//                    if (games!!.isNotEmpty()) {
-//
-//                        Log.d("bitx_log", "DB test in")
-//
-//                        val game = GameDB()
-//                        game.name = "할리갈리"
-//                        val str = "순발력,퍼즐"
-//                        game.type = str
-//                        game.expUrl =
-//                            "https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAxOTEyMDNfMjA4%2FMDAxNTc1MzUyNDU0NjU2.5baBn7OpRGonQIUUlrpjVOusF4g4UAek4j_PqhZ2JGcg.Wvnz79SMBX51Hhq_eiR_6hvlDT1zCQpP2SUj29cjP2Mg.JPEG.qnsegtgk%2F%2525B7%2525E7%2525B9%2525CC%2525C5%2525A5%2525BA%2525EA%252B%2525C6%2525AE%2525B7%2525A1%2525BA%2525ED.jpg&type=sc960_832"
-//                        game.people = "2,3,4,5,6"
-//                        game.level = "쉬움";
-//
-//                        val game2 = GameDB()
-//                        game2.name = "블러프"
-//                        val str2 = "추리,구라,순발력"
-//                        game2.type = str2
-//
-//                        val numbers2 = intArrayOf(3, 4, 5, 6)
-//                        game2.people = "3,4,5,6"
-//
-//                        game2.level = "중간";
-//
-//
-//                        val game3 = GameDB()
-//                        game3.name = "뱅"
-//                        val str3 = "추리,구라"
-//                        game3.type = str3
-//
-//                        game3.people = "6,7,8,9"
-//                        game3.level = "어려움";
-//
-//                        val game4 = GameDB()
-//                        game4.name = "루미큐브"
-//                        val str4 = "추리,구라,퍼즐,심리"
-//                        game4.level = "중간";
-//                        game4.type = str4
-//
-//                        val numbers4 = intArrayOf(2, 3, 4, 5)
-//                        game4.people = "2,3,4,5"
-//                    }
-//                }
-//
-//                val addThread = Thread(addRunnable)
-//                addThread.start()
+                val addRunnable = Runnable {
+
+                    gameDatabase?.gameDao()?.deleteAll()
+                    val games: List<GameDB>? = gameDatabase?.gameDao()?.getGames()
+                    Log.d("bitx_log", "games :" + games)
+                    if (games!!.isEmpty()) {
+
+                        Log.d("bitx_log", "DB test in")
+
+                        val game = GameDB()
+                        game.name = "할리갈리"
+                        val str = "순발력,퍼즐"
+                        game.type = str
+                        game.expUrl =
+                            "https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAxOTEyMDNfMjA4%2FMDAxNTc1MzUyNDU0NjU2.5baBn7OpRGonQIUUlrpjVOusF4g4UAek4j_PqhZ2JGcg.Wvnz79SMBX51Hhq_eiR_6hvlDT1zCQpP2SUj29cjP2Mg.JPEG.qnsegtgk%2F%2525B7%2525E7%2525B9%2525CC%2525C5%2525A5%2525BA%2525EA%252B%2525C6%2525AE%2525B7%2525A1%2525BA%2525ED.jpg&type=sc960_832"
+                        game.people = "2,3,4,5,6"
+                        game.level = "쉬움"
+                        game.recommend = "추천"
+                        game.hit=1
+                        gameDatabase?.gameDao()?.insert(game)
+
+                        val game2 = GameDB()
+                        game2.name = "블러프"
+                        val str2 = "추리,구라,순발력"
+                        game2.type = str2
+                        game2.recommend = "추천"
+                        val numbers2 = intArrayOf(3, 4, 5, 6)
+                        game2.people = "3,4,5,6"
+                        game2.hit=2
+                        game2.level = "중간";
+                        gameDatabase?.gameDao()?.insert(game2)
+
+                        val game3 = GameDB()
+                        game3.name = "뱅"
+                        val str3 = "추리,구라"
+                        game3.type = str3
+
+                        game3.people = "6,7,8,9"
+                        game3.level = "어려움";
+                        game3.recommend = "비추천"
+                        game3.hit=1
+                        gameDatabase?.gameDao()?.insert(game3)
+                        val game4 = GameDB()
+                        game4.name = "루미큐브"
+                        val str4 = "추리,구라,퍼즐,심리"
+                        game4.level = "중간";
+                        game4.type = str4
+                        game4.recommend = "비추천"
+                        val numbers4 = intArrayOf(2, 3, 4, 5)
+                        game4.people = "2,3,4,5"
+                        game4.hit=15
+                        gameDatabase?.gameDao()?.insert(game4)
+                    }
+                    Log.d("bitx_log", "DB test in2" + gameDatabase?.gameDao()?.getGames())
+                }
+
+                val addThread = Thread(addRunnable)
+                addThread.start()
+
             }
             else {
                 val `object` = JSONObject(result)

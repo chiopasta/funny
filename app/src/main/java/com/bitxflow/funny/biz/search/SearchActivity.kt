@@ -38,6 +38,7 @@ class SearchActivity : AppCompatActivity() {
         val addRunnable = Runnable {
 
             val games : List<GameDB>? = gameDatabase?.gameDao()?.getGames()
+            Log.d("bitx_log","games::" + games)
             if(games!!.isNotEmpty())
             {
                 for(item in games)
@@ -70,7 +71,7 @@ class SearchActivity : AppCompatActivity() {
                     game.type = type!!.split(",")
                     game.level = level
                     game.recommend = recommend
-                    game.hit = hit!!.toInt()
+                    game.hit = hit!!
                     game.memo = memo
 
                     val strPpl = people!!.split(",")
@@ -169,7 +170,7 @@ class SearchActivity : AppCompatActivity() {
 
         }
 
-        testTask().execute()
+//        testTask().execute()
 
     }
 

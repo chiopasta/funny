@@ -2,6 +2,7 @@ package com.bitxflow.funny.biz.recommend
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import com.bitxflow.funny.DB.GameDB
 import com.bitxflow.funny.DB.GameDatabase
 import com.bitxflow.funny.R
@@ -24,6 +25,7 @@ class RecommendActivity : AppCompatActivity() {
         val addRunnable = Runnable {
 
             val games : List<GameDB>? = gameDatabase?.gameDao()?.getGames()
+            Log.d("bitx_log","games::" + games)
             if(games!!.isNotEmpty())
             {
                 for(item in games)
@@ -67,21 +69,26 @@ class RecommendActivity : AppCompatActivity() {
                     }
                     game.people = numbers.toIntArray()
                     gameList.add(game)
+                    Log.d("bitx_log","game: " + game)
                 }
             }
+            var search_gameList : List<Game>
+            Log.d("bitx_log","gameList: " + gameList)
+
+            search_gameList = gameList.filter{it.recommend!!.equals("추천")}
+
+            Log.d("bitx_log","search_gameList: " + search_gameList)
+            var searchedList : ArrayList<Game> = ArrayList()
+            searchedList.addAll(search_gameList)
+            val adapter = GameListAdapter(applicationContext , searchedList)
+            adapter.notifyDataSetChanged()
+            recommend_listview.adapter = adapter
+
         }
         val addThread = Thread(addRunnable)
         addThread.start()
 
-        var search_gameList : List<Game>
-        search_gameList = gameList.filter{it.recommend!!.equals(true)}
 
-
-        var searchedList : ArrayList<Game> = ArrayList()
-        searchedList.addAll(search_gameList)
-        val adapter = GameListAdapter(applicationContext , searchedList)
-        adapter.notifyDataSetChanged()
-        recommend_listview.adapter = adapter
 
     }
 }
