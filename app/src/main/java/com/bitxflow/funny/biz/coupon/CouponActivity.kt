@@ -19,9 +19,6 @@ class CouponActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_coupon)
 
-        new_coupon_bt.setOnClickListener{
-            //쿠폰발급 끝
-        }
 
     }
 

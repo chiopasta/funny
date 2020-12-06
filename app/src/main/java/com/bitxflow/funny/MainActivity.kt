@@ -12,6 +12,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.bitxflow.funny.DB.GameDB
 import com.bitxflow.funny.DB.GameDatabase
+import com.bitxflow.funny.biz.coupon.CouponActivity
 import com.bitxflow.funny.biz.fee.FeeActivity
 import com.bitxflow.funny.biz.intro.IntroActivity
 import com.bitxflow.funny.biz.login.LoginAcitivty
@@ -19,6 +20,7 @@ import com.bitxflow.funny.biz.product.ProductActivity
 import com.bitxflow.funny.biz.recommend.RecommendActivity
 import com.bitxflow.funny.biz.search.SearchActivity
 import com.bitxflow.funny.send.SendServer
+import kotlinx.android.synthetic.main.activity_coupon.*
 import kotlinx.android.synthetic.main.activity_main.*
 import org.json.JSONObject
 
@@ -56,6 +58,11 @@ class MainActivity : AppCompatActivity() {
 
         recommend_game_bt.setOnClickListener {
             val intent = Intent(this, RecommendActivity::class.java)
+            startActivity(intent)
+        }
+
+        coupon.setOnClickListener {
+            val intent = Intent(this, CouponActivity::class.java)
             startActivity(intent)
         }
 

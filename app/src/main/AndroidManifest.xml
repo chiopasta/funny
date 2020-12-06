@@ -17,9 +17,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar"
         android:windowSoftInputMode="adjustResize">
-        <activity android:name=".biz.recommend.RecommendActivity"></activity>
-        <activity android:name=".biz.coupon.CouponActivity" />
-        <activity android:name=".biz.intro.IntroActivity" />
+        <activity
+            android:name=".biz.recommend.RecommendActivity"
+            android:screenOrientation="landscape"/>
+        <activity
+            android:name=".biz.coupon.CouponActivity"
+            android:screenOrientation="landscape"/>
+        <activity
+            android:name=".biz.intro.IntroActivity"
+            android:screenOrientation="landscape"/>
         <activity
             android:name=".biz.fee.FeeActivity"
             android:screenOrientation="landscape" />
@@ -29,7 +35,9 @@
         <activity
             android:name=".biz.video.MemoryVideoView"
             android:screenOrientation="landscape" />
-        <activity android:name=".biz.product.ProductActivity" />
+        <activity
+            android:name=".biz.product.ProductActivity"
+            android:screenOrientation="landscape"/>
         <activity
             android:name=".biz.search.SearchActivity"
             android:screenOrientation="landscape" />
