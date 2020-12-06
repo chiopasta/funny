@@ -60,17 +60,6 @@ class GameListAdapter(
             convertView.findViewById<View>(R.id.exp_url_bt) as Button
 //        val replyContent: String? = member[position].contents
         title_tx.text = member[position].name
-        //TODO url button 으로 바꿔야함 !!!
-        title_tx.setOnClickListener {
-            val Intent = Intent(_context, VideoActivity::class.java)
-            Intent.setFlags(android.content.Intent.FLAG_ACTIVITY_NEW_TASK)
-            Intent.putExtra("url",member[position].expUrl)
-            _context.startActivity(Intent)
-//            val intent = Intent(Intent.ACTION_VIEW, Uri.parse(member[position].expUrl))
-//            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-//            _context.startActivity(intent)
-        }
-
 
         expUrl_bt.setOnClickListener {
             try {

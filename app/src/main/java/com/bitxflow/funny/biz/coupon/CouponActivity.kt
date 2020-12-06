@@ -18,42 +18,47 @@ class CouponActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_coupon)
+        coupon_pbar.visibility = View.GONE
 
+        make_coupon_bt.setOnClickListener {
+            coupon_pbar.visibility = View.VISIBLE
+            SendTask().execute()
+        }
 
+        coupon_back_bt.setOnClickListener {
+            finish()
+        }
     }
 
     internal inner class SendTask : AsyncTask<String, String, String>() {
-        var userId : String =""
-        var userPassword : String = ""
 
         override fun doInBackground(vararg params: String): String {
             val su = SendServer()
-            userId = params[0].trim()
-            userPassword = params[1].trim()
 
             val url = "coupons"
             val postDataParams = JSONObject()
-            postDataParams.put("userid", userId.toUpperCase())
-            postDataParams.put("password", userPassword)
+//            postDataParams.put("userid", userId.toUpperCase())
+//            postDataParams.put("password", userPassword)
 
             return su.requestPOST(url,postDataParams)
 
         }
 
         override fun onPostExecute(result: String) {
-            login_bt.isClickable = true
-            login_pbar.visibility = View.GONE
+            make_coupon_bt.isClickable = false
+            coupon_pbar.visibility = View.GONE
 
-            if(result =="")
-            {
-                Toast.makeText(baseContext, "서버 통신오류, 다시 시도해주세요", Toast.LENGTH_SHORT).show()
-            }
-            else {
-                val json = JSONObject(result)
-                val success = json.getBoolean("success")
-                setResult(Activity.RESULT_OK, Intent().putExtra("BackPress", userId))
-                finish()
-            }
+//            if(result =="")
+//            {
+//                Toast.makeText(baseContext, "서버 통신오류, 다시 시도해주세요", Toast.LENGTH_SHORT).show()
+//            }
+//            else {
+                make_coupon_bt.text = "20%"
+                make_coupon_bt.textSize = 35.0f
+//                val json = JSONObject(result)
+//                val success = json.getBoolean("success")
+
+//            }
         }
     }
 }
