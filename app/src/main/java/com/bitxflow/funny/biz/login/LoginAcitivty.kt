@@ -188,7 +188,8 @@ class LoginAcitivty : AppCompatActivity() {
                         gameDatabase?.gameDao()?.insert(game)
 
                         val game2 = GameDB()
-                        game2.name = "블러프"
+                        game2.name = "카탄"
+                        game2.engName = "katan"
                         val str2 = "추리,구라,순발력"
                         game2.type = str2
                         game2.recommend = "추천"

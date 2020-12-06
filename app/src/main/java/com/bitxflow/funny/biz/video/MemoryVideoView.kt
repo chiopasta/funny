@@ -17,6 +17,10 @@ class MemoryVideoView : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_memory_video_view)
 
+        val intent = intent
+        val fileName = intent.extras!!.getString("fileName").toString()
+
+        Log.d("bitx_log","filename"+ fileName)
         if (mediaControls == null) {
             // creating an object of media controller class
             mediaControls = MediaController(this)
@@ -24,12 +28,8 @@ class MemoryVideoView : AppCompatActivity() {
             // set the anchor view for the video view
             mediaControls!!.setAnchorView(this.memory_vv)
         }
-//        val videiUri = Uri.parse("android.resource://"+packageName + "/" + R.raw.katan)
-        val vidFile = Uri.parse(
-                Environment.getExternalStorageDirectory().getAbsolutePath()+"/Movies/katan.mp4")
 
-
-        Log.d("bitx_log","file:" + vidFile)
+        val vidFile = Uri.parse(fileName)
 
         memory_vv!!.setMediaController(mediaControls)
 

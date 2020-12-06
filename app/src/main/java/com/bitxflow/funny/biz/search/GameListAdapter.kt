@@ -3,6 +3,8 @@ package com.bitxflow.funny.biz.search
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
+import android.os.Environment
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,10 +13,12 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.content.ContextCompat.startActivity
+import androidx.core.net.toFile
 import com.bitxflow.funny.R
 import com.bitxflow.funny.biz.video.MemoryVideoView
 import com.bitxflow.funny.biz.video.VideoActivity
 import com.bumptech.glide.Glide
+import java.io.File
 import java.util.*
 
 
@@ -67,11 +71,34 @@ class GameListAdapter(
 //            _context.startActivity(intent)
         }
 
+
         expUrl_bt.setOnClickListener {
-            val Intent = Intent(_context, MemoryVideoView::class.java)
-            Intent.setFlags(android.content.Intent.FLAG_ACTIVITY_NEW_TASK)
-            Intent.putExtra("url",member[position].expUrl)
-            _context.startActivity(Intent)
+            try {
+                val fileName =  Environment.getExternalStorageDirectory().getAbsolutePath()+"/Movies/"+member[position].engName+".mp4"
+                var file = File(fileName)
+                if(file.exists())
+                {
+                    val Intent = Intent(_context, MemoryVideoView::class.java)
+                    Intent.setFlags(android.content.Intent.FLAG_ACTIVITY_NEW_TASK)
+                    Intent.putExtra("fileName",fileName)
+                    _context.startActivity(Intent)
+                }
+                else
+                {
+                    val Intent = Intent(_context, VideoActivity::class.java)
+                    Intent.setFlags(android.content.Intent.FLAG_ACTIVITY_NEW_TASK)
+                    Intent.putExtra("url",member[position].expUrl)
+                    _context.startActivity(Intent)
+                }
+            }catch (e: Exception){
+                Log.d("bitx_log", "e: $e")
+            }
+
+//            val Intent = Intent(_context, MemoryVideoView::class.java)
+//            Intent.setFlags(android.content.Intent.FLAG_ACTIVITY_NEW_TASK)
+//            Intent.putExtra("url",member[position].expUrl)
+//            _context.startActivity(Intent)
+
 //            val intent = Intent(Intent.ACTION_VIEW, Uri.parse(member[position].expUrl))
 //            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
 //            _context.startActivity(intent)
