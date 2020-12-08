@@ -37,9 +37,6 @@ class CouponActivity : AppCompatActivity() {
 
             val url = "coupons"
             val postDataParams = JSONObject()
-//            postDataParams.put("userid", userId.toUpperCase())
-//            postDataParams.put("password", userPassword)
-
             return su.requestPOST(url,postDataParams)
 
         }
@@ -48,17 +45,33 @@ class CouponActivity : AppCompatActivity() {
             make_coupon_bt.isClickable = false
             coupon_pbar.visibility = View.GONE
 
-//            if(result =="")
-//            {
-//                Toast.makeText(baseContext, "서버 통신오류, 다시 시도해주세요", Toast.LENGTH_SHORT).show()
-//            }
-//            else {
-                make_coupon_bt.text = "20%"
-                make_coupon_bt.textSize = 35.0f
-//                val json = JSONObject(result)
-//                val success = json.getBoolean("success")
+            if(result =="")
+            {
+                Toast.makeText(baseContext, "서버 통신오류, 다시 시도해주세요", Toast.LENGTH_SHORT).show()
+            }
+            else {
 
-//            }
+//                make_coupon_bt.text = "20%"
+//                make_coupon_bt.textSize = 35.0f
+//                coupon_code.text = "- " + "20201206_00001"
+                val json = JSONObject(result)
+                val success = json.getBoolean("success")
+                if(success)
+                {
+                    val code = json.getString("name")
+                    val content = json.getString("content")
+                    coupon_code.text = "- " + code
+                    make_coupon_bt.text = content
+                    make_coupon_bt.textSize = 30.0f
+                    make_coupon_bt.isClickable = false
+                }
+                else{
+                    coupon_code.text = "- 다시 시도해주세요"
+                    make_coupon_bt.isClickable = true
+                }
+
+            }
+
         }
     }
 }

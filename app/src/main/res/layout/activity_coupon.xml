@@ -124,7 +124,7 @@
             android:fontFamily="@font/bmdo"
             android:textColor="#ffffff"
             android:textSize="15sp"
-            android:text="-FIC20201206-000001"
+            android:text="- 쿠폰발급을 눌러주세요"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
         </TextView>
