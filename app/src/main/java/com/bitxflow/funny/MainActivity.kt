@@ -83,19 +83,6 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    override fun onWindowFocusChanged(hasFocus: Boolean) {
-        super.onWindowFocusChanged(hasFocus)
-
-        Log.d("bitx_log", "Focus changed !")
-
-        if (!hasFocus) {
-            Log.d("bitx_log", "Lost focus !")
-            val closeDialog = Intent(Intent.ACTION_CLOSE_SYSTEM_DIALOGS)
-            sendBroadcast(closeDialog)
-            hideSystemUI()
-        }
-    }
-
     private fun hideSystemUI() {
         // Enables regular immersive mode.
         // For "lean back" mode, remove SYSTEM_UI_FLAG_IMMERSIVE.

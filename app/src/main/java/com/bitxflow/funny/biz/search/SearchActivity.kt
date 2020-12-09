@@ -38,7 +38,6 @@ class SearchActivity : AppCompatActivity() {
         val addRunnable = Runnable {
 
             val games : List<GameDB>? = gameDatabase?.gameDao()?.getGames()
-            Log.d("bitx_log","games::" + games)
             if(games!!.isNotEmpty())
             {
                 for(item in games)
@@ -144,11 +143,9 @@ class SearchActivity : AppCompatActivity() {
 
                 if(!level.isNullOrBlank()) {
                     search_gameList = search_gameList.filter { it.level!!.contains(level) }
-                    Log.d("bitx_log","level in")
                 }
                 if(!type.isNullOrBlank()) {
                     search_gameList = search_gameList.filter { it.type.contains(type) }
-                    Log.d("bitx_log","type in")
                 }
                 var searchedList : ArrayList<Game> = ArrayList()
                 searchedList.addAll(search_gameList)

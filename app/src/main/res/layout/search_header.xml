@@ -256,51 +256,56 @@
 
         </RelativeLayout>
 
-        <RadioGroup
-            android:id="@+id/time_rg"
+        <RelativeLayout
+            android:background="#faf9f5"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:orientation="horizontal">
-
-            <RadioButton
-                android:id="@+id/time0_radio_bt"
-                android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+            <RadioGroup
+                android:layout_marginTop="15dp"
+                android:id="@+id/time_rg"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/btn_round"
-                android:button="@android:color/transparent"
-                android:checked="true"
-                android:text="     상관없음"
-                android:textColor="#3b3b3b"></RadioButton>
+                android:layout_marginLeft="10dp"
+                android:orientation="horizontal">
 
-            <RadioButton
-                android:id="@+id/time_short"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/btn_round"
-                android:button="@android:color/transparent"
-                android:text="     10분이하"
-                android:textColor="#3b3b3b"></RadioButton>
+                <RadioButton
+                    android:id="@+id/time0_radio_bt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/btn_round"
+                    android:button="@android:color/transparent"
+                    android:checked="true"
+                    android:text="     상관없음"
+                    android:textColor="#3b3b3b"></RadioButton>
 
-            <RadioButton
-                android:id="@+id/time_10"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/btn_round"
-                android:button="@android:color/transparent"
-                android:text="    10분"
-                android:textColor="#3b3b3b"></RadioButton>
+                <RadioButton
+                    android:id="@+id/time_short"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/btn_round"
+                    android:button="@android:color/transparent"
+                    android:text="     10분이하"
+                    android:textColor="#3b3b3b"></RadioButton>
 
-            <RadioButton
-                android:id="@+id/time_20"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/btn_round"
-                android:button="@android:color/transparent"
-                android:text="     20분"
-                android:textColor="#3b3b3b"></RadioButton>
-        </RadioGroup>
+                <RadioButton
+                    android:id="@+id/time_10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/btn_round"
+                    android:button="@android:color/transparent"
+                    android:text="    10분"
+                    android:textColor="#3b3b3b"></RadioButton>
 
+                <RadioButton
+                    android:id="@+id/time_20"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/btn_round"
+                    android:button="@android:color/transparent"
+                    android:text="     20분"
+                    android:textColor="#3b3b3b"></RadioButton>
+            </RadioGroup>
+        </RelativeLayout>
     </LinearLayout>
 
     <LinearLayout
@@ -326,47 +331,53 @@
 
         </RelativeLayout>
 
-        <RadioGroup
-            android:id="@+id/type_rg"
+        <RelativeLayout
+            android:background="#faf9f5"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:orientation="horizontal">
-
-            <RadioButton
-                android:id="@+id/type0_radio_bt"
-                android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+            <RadioGroup
+                android:layout_marginTop="20dp"
+                android:id="@+id/type_rg"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/btn_round"
-                android:button="@android:color/transparent"
-                android:checked="true"
-                android:text="   상관없음"
-                android:textColor="#3b3b3b"></RadioButton>
+                android:layout_marginLeft="10dp"
+                android:orientation="horizontal">
 
-            <RadioButton
-                android:id="@+id/type_speed"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/btn_round"
-                android:button="@android:color/transparent"
-                android:text="순발력"
-                android:textColor="#3b3b3b"></RadioButton>
+                <RadioButton
+                    android:id="@+id/type0_radio_bt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/btn_round"
+                    android:button="@android:color/transparent"
+                    android:checked="true"
+                    android:text="   상관없음"
+                    android:textColor="#3b3b3b"></RadioButton>
 
-            <RadioButton
-                android:id="@+id/type_inference"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/btn_round"
-                android:button="@android:color/transparent"
-                android:text="추리"
-                android:textColor="#3b3b3b"></RadioButton>
+                <RadioButton
+                    android:id="@+id/type_speed"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/btn_round"
+                    android:button="@android:color/transparent"
+                    android:text="순발력"
+                    android:textColor="#3b3b3b"></RadioButton>
 
-            <RadioButton
-                android:id="@+id/type_gura"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="구라"></RadioButton>
-        </RadioGroup>
+                <RadioButton
+                    android:id="@+id/type_inference"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/btn_round"
+                    android:button="@android:color/transparent"
+                    android:text="추리"
+                    android:textColor="#3b3b3b"></RadioButton>
+
+                <RadioButton
+                    android:id="@+id/type_gura"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="구라"></RadioButton>
+            </RadioGroup>
+        </RelativeLayout>
 
     </LinearLayout>
 
