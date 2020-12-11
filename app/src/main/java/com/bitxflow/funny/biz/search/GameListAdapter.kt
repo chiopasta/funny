@@ -50,6 +50,8 @@ class GameListAdapter(
 //        var convertView = convertView
         val res: Int = R.layout.game_list
         val convertView = mInflater.inflate(res, parent, false)
+        val engName = member[position].engName
+
         val title_tx =
             convertView.findViewById<View>(R.id.game_list_name) as TextView
 //        val contents_tx =
@@ -95,9 +97,19 @@ class GameListAdapter(
 //        contents_tx.text = Html.fromHtml(replyContent)
 //        contents_tx.movementMethod = LinkMovementMethod.getInstance()
 
+        //TODO 불러오는 순서, 이름이 있다면 메모리 체크, 그 이후 url 체크, 그 이후 loading 보여주기
 //        UrlImageViewHelper.setUrlDrawable(img_iv, member[position].pUrl,R.drawable.profileimage)
         Glide.with(convertView).load(member[position].expImg).placeholder(R.drawable.loading).override(1000,600).into(img_iv)
-
+        if(!engName.isNullOrBlank()) {
+            val id = _context.resources.getIdentifier(engName, "drawable", _context.packageName)
+            if (id > 0) {
+                img_iv.setImageResource(id)
+                Log.d("bitx_log", "exists drawable!")
+            } else {
+                Glide.with(convertView).load(member[position].expImg)
+                    .placeholder(R.drawable.loading).override(1000, 600).into(img_iv)
+            }
+        }
         return convertView
     }
 
