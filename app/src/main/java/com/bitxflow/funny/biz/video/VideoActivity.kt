@@ -1,9 +1,7 @@
 package com.bitxflow.funny.biz.video
 
-import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import com.bitxflow.funny.R
 import kotlinx.android.synthetic.main.activity_video.*
 
@@ -14,9 +12,9 @@ class VideoActivity : AppCompatActivity() {
 
         val intent = intent
         val url = intent.extras!!.getString("url").toString()
-        Log.d("bitx_log","url? : $url")
 
-//        video_view.loadUrl(url)
+        val replaceUrl = url.replace("https://youtu.be/","")
+        you_tube_player_view.play(replaceUrl)
 
     }
 }
