@@ -201,6 +201,7 @@ class LoginAcitivty : AppCompatActivity() {
 
                         val game3 = GameDB()
                         game3.name = "뱅"
+                        game3.engName= "bang of bang"
                         val str3 = "추리,구라"
                         game3.type = str3
 

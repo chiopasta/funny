@@ -50,8 +50,8 @@ class GameListAdapter(
 //        var convertView = convertView
         val res: Int = R.layout.game_list
         val convertView = mInflater.inflate(res, parent, false)
-        val engName = member[position].engName
-
+        val engName = member[position].engName?.replace(" ","_")
+        Log.d("bitx_log","engName ? $engName")
         val title_tx =
             convertView.findViewById<View>(R.id.game_list_name) as TextView
 //        val contents_tx =
@@ -65,7 +65,7 @@ class GameListAdapter(
 
         expUrl_bt.setOnClickListener {
             try {
-                val fileName =  Environment.getExternalStorageDirectory().getAbsolutePath()+"/Movies/"+member[position].engName+".mp4"
+                val fileName =  Environment.getExternalStorageDirectory().getAbsolutePath()+"/Movies/"+engName+".mp4"
                 var file = File(fileName)
                 if(file.exists())
                 {
