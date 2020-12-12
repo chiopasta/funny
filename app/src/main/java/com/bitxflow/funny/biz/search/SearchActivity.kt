@@ -103,6 +103,11 @@ class SearchActivity : AppCompatActivity() {
         header.setOnClickListener {
             it.hideKeyboard()
         }
+
+        search_back_bt.setOnClickListener {
+            finish()
+        }
+
         search_bt.setOnClickListener {
 
             it.hideKeyboard()

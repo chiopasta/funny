@@ -52,6 +52,13 @@
                 android:text="인원구성 (필수)"
                 android:textColor="#ffffff"></TextView>
 
+            <ImageView
+                android:layout_marginLeft="15dp"
+                android:id="@+id/search_back_bt"
+                android:src="@drawable/backarrow"
+                android:layout_width="30dp"
+                android:layout_height="60dp"></ImageView>
+
         </RelativeLayout>
 
         <LinearLayout
