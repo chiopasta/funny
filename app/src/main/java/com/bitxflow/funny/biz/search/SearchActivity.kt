@@ -14,6 +14,7 @@ import android.widget.Toast
 import com.bitxflow.funny.DB.GameDB
 import com.bitxflow.funny.DB.GameDatabase
 import com.bitxflow.funny.R
+import com.bitxflow.funny.biz.video.MemoryVideoView
 import com.bitxflow.funny.send.SendServer
 import com.google.android.youtube.player.internal.i
 import kotlinx.android.synthetic.main.activity_search.*
@@ -154,7 +155,7 @@ class SearchActivity : AppCompatActivity() {
                 }
                 var searchedList : ArrayList<Game> = ArrayList()
                 searchedList.addAll(search_gameList)
-                val adapter = GameListAdapter(applicationContext , searchedList)
+                val adapter = GameListAdapter(applicationContext , searchedList, SearchActivity@this)
                 adapter.notifyDataSetChanged()
                 game_listview.adapter = adapter
             }
@@ -174,7 +175,7 @@ class SearchActivity : AppCompatActivity() {
                         temp_gameList.add(items)
                     }
                 }
-                val adapter = GameListAdapter(applicationContext , temp_gameList)
+                val adapter = GameListAdapter(applicationContext , temp_gameList,SearchActivity@this)
                 adapter.notifyDataSetChanged()
                 game_listview.adapter = adapter
             }

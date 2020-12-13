@@ -1,5 +1,7 @@
 package com.bitxflow.funny.biz.search
 
+import android.app.Activity
+import android.app.AlertDialog
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
@@ -24,12 +26,15 @@ import java.util.*
 
 class GameListAdapter(
     context: Context,
-    photoListItem: ArrayList<Game>
+    photoListItem: ArrayList<Game>,
+    act : Activity
 ) :
     BaseAdapter() {
     var mInflater: LayoutInflater
     var member: ArrayList<Game>
     var _context: Context
+    var _activity = act
+
     override fun getCount(): Int {
         return member.size
     }
@@ -51,17 +56,32 @@ class GameListAdapter(
         val res: Int = R.layout.game_list
         val convertView = mInflater.inflate(res, parent, false)
         val engName = member[position].engName?.replace(" ","_")
-        Log.d("bitx_log","engName ? $engName")
         val title_tx =
             convertView.findViewById<View>(R.id.game_list_name) as TextView
-//        val contents_tx =
-//            convertView.findViewById<View>(R.id.gmae) as TextView
+        val eng_title =
+            convertView.findViewById<View>(R.id.eng_title) as TextView
         val img_iv =
             convertView.findViewById<View>(R.id.game_list_iv) as ImageView
         val expUrl_bt =
             convertView.findViewById<View>(R.id.exp_url_bt) as Button
-//        val replyContent: String? = member[position].contents
+
+        val setting_bt =
+            convertView.findViewById<View>(R.id.setting_bt) as Button
+
         title_tx.text = member[position].name
+        eng_title.text = engName
+
+        setting_bt.setOnClickListener {
+            val builder = AlertDialog.Builder(_activity)
+            val dialogView = mInflater.inflate(R.layout.game_dialog,null)
+
+            builder.setView(dialogView)
+                .setNeutralButton("확인"){dialogInterface, i ->
+
+                }
+                .show()
+
+        }
 
         expUrl_bt.setOnClickListener {
             try {
@@ -85,17 +105,7 @@ class GameListAdapter(
                 Log.d("bitx_log", "e: $e")
             }
 
-//            val Intent = Intent(_context, MemoryVideoView::class.java)
-//            Intent.setFlags(android.content.Intent.FLAG_ACTIVITY_NEW_TASK)
-//            Intent.putExtra("url",member[position].expUrl)
-//            _context.startActivity(Intent)
-
-//            val intent = Intent(Intent.ACTION_VIEW, Uri.parse(member[position].expUrl))
-//            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-//            _context.startActivity(intent)
         }
-//        contents_tx.text = Html.fromHtml(replyContent)
-//        contents_tx.movementMethod = LinkMovementMethod.getInstance()
 
         //TODO 불러오는 순서, 이름이 있다면 메모리 체크, 그 이후 url 체크, 그 이후 loading 보여주기
 //        UrlImageViewHelper.setUrlDrawable(img_iv, member[position].pUrl,R.drawable.profileimage)

@@ -76,7 +76,7 @@ class RecommendActivity : AppCompatActivity() {
 
             var searchedList : ArrayList<Game> = ArrayList()
             searchedList.addAll(search_gameList)
-            val adapter = GameListAdapter(applicationContext , searchedList)
+            val adapter = GameListAdapter(applicationContext , searchedList, RecommendActivity@this)
             adapter.notifyDataSetChanged()
             recommend_listview.adapter = adapter
 
