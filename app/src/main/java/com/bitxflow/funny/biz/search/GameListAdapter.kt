@@ -2,9 +2,9 @@ package com.bitxflow.funny.biz.search
 
 import android.app.Activity
 import android.app.AlertDialog
+import android.app.Dialog
 import android.content.Context
 import android.content.Intent
-import android.net.Uri
 import android.os.Environment
 import android.util.Log
 import android.view.LayoutInflater
@@ -14,12 +14,14 @@ import android.widget.BaseAdapter
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.core.content.ContextCompat.startActivity
-import androidx.core.net.toFile
+import androidx.viewpager.widget.ViewPager
 import com.bitxflow.funny.R
+import com.bitxflow.funny.biz.intro.ViewPagerAdapter
 import com.bitxflow.funny.biz.video.MemoryVideoView
 import com.bitxflow.funny.biz.video.VideoActivity
 import com.bumptech.glide.Glide
+import kotlinx.android.synthetic.main.activity_intro.*
+import me.relex.circleindicator.CircleIndicator
 import java.io.File
 import java.util.*
 
@@ -67,6 +69,8 @@ class GameListAdapter(
             convertView.findViewById<View>(R.id.game_list_iv) as ImageView
         val expUrl_bt =
             convertView.findViewById<View>(R.id.exp_url_bt) as Button
+        val exp_txt_bt =
+            convertView.findViewById<View>(R.id.exp_txt_bt) as Button
         val setting_bt =
             convertView.findViewById<View>(R.id.setting_bt) as Button
         val people_tx =
@@ -93,6 +97,7 @@ class GameListAdapter(
         val play_time = game.gameTime
         val exp_time = game.expTime
         val type = game.type[0]
+        val memo = game.memo
 
         type_tx.text = type
         level_tx.text = game.level
@@ -111,6 +116,14 @@ class GameListAdapter(
                 }
                 .show()
 
+        }
+
+        exp_txt_bt.setOnClickListener {
+            val Intent = Intent(_context, RuleActivity::class.java)
+            Intent.setFlags(android.content.Intent.FLAG_ACTIVITY_NEW_TASK)
+            Intent.putExtra("memo",memo)
+            Intent.putExtra("engName",engName)
+            _context.startActivity(Intent)
         }
 
         expUrl_bt.setOnClickListener {

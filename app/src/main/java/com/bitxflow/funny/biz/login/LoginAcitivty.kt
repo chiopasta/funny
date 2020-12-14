@@ -200,6 +200,7 @@ class LoginAcitivty : AppCompatActivity() {
                         game2.gameTime = "30분"
                         game2.expTime = "11:00"
                         game2.hit=2
+                        game2.memo="2"
                         game2.level = "중간";
                         gameDatabase?.gameDao()?.insert(game2)
 

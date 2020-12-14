@@ -18,14 +18,17 @@
         android:theme="@style/Theme.AppCompat.NoActionBar"
         android:windowSoftInputMode="adjustResize">
         <activity
-            android:name=".biz.recommend.RecommendActivity"
+            android:name=".biz.search.RuleActivity"
             android:screenOrientation="landscape"/>
+        <activity
+            android:name=".biz.recommend.RecommendActivity"
+            android:screenOrientation="landscape" />
         <activity
             android:name=".biz.coupon.CouponActivity"
-            android:screenOrientation="landscape"/>
+            android:screenOrientation="landscape" />
         <activity
             android:name=".biz.intro.IntroActivity"
-            android:screenOrientation="landscape"/>
+            android:screenOrientation="landscape" />
         <activity
             android:name=".biz.fee.FeeActivity"
             android:screenOrientation="landscape" />
@@ -37,7 +40,7 @@
             android:screenOrientation="landscape" />
         <activity
             android:name=".biz.product.ProductActivity"
-            android:screenOrientation="landscape"/>
+            android:screenOrientation="landscape" />
         <activity
             android:name=".biz.search.SearchActivity"
             android:screenOrientation="landscape" />
