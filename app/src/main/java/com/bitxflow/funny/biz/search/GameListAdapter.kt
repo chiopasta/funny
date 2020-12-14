@@ -106,7 +106,9 @@ class GameListAdapter(
         setting_bt.setOnClickListener {
             val builder = AlertDialog.Builder(_activity)
             val dialogView = mInflater.inflate(R.layout.game_dialog,null)
-
+            val dialog_tx =
+                dialogView.findViewById<View>(R.id.dialog_tx) as TextView
+            dialog_tx.text = game.expImg
             builder.setView(dialogView)
                 .setNeutralButton("확인"){dialogInterface, i ->
 

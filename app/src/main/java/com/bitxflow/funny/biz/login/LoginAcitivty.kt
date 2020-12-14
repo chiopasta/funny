@@ -184,6 +184,7 @@ class LoginAcitivty : AppCompatActivity() {
                         game.people = "2,3,4,5,6"
                         game.gameTime = "15분"
                         game.expTime = "15:30"
+                        game.expImg = "1. 12개를 가지고 오세요 \n 2.카드를 가져오세요"
                         game.level = "쉬움"
                         game.recommend = "추천"
                         game.hit=1
