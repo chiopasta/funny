@@ -10,10 +10,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.BaseAdapter
-import android.widget.Button
-import android.widget.ImageView
-import android.widget.TextView
+import android.widget.*
 import androidx.viewpager.widget.ViewPager
 import com.bitxflow.funny.R
 import com.bitxflow.funny.biz.intro.ViewPagerAdapter
@@ -119,11 +116,17 @@ class GameListAdapter(
         }
 
         exp_txt_bt.setOnClickListener {
-            val Intent = Intent(_context, RuleActivity::class.java)
-            Intent.setFlags(android.content.Intent.FLAG_ACTIVITY_NEW_TASK)
-            Intent.putExtra("memo",memo)
-            Intent.putExtra("engName",engName)
-            _context.startActivity(Intent)
+            if(memo.isNullOrBlank())
+            {
+                Toast.makeText(_context,"준비중 입니다",Toast.LENGTH_SHORT).show()
+            }
+            else {
+                val Intent = Intent(_context, RuleActivity::class.java)
+                Intent.setFlags(android.content.Intent.FLAG_ACTIVITY_NEW_TASK)
+                Intent.putExtra("memo", memo)
+                Intent.putExtra("engName", engName)
+                _context.startActivity(Intent)
+            }
         }
 
         expUrl_bt.setOnClickListener {
