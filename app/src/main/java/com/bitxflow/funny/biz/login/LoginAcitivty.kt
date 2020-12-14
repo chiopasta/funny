@@ -182,6 +182,8 @@ class LoginAcitivty : AppCompatActivity() {
                         game.expUrl =
                             "https://youtu.be/5VkE9fEj7sM"
                         game.people = "2,3,4,5,6"
+                        game.gameTime = "15분"
+                        game.expTime = "15:30"
                         game.level = "쉬움"
                         game.recommend = "추천"
                         game.hit=1
@@ -195,6 +197,8 @@ class LoginAcitivty : AppCompatActivity() {
                         game2.recommend = "추천"
                         val numbers2 = intArrayOf(3, 4, 5, 6)
                         game2.people = "3,4,5,6"
+                        game2.gameTime = "30분"
+                        game2.expTime = "11:00"
                         game2.hit=2
                         game2.level = "중간";
                         gameDatabase?.gameDao()?.insert(game2)

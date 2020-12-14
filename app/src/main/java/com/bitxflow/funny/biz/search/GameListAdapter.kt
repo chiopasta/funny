@@ -53,9 +53,12 @@ class GameListAdapter(
         parent: ViewGroup?
     ): View {
 //        var convertView = convertView
+        val game = member[position]
         val res: Int = R.layout.game_list
         val convertView = mInflater.inflate(res, parent, false)
-        val engName = member[position].engName?.replace(" ","_")
+
+        val engName = game.engName?.replace(" ","_")
+
         val title_tx =
             convertView.findViewById<View>(R.id.game_list_name) as TextView
         val eng_title =
@@ -64,11 +67,38 @@ class GameListAdapter(
             convertView.findViewById<View>(R.id.game_list_iv) as ImageView
         val expUrl_bt =
             convertView.findViewById<View>(R.id.exp_url_bt) as Button
-
         val setting_bt =
             convertView.findViewById<View>(R.id.setting_bt) as Button
+        val people_tx =
+            convertView.findViewById<View>(R.id.people_tx) as TextView
+        val play_time_tx =
+            convertView.findViewById<View>(R.id.play_time_tx) as TextView
+        val exp_time_tx =
+            convertView.findViewById<View>(R.id.exp_game_time_tx) as TextView
+        val type_tx  =
+            convertView.findViewById<View>(R.id.type_tx) as TextView
+        val level_tx =
+            convertView.findViewById<View>(R.id.level_tx) as TextView
 
-        title_tx.text = member[position].name
+        val people = game.people
+        var ppl : String? = null
+        if(people.size>2) {
+            ppl = people.get(0).toString() + " - " + people.get(people.size - 1).toString() + "인"
+        }
+        else{
+            ppl = people.get(0).toString() + "인"
+        }
+        people_tx.text = ppl
+
+        val play_time = game.gameTime
+        val exp_time = game.expTime
+        val type = game.type[0]
+
+        type_tx.text = type
+        level_tx.text = game.level
+        title_tx.text = game.name
+        play_time_tx.text = play_time
+        exp_time_tx.text = exp_time
         eng_title.text = engName
 
         setting_bt.setOnClickListener {
@@ -85,7 +115,7 @@ class GameListAdapter(
 
         expUrl_bt.setOnClickListener {
             try {
-                val fileName =  Environment.getExternalStorageDirectory().getAbsolutePath()+"/Movies/"+engName+".mp4"
+                val fileName =  Environment.getExternalStorageDirectory().absolutePath +"/Movies/"+engName+".mp4"
                 var file = File(fileName)
                 if(file.exists())
                 {
