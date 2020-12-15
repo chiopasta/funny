@@ -6,6 +6,15 @@
     android:layout_height="match_parent"
     tools:context=".biz.search.RuleActivity">
 
+    <ImageView
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="15dp"
+        android:id="@+id/rule_backpress_bt"
+        android:src="@drawable/backarrow"
+        android:layout_width="30dp"
+        android:layout_height="60dp">
+    </ImageView>
+
     <me.relex.circleindicator.CircleIndicator
         android:layout_marginTop="15dp"
         android:id="@+id/indicator"

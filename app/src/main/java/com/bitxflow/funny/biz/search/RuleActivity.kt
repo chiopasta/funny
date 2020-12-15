@@ -18,5 +18,9 @@ class RuleActivity : AppCompatActivity() {
         viewpager.adapter = pagerAdapter
         indicator.setViewPager(viewpager)
 
+        rule_backpress_bt.setOnClickListener {
+            finish()
+        }
+
     }
 }
