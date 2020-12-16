@@ -1,49 +1,48 @@
-package com.bitxflow.funny.biz.fee
+package com.bitxflow.funny.biz.beginner
 
 import android.graphics.BitmapFactory
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Environment
 import com.bitxflow.funny.R
-import kotlinx.android.synthetic.main.activity_fee.*
+import kotlinx.android.synthetic.main.activity_beginner.*
 import java.io.File
 
-class FeeActivity : AppCompatActivity() {
+class BeginnerActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_fee)
+        setContentView(R.layout.activity_beginner)
 
-        back_bt.setOnClickListener {
-            finish()
-        }
-
-        var fileName =  Environment.getExternalStorageDirectory().absolutePath +"/Pictures/fee.jpg"
+        var fileName =  Environment.getExternalStorageDirectory().absolutePath +"/Pictures/easy.jpg"
         var file = File(fileName)
         if(file.exists())
         {
             val myBitmap = BitmapFactory.decodeFile(file.getAbsolutePath())
-            fee_iv.setImageBitmap(myBitmap)
+            beginner_iv.setImageBitmap(myBitmap)
         }
-        fileName =  Environment.getExternalStorageDirectory().absolutePath +"/Pictures/fee.png"
+        fileName =  Environment.getExternalStorageDirectory().absolutePath +"/Pictures/easy.png"
         file = File(fileName)
         if(file.exists())
         {
             val myBitmap = BitmapFactory.decodeFile(file.getAbsolutePath())
-            fee_iv.setImageBitmap(myBitmap)
+            beginner_iv.setImageBitmap(myBitmap)
         }
-        fileName =  Environment.getExternalStorageDirectory().absolutePath +"/Pictures/fee.jpeg"
+        fileName =  Environment.getExternalStorageDirectory().absolutePath +"/Pictures/easy.jpeg"
         file = File(fileName)
         if(file.exists())
         {
             val myBitmap = BitmapFactory.decodeFile(file.getAbsolutePath())
-            fee_iv.setImageBitmap(myBitmap)
+            beginner_iv.setImageBitmap(myBitmap)
         }
-        fileName =  Environment.getExternalStorageDirectory().absolutePath +"/Pictures/fee.bmp"
+        fileName =  Environment.getExternalStorageDirectory().absolutePath +"/Pictures/easy.bmp"
         file = File(fileName)
         if(file.exists())
         {
             val myBitmap = BitmapFactory.decodeFile(file.getAbsolutePath())
-            fee_iv.setImageBitmap(myBitmap)
+            beginner_iv.setImageBitmap(myBitmap)
+        }
+        beginner_back_bt.setOnClickListener {
+            finish()
         }
     }
 }

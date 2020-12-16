@@ -4,22 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".biz.fee.FeeActivity">
-
+    tools:context=".biz.beginner.BeginnerActivity">
 
     <com.ortiz.touchview.TouchImageView
-        android:id="@+id/fee_iv"
+        android:id="@+id/beginner_iv"
         android:layout_centerInParent="true"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
-
     <ImageView
-        android:id="@+id/back_bt"
+        android:id="@+id/beginner_back_bt"
         android:layout_marginLeft="15dp"
         android:layout_marginTop="15dp"
         android:src="@drawable/backarrow"
         android:layout_width="30dp"
         android:layout_height="60dp">
     </ImageView>
-
 </RelativeLayout>

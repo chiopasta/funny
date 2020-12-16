@@ -157,7 +157,7 @@ class GameListAdapter(
         }
 
         ///////////////// GAME IMG /////////////////////////////
-        //TODO 불러오는 순서, 이름이 있다면 메모리 체크, 그 이후 url 체크, 그 이후 loading 보여주기
+        //TODO 이거뭔가 이상?
         Log.d("bitx_log","img src :" + gameImgUrl)
         if(!engName.isNullOrBlank()) {
             Log.d("bitx_log","1")

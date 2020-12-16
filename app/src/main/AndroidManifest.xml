@@ -18,8 +18,11 @@
         android:theme="@style/Theme.AppCompat.NoActionBar"
         android:windowSoftInputMode="adjustResize">
         <activity
-            android:name=".biz.search.RuleActivity"
+            android:name=".biz.beginner.BeginnerActivity"
             android:screenOrientation="landscape"/>
+        <activity
+            android:name=".biz.search.RuleActivity"
+            android:screenOrientation="landscape" />
         <activity
             android:name=".biz.recommend.RecommendActivity"
             android:screenOrientation="landscape" />

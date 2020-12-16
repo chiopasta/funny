@@ -12,6 +12,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.bitxflow.funny.DB.GameDB
 import com.bitxflow.funny.DB.GameDatabase
+import com.bitxflow.funny.biz.beginner.BeginnerActivity
 import com.bitxflow.funny.biz.coupon.CouponActivity
 import com.bitxflow.funny.biz.fee.FeeActivity
 import com.bitxflow.funny.biz.intro.IntroActivity
@@ -42,8 +43,9 @@ class MainActivity : AppCompatActivity() {
         }
 
         product_bt.setOnClickListener {
-            val intent = Intent(this, ProductActivity::class.java)
-            startActivity(intent)
+            Toast.makeText(baseContext,"준비중 입니다",Toast.LENGTH_SHORT).show()
+//            val intent = Intent(this, ProductActivity::class.java)
+//            startActivity(intent)
         }
 
         game_fee_bt.setOnClickListener {
@@ -66,6 +68,14 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        question_bt.setOnClickListener{
+            Toast.makeText(baseContext,"준비중 입니다",Toast.LENGTH_SHORT).show()
+        }
+
+        beginner.setOnClickListener {
+            val intent = Intent(this, BeginnerActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
