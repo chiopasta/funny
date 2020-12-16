@@ -10,6 +10,7 @@ class GameDB @Ignore constructor(
     @PrimaryKey(autoGenerate = true) var id: Int,
     @ColumnInfo(name = "name") var name: String? = null,
     @ColumnInfo(name = "engName") var engName: String? = null,
+    @ColumnInfo(name = "gameImgUrl ") var gameImgUrl : String? = null,
     @ColumnInfo(name = "gameTime") var gameTime: String? = null,
     @ColumnInfo(name = "expTime") var expTime: String? = null,
     @ColumnInfo(name = "expText") var expText: String? = null,

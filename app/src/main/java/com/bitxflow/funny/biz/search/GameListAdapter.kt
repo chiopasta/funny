@@ -82,6 +82,7 @@ class GameListAdapter(
             convertView.findViewById<View>(R.id.level_tx) as TextView
 
         val people = game.people
+        val gameImgUrl = game.gameImgUrl
         var ppl : String? = null
         if(people.size>2) {
             ppl = people.get(0).toString() + " - " + people.get(people.size - 1).toString() + "인"
@@ -155,20 +156,23 @@ class GameListAdapter(
 
         }
 
+        ///////////////// GAME IMG /////////////////////////////
         //TODO 불러오는 순서, 이름이 있다면 메모리 체크, 그 이후 url 체크, 그 이후 loading 보여주기
-        Glide.with(convertView).load(member[position].expImg).placeholder(R.drawable.loading).override(1000,600).into(img_iv)
+        Log.d("bitx_log","img src :" + gameImgUrl)
         if(!engName.isNullOrBlank()) {
+            Log.d("bitx_log","1")
             val id = _context.resources.getIdentifier(engName, "drawable", _context.packageName)
             if (id > 0) {
+                Log.d("bitx_log","2")
                 img_iv.setImageResource(id)
             } else {
-                Glide.with(convertView).load(member[position].expImg)
-                    .placeholder(R.drawable.loading).override(1000, 600).into(img_iv)
+                Log.d("bitx_log","3")
+                Glide.with(convertView).load(gameImgUrl).placeholder(R.drawable.loading).override(1000, 600).into(img_iv)
             }
         }
         else{
-            Glide.with(convertView).load(member[position].expImg)
-                .placeholder(R.drawable.loading).override(1000, 600).into(img_iv)
+            Log.d("bitx_log","4")
+            Glide.with(convertView).load(gameImgUrl).placeholder(R.drawable.loading).override(1000,600).into(img_iv)
         }
         return convertView
     }

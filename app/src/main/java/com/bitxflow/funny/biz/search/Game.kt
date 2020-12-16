@@ -4,6 +4,7 @@ class Game {
     var gameID: String? = null
     var name: String? = null
     var engName: String? = null
+    var gameImgUrl: String? = null
     var gameTime : String? = null
     var expTime : String? = null
     var expText : String? = null

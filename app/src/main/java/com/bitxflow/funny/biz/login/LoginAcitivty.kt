@@ -177,11 +177,13 @@ class LoginAcitivty : AppCompatActivity() {
 
                         val game = GameDB()
                         game.name = "할리갈리"
+                        game.engName = "Hally Gally"
                         val str = "순발력,퍼즐"
                         game.type = str
                         game.expUrl =
                             "https://youtu.be/5VkE9fEj7sM"
                         game.people = "2,3,4,5,6"
+                        game.gameImgUrl ="https://blogfiles.pstatic.net/20151125_256/acolyte_1448463493847DA9xU_PNG/1.png"
                         game.gameTime = "15분"
                         game.expTime = "15:30"
                         game.expImg = "1. 12개를 가지고 오세요 \n 2.카드를 가져오세요"
@@ -200,6 +202,7 @@ class LoginAcitivty : AppCompatActivity() {
                         game2.people = "3,4,5,6"
                         game2.gameTime = "30분"
                         game2.expTime = "11:00"
+                        game2.gameImgUrl ="https://blogfiles.pstatic.net/20151125_256/acolyte_1448463493847DA9xU_PNG/1.png"
                         game2.hit=2
                         game2.memo="2"
                         game2.level = "중간";
@@ -210,18 +213,20 @@ class LoginAcitivty : AppCompatActivity() {
                         game3.engName= "bang of bang"
                         val str3 = "추리,구라"
                         game3.type = str3
-
+                        game3.gameImgUrl ="https://blogfiles.pstatic.net/20151125_256/acolyte_1448463493847DA9xU_PNG/1.png"
                         game3.people = "6,7,8,9"
                         game3.level = "어려움";
                         game3.recommend = "비추천"
                         game3.hit=1
                         gameDatabase?.gameDao()?.insert(game3)
+
                         val game4 = GameDB()
                         game4.name = "루미큐브"
                         val str4 = "추리,구라,퍼즐,심리"
                         game4.level = "중간";
                         game4.type = str4
                         game4.recommend = "비추천"
+                        game4.gameImgUrl ="https://blogfiles.pstatic.net/20151125_256/acolyte_1448463493847DA9xU_PNG/1.png"
                         val numbers4 = intArrayOf(2, 3, 4, 5)
                         game4.people = "2,3,4,5"
                         game4.hit=15
@@ -258,6 +263,7 @@ class LoginAcitivty : AppCompatActivity() {
                             val name = json.getString("name")
                             val engName = json.getString("engName")
                             val gameTime = json.getString("gameTime")
+                            val gameImgUrl = json.getString("gameImgUrl")
                             val expTime = json.getString("expTime")
                             val expText = json.getString("expText")
                             val expImg = json.getString("expImg")

@@ -52,6 +52,7 @@ class SearchActivity : AppCompatActivity() {
                     val expText = item.expText
                     val expImg = item.expImg
                     val expUrl = item.expUrl
+                    val gameImgUrl = item.gameImgUrl
                     val type = item.type
                     val level = item.level
                     val people = item.people
@@ -73,6 +74,7 @@ class SearchActivity : AppCompatActivity() {
                     game.recommend = recommend
                     game.hit = hit!!
                     game.memo = memo
+                    game.gameImgUrl = gameImgUrl
 
                     val strPpl = people!!.split(",")
                     var numbers = ArrayList<Int>()
