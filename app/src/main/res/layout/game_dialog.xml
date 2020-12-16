@@ -4,11 +4,14 @@
     android:layout_height="match_parent">
 
     <TextView
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="15dp"
         android:id="@+id/dialog_tx"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/malgun"
-        android:textSize="15sp"
-        android:text="test"></TextView>
+        android:textSize="20sp"
+        android:textColor="#F6F6F6"
+        ></TextView>
 
 </RelativeLayout>

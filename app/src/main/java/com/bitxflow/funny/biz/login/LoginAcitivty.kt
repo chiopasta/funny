@@ -186,7 +186,7 @@ class LoginAcitivty : AppCompatActivity() {
                         game.gameImgUrl ="https://blogfiles.pstatic.net/20151125_256/acolyte_1448463493847DA9xU_PNG/1.png"
                         game.gameTime = "15분"
                         game.expTime = "15:30"
-                        game.expImg = "1. 12개를 가지고 오세요 \n 2.카드를 가져오세요"
+                        game.expImg = "1. 12개를 가지고 오세요 \n2. 카드를 가져오세요"
                         game.level = "쉬움"
                         game.recommend = "추천"
                         game.hit=1
