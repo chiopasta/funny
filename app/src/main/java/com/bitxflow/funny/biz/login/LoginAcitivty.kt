@@ -282,15 +282,10 @@ class LoginAcitivty : AppCompatActivity() {
                             val recommend = json.getString("recommend")
                             val hit = json.getInt("hit")
                             if(json.has("memo")) game.memo = json.getString("memo")
-                            else game.memo = ""
                             if(json.has("engName")) game.engName = json.getString("engName")
-                            else game.engName = ""
                             if(json.has("expUrl")) game.expUrl = json.getString("expUrl")
-                            else game.expUrl = ""
                             if(json.has("expImg")) game.expImg = json.getString("expImg")
-                            else game.expImg = ""
                             if(json.has("gameImgUrl")) game.gameImgUrl = json.getString("gameImgUrl")
-                            else game.gameImgUrl = ""
 
                             game.name = name
                             game.gameTime = gameTime
@@ -304,6 +299,8 @@ class LoginAcitivty : AppCompatActivity() {
                             Log.d("bitx_log","expText" + expText)
                             Log.d("bitx_log","game ppl" + game.people)
                             gameDatabase?.gameDao()?.insert(game)
+
+
                         }
                         val addThread = Thread(addRunnable)
                         addThread.start()
