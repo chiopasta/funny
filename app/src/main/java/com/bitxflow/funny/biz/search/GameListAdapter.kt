@@ -5,6 +5,7 @@ import android.app.AlertDialog
 import android.app.Dialog
 import android.content.Context
 import android.content.Intent
+import android.graphics.BitmapFactory
 import android.os.Environment
 import android.util.Log
 import android.view.LayoutInflater
@@ -17,6 +18,7 @@ import com.bitxflow.funny.biz.intro.ViewPagerAdapter
 import com.bitxflow.funny.biz.video.MemoryVideoView
 import com.bitxflow.funny.biz.video.VideoActivity
 import com.bumptech.glide.Glide
+import kotlinx.android.synthetic.main.activity_beginner.*
 import kotlinx.android.synthetic.main.activity_intro.*
 import me.relex.circleindicator.CircleIndicator
 import java.io.File
@@ -158,20 +160,52 @@ class GameListAdapter(
 
         ///////////////// GAME IMG /////////////////////////////
         //TODO 이거뭔가 이상?
-        Log.d("bitx_log","img src :" + gameImgUrl)
         if(!engName.isNullOrBlank()) {
-            Log.d("bitx_log","1")
-            val id = _context.resources.getIdentifier(engName, "drawable", _context.packageName)
-            if (id > 0) {
-                Log.d("bitx_log","2")
-                img_iv.setImageResource(id)
-            } else {
-                Log.d("bitx_log","3")
+//            val id = _context.resources.getIdentifier(engName, "drawable", _context.packageName)
+//            if (id > 0) {
+//                img_iv.setImageResource(id)
+//            } else {
+//                Glide.with(convertView).load(gameImgUrl).placeholder(R.drawable.loading).override(1000, 600).into(img_iv)
+//            }
+            var isFileExist = false
+            var fileName =  Environment.getExternalStorageDirectory().absolutePath +"/Pictures/"+ engName +".jpg"
+            var file = File(fileName)
+            if(file.exists())
+            {
+                val myBitmap = BitmapFactory.decodeFile(file.getAbsolutePath())
+                img_iv.setImageBitmap(myBitmap)
+                isFileExist=true
+            }
+            fileName =  Environment.getExternalStorageDirectory().absolutePath +"/Pictures/"+ engName +".png"
+            file = File(fileName)
+            if(file.exists())
+            {
+                val myBitmap = BitmapFactory.decodeFile(file.getAbsolutePath())
+                img_iv.setImageBitmap(myBitmap)
+                isFileExist = true
+            }
+            fileName =  Environment.getExternalStorageDirectory().absolutePath +"/Pictures/"+ engName +".jpeg"
+            file = File(fileName)
+            if(file.exists())
+            {
+                val myBitmap = BitmapFactory.decodeFile(file.getAbsolutePath())
+                img_iv.setImageBitmap(myBitmap)
+                isFileExist = true
+            }
+            fileName =  Environment.getExternalStorageDirectory().absolutePath +"/Pictures/"+ engName +".bmp"
+            file = File(fileName)
+            if(file.exists())
+            {
+                val myBitmap = BitmapFactory.decodeFile(file.getAbsolutePath())
+                img_iv.setImageBitmap(myBitmap)
+                isFileExist = true
+            }
+            if(!isFileExist)
+            {
                 Glide.with(convertView).load(gameImgUrl).placeholder(R.drawable.loading).override(1000, 600).into(img_iv)
             }
         }
         else{
-            Log.d("bitx_log","4")
             Glide.with(convertView).load(gameImgUrl).placeholder(R.drawable.loading).override(1000,600).into(img_iv)
         }
         return convertView
