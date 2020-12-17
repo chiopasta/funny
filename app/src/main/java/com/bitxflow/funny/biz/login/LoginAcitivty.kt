@@ -20,6 +20,7 @@ import com.google.android.gms.common.GooglePlayServicesRepairableException
 import com.google.android.gms.security.ProviderInstaller
 import kotlinx.android.synthetic.main.activity_login.*
 import org.json.JSONObject
+import java.lang.Exception
 import java.security.KeyManagementException
 import java.security.NoSuchAlgorithmException
 import javax.net.ssl.SSLContext
@@ -38,19 +39,25 @@ class LoginAcitivty : AppCompatActivity() {
         login_bt.setOnClickListener{
             val id = username.text.toString()
             val pw = password.text.toString()
-            Log.d("bitx_log","clicked")
             login_pbar.visibility = View.VISIBLE
             SendTask().execute(id,pw)
             login_bt.isClickable = false
         }
 
         reload_bt.setOnClickListener {
+
+            val deleteRunnable = Runnable {
+                gameDatabase?.gameDao()?.deleteAll()
+            }
+            val deleteThread = Thread(deleteRunnable)
+            deleteThread.start()
+
             reloadGamesTask().execute()
         }
     }
 
     internal inner class SendTask : AsyncTask<String, String, String>() {
-        var userId : String =""
+        var userId : String = ""
         var userPassword : String = ""
 
         override fun doInBackground(vararg params: String): String {
@@ -58,10 +65,12 @@ class LoginAcitivty : AppCompatActivity() {
             userId = params[0].trim()
             userPassword = params[1].trim()
 
+            userId = "funny"
+            userPassword = "funny2020!"
             val url = "login"
             val postDataParams = JSONObject()
-            postDataParams.put("userid", userId.toUpperCase())
-            postDataParams.put("password", userPassword)
+            postDataParams.put("userid", userId)
+            postDataParams.put("pass", userPassword)
 
             return su.requestPOST(url,postDataParams)
 
@@ -157,14 +166,16 @@ class LoginAcitivty : AppCompatActivity() {
             val su = SendServer()
 
             val url = "games"
-            return su.requestGET(url)
+            val postDataParams = JSONObject()
+
+            return su.requestPOST(url,postDataParams)
 
         }
 
         override fun onPostExecute(result: String) {
             if (result == "") {
 //                Toast.makeText(baseContext, "서버 통신오류, 다시 시도해주세요", Toast.LENGTH_SHORT).show()
-                Toast.makeText(baseContext, "디비 삽입", Toast.LENGTH_SHORT).show()
+                Toast.makeText(baseContext, "디비  test 삽입", Toast.LENGTH_SHORT).show()
 
                 val addRunnable = Runnable {
 
@@ -240,7 +251,10 @@ class LoginAcitivty : AppCompatActivity() {
 
             }
             else {
-                val `object` = JSONObject(result)
+                Toast.makeText(baseContext, "디비 업데이트", Toast.LENGTH_SHORT).show()
+                try {
+                    val `object` = JSONObject(result)
+
                 val count = `object`.getInt("totalCount")
                 val entities = `object`.getJSONArray("entities")
                 if (count == 0) {
@@ -248,53 +262,56 @@ class LoginAcitivty : AppCompatActivity() {
                 }
                 else
                 {
-
-                    val deleteRunnable = Runnable {
-                        gameDatabase?.gameDao()?.deleteAll()
-                    }
-                    val deleteThread = Thread(deleteRunnable)
-                    deleteThread.start()
-
                     for(i in 0 until count)
                     {
                         val addRunnable = Runnable {
+                            val game = GameDB()
+
                             val json = entities.getJSONObject(i)
                             val gameID = json.getString("gameID")
                             val name = json.getString("name")
-                            val engName = json.getString("engName")
                             val gameTime = json.getString("gameTime")
-                            val gameImgUrl = json.getString("gameImgUrl")
                             val expTime = json.getString("expTime")
                             val expText = json.getString("expText")
-                            val expImg = json.getString("expImg")
-                            val expUrl = json.getString("expUrl")
+
+//                            val expImg = json.getString("expImg")
+//                            val expUrl = json.getString("expUrl")
                             val type = json.getString("type")
                             val level = json.getString("level")
                             val people = json.getString("people")
                             val recommend = json.getString("recommend")
                             val hit = json.getInt("hit")
-                            val memo = json.getString("memo")
+                            if(json.has("memo")) game.memo = json.getString("memo")
+                            else game.memo = ""
+                            if(json.has("engName")) game.engName = json.getString("engName")
+                            else game.engName = ""
+                            if(json.has("expUrl")) game.expUrl = json.getString("expUrl")
+                            else game.expUrl = ""
+                            if(json.has("expImg")) game.expImg = json.getString("expImg")
+                            else game.expImg = ""
+                            if(json.has("gameImgUrl")) game.gameImgUrl = json.getString("gameImgUrl")
+                            else game.gameImgUrl = ""
 
-                            val game = GameDB()
                             game.name = name
-                            game.engName = engName
                             game.gameTime = gameTime
                             game.expTime = expTime
                             game.expText = expText
-                            game.expUrl = expUrl
-                            game.expImg = expImg
                             game.type = type
                             game.level = level
                             game.recommend = recommend
                             game.hit = hit
-                            game.memo = memo
                             game.people = people
-
+                            Log.d("bitx_log","expText" + expText)
+                            Log.d("bitx_log","game ppl" + game.people)
                             gameDatabase?.gameDao()?.insert(game)
                         }
                         val addThread = Thread(addRunnable)
                         addThread.start()
                     }
+                }
+                }catch (e: Exception)
+                {
+                    Log.d("bitx_log","error + $e")
                 }
             }
 

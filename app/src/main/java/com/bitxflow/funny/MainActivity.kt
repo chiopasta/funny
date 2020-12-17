@@ -76,6 +76,7 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, BeginnerActivity::class.java)
             startActivity(intent)
         }
+
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -110,8 +111,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onBackPressed() {
-        Toast.makeText(applicationContext,"종료하실수 없습니다",Toast.LENGTH_SHORT).show()
-//        super.onBackPressed()
+        //TODO 나중에 바꿔야함
+//        Toast.makeText(applicationContext,"종료하실수 없습니다",Toast.LENGTH_SHORT).show()
+        super.onBackPressed()
     }
 
 

@@ -82,9 +82,12 @@ class GameListAdapter(
             convertView.findViewById<View>(R.id.type_tx) as TextView
         val level_tx =
             convertView.findViewById<View>(R.id.level_tx) as TextView
+        val content =
+            convertView.findViewById<View>(R.id.content) as TextView
 
         val people = game.people
         val gameImgUrl = game.gameImgUrl
+
         var ppl : String? = null
         if(people.size>2) {
             ppl = people.get(0).toString() + " - " + people.get(people.size - 1).toString() + "인"
@@ -102,6 +105,7 @@ class GameListAdapter(
         type_tx.text = type
         level_tx.text = game.level
         title_tx.text = game.name
+        content.text = game.expText
         play_time_tx.text = play_time
         exp_time_tx.text = exp_time
         eng_title.text = engName

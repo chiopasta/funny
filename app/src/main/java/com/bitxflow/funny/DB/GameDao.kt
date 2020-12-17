@@ -1,5 +1,6 @@
 package com.bitxflow.funny.DB
 
+import android.util.Log
 import androidx.room.*
 
 @Dao

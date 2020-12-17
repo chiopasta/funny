@@ -31,7 +31,8 @@ import javax.net.ssl.X509TrustManager
 
 class SendServer {
 
-    private val localhost = "https://m.sungmin-i.com/"
+//    private val localhost = "https://m.sungmin-i.com/"
+    private val localhost = "https://m.bitxdev.com/"
 
     @Throws(IOException::class)
     private fun encodeParams(params: JSONObject): String? {
@@ -55,15 +56,16 @@ class SendServer {
         return try {
             conn.inputStream.bufferedReader().readText()
         }catch (e : Exception) {
-            ""
+            Log.d("bitx_log", "err:$e")
+            return ""
         }
     }
 
     fun requestPOST(_url: String?, postDataParams: JSONObject): String {
         val url = URL(localhost + _url)
         val conn: HttpURLConnection = url.openConnection() as HttpURLConnection
-        conn.readTimeout = 3000
-        conn.connectTimeout = 3000
+        conn.readTimeout = 7000
+        conn.connectTimeout = 7000
         conn.requestMethod = "POST"
         conn.setRequestProperty("Accept","application/json")
         conn.doInput = true

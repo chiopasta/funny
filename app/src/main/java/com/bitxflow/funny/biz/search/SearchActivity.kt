@@ -39,11 +39,11 @@ class SearchActivity : AppCompatActivity() {
         val addRunnable = Runnable {
 
             val games : List<GameDB>? = gameDatabase?.gameDao()?.getGames()
+            Log.d("bitx_log","games " + games.toString())
             if(games!!.isNotEmpty())
             {
                 for(item in games)
                 {
-                    item.name
                     val gameID = item.id
                     val name = item.name
                     val engName = item.engName
@@ -75,7 +75,6 @@ class SearchActivity : AppCompatActivity() {
                     game.hit = hit!!
                     game.memo = memo
                     game.gameImgUrl = gameImgUrl
-
                     val strPpl = people!!.split(",")
                     var numbers = ArrayList<Int>()
                     for(element in strPpl)
