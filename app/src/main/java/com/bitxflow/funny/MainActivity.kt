@@ -1,15 +1,20 @@
 package com.bitxflow.funny
 
+import android.Manifest.permission.CAMERA
+import android.Manifest.permission.READ_EXTERNAL_STORAGE
 import android.app.Activity
 import android.content.ComponentName
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.AsyncTask
 import android.os.Bundle
+import android.provider.MediaStore
 import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import com.bitxflow.funny.DB.GameDB
 import com.bitxflow.funny.DB.GameDatabase
 import com.bitxflow.funny.biz.beginner.BeginnerActivity
@@ -28,6 +33,7 @@ import org.json.JSONObject
 
 class MainActivity : AppCompatActivity() {
     private val LOGIN_ACTIVITY : Int = 0
+    private val REQUEST_IMAGE_CAPTURE = 1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -69,12 +75,24 @@ class MainActivity : AppCompatActivity() {
         }
 
         question_bt.setOnClickListener{
+            Intent(MediaStore.ACTION_IMAGE_CAPTURE).also { takePictureIntent ->
+                takePictureIntent.resolveActivity(packageManager)?.also {
+                    startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE)
+                }
+            }
             Toast.makeText(baseContext,"준비중 입니다",Toast.LENGTH_SHORT).show()
         }
 
         beginner.setOnClickListener {
             val intent = Intent(this, BeginnerActivity::class.java)
             startActivity(intent)
+        }
+
+        if(checkPersmission()){
+
+        }
+        else{
+            requestPermission()
         }
 
     }
@@ -116,5 +134,30 @@ class MainActivity : AppCompatActivity() {
         super.onBackPressed()
     }
 
+    private fun requestPermission() {
+        ActivityCompat.requestPermissions(this, arrayOf(READ_EXTERNAL_STORAGE, CAMERA),
+            1)
+    }
+
+    // 카메라 권한 체크
+    private fun checkPersmission(): Boolean {
+        return (ContextCompat.checkSelfPermission(this, android.Manifest.permission.CAMERA) ==
+                PackageManager.PERMISSION_GRANTED && ContextCompat.checkSelfPermission(this,
+            android.Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED)
+    }
+
+    // 권한요청 결과
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        if (requestCode == 1 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+            Log.d("TAG", "Permission: " + permissions[0] + "was " + grantResults[0] + "카메라 허가 받음 예이^^")
+        }else{
+            Log.d("TAG","카메라 허가 못받음 ㅠ 젠장!!")
+        }
+    }
 
 }
