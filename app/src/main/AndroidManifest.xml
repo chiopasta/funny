@@ -10,7 +10,6 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
-        android:usesCleartextTraffic="true"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -18,10 +17,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar"
+        android:usesCleartextTraffic="true"
         android:windowSoftInputMode="adjustResize">
         <activity
+            android:name=".biz.product.ProductSelectActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".biz.product.ProductListActivity"
+            android:screenOrientation="landscape" />
+        <activity
             android:name=".biz.beginner.BeginnerActivity"
-            android:screenOrientation="landscape"/>
+            android:screenOrientation="landscape" />
         <activity
             android:name=".biz.search.RuleActivity"
             android:screenOrientation="landscape" />

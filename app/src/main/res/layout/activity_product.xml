@@ -6,24 +6,27 @@
     android:layout_height="match_parent"
     tools:context=".biz.product.ProductActivity">
 
-    <TextView
-        android:id="@+id/coffee"
-        android:layout_centerHorizontal="true"
-        android:layout_width="wrap_content"
-        android:layout_height="300dp"
-        android:text="커피"
-        />
-
-    <TextView
-        android:layout_centerInParent="true"
-        android:text="결제 테스트 커피 3000원 결제하기"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-    </TextView>
 
     <Button
-        android:text="결제하기"
-        android:layout_alignParentBottom="true"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"></Button>
+        android:layout_marginTop="15dp"
+        android:text="커피"
+        android:id="@+id/coffee_bt"
+        android:layout_width="60dp"
+        android:layout_height="60dp">
+    </Button>
+
+    <Button
+        android:layout_below="@+id/coffee_bt"
+        android:text="디저트"
+        android:id="@+id/desert_bt"
+        android:layout_width="100dp"
+        android:layout_height="100dp"></Button>
+
+    <Button
+        android:layout_below="@+id/desert_bt"
+        android:text="셋트"
+        android:id="@+id/set_bt"
+        android:layout_width="80dp"
+        android:layout_height="80dp"></Button>
+
 </RelativeLayout>

@@ -1,5 +1,6 @@
 package com.bitxflow.funny.biz.product
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -8,6 +9,7 @@ import com.bitxflow.funny.DB.GameDatabase
 import com.bitxflow.funny.DB.Product
 import com.bitxflow.funny.R
 import com.bitxflow.funny.biz.search.Game
+import kotlinx.android.synthetic.main.activity_product.*
 import java.util.ArrayList
 
 class ProductActivity : AppCompatActivity() {
@@ -29,5 +31,9 @@ class ProductActivity : AppCompatActivity() {
         val addThread = Thread(addRunnable)
         addThread.start()
 
+        coffee_bt.setOnClickListener {
+            val intent = Intent(this, ProductListActivity::class.java)
+            startActivity(intent)
+        }
     }
 }
