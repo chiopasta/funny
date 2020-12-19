@@ -13,6 +13,7 @@ import android.view.View
 import android.widget.Toast
 import com.bitxflow.funny.DB.GameDB
 import com.bitxflow.funny.DB.GameDatabase
+import com.bitxflow.funny.DB.Product
 import com.bitxflow.funny.R
 import com.bitxflow.funny.send.SendServer
 import com.google.android.gms.common.GooglePlayServicesNotAvailableException
@@ -46,13 +47,50 @@ class LoginAcitivty : AppCompatActivity() {
 
         reload_bt.setOnClickListener {
 
-            val deleteRunnable = Runnable {
-                gameDatabase?.gameDao()?.deleteAll()
-            }
-            val deleteThread = Thread(deleteRunnable)
-            deleteThread.start()
+            //TODO change
+//            val deleteRunnable = Runnable {
+//                gameDatabase?.gameDao()?.deleteAll()
+//            }
+//            val deleteThread = Thread(deleteRunnable)
+//            deleteThread.start()
+//
+//            reloadGamesTask().execute()
 
-            reloadGamesTask().execute()
+            val addRunnable = Runnable {
+
+                Log.d("bitx_log", "DB test in")
+
+                val product = Product()
+                product.name = "아메리카노i"
+                product.price = 3000
+                product.type = "coffee"
+                product.description ="쓴맛"
+                gameDatabase?.productDao()?.insert(product)
+
+                product.name = "카페라떼"
+                product.price = 5000
+                product.type = "coffee"
+                product.description ="단맛"
+                gameDatabase?.productDao()?.insert(product)
+
+                product.name = "허니브레드"
+                product.price = 10000
+                product.type = "desert"
+                product.description ="브레드요"
+                gameDatabase?.productDao()?.insert(product)
+
+                product.name = "셋트1"
+                product.price = 22000
+                product.type = "set"
+                product.description ="허니브레드 + 아메리카노2"
+                gameDatabase?.productDao()?.insert(product)
+
+
+            }
+
+            val addThread = Thread(addRunnable)
+            addThread.start()
+
         }
     }
 
