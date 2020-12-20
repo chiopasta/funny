@@ -5,22 +5,28 @@
 
     <TextView
         android:id="@+id/product_name_tx"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="350dp"
+        android:layout_height="50dp"
+        android:textSize="18sp"
+        android:fontFamily="@font/malgunbd"
         android:text="커피" />
 
     <TextView
         android:id="@+id/description_tx"
         android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/product_name_tx"
+        android:textSize="13sp"
+        android:fontFamily="@font/malgun"
         android:text="쓴맛" />
 
     <TextView
         android:layout_toRightOf="@id/product_name_tx"
         android:id="@+id/price_tx"
         android:text="5000원"
-        android:layout_width="100dp"
-        android:layout_height="100dp"/>
+        android:textSize="18sp"
+        android:fontFamily="@font/malgunbd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
 
 </RelativeLayout>

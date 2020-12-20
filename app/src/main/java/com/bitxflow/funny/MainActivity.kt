@@ -49,7 +49,6 @@ class MainActivity : AppCompatActivity() {
         }
 
         product_bt.setOnClickListener {
-            Toast.makeText(baseContext,"준비중 입니다",Toast.LENGTH_SHORT).show()
             val intent = Intent(this, ProductActivity::class.java)
             startActivity(intent)
         }
