@@ -2,35 +2,35 @@ package com.bitxflow.funny.biz.login
 
 import android.Manifest
 import android.app.Activity
+import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.AsyncTask
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Environment
+import android.print.PrintAttributes
+import android.print.PrintJob
+import android.print.PrintManager
 import android.util.Log
 import android.view.View
 import android.widget.Toast
+import androidx.annotation.RequiresApi
+import androidx.appcompat.app.AppCompatActivity
 import com.bitxflow.funny.DB.GameDB
 import com.bitxflow.funny.DB.GameDatabase
-import com.bitxflow.funny.DB.Product
 import com.bitxflow.funny.R
 import com.bitxflow.funny.send.SendServer
-import com.google.android.gms.common.GooglePlayServicesNotAvailableException
-import com.google.android.gms.common.GooglePlayServicesRepairableException
-import com.google.android.gms.security.ProviderInstaller
+import com.bitxflow.funny.util.PdfDocumentAdapter
 import kotlinx.android.synthetic.main.activity_login.*
 import org.json.JSONObject
-import java.lang.Exception
-import java.security.KeyManagementException
-import java.security.NoSuchAlgorithmException
-import javax.net.ssl.SSLContext
-import javax.net.ssl.SSLEngine
+import java.io.File
 
 class LoginAcitivty : AppCompatActivity() {
 
     private var gameDatabase : GameDatabase? = null
 
+    @RequiresApi(Build.VERSION_CODES.KITKAT)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
@@ -90,6 +90,25 @@ class LoginAcitivty : AppCompatActivity() {
 //            addThread.start()
 
         }
+
+
+        print_test_bt.setOnClickListener{
+            val printManager = LoginAcitivty@this
+                .getSystemService(Context.PRINT_SERVICE) as PrintManager
+            val fileName =  Environment.getExternalStorageDirectory().absolutePath +"/Pictures/test.pdf"
+            val file = File(fileName)
+            val printAdapter = PdfDocumentAdapter(LoginAcitivty@this,file.absolutePath)
+            val attribues = PrintAttributes.Builder()
+                .setMediaSize(PrintAttributes.MediaSize.ISO_A4)
+                .setResolution(PrintAttributes.Resolution("id",Context.PRINT_SERVICE,200,200))
+                .setColorMode(PrintAttributes.COLOR_MODE_COLOR)
+                .setMinMargins(PrintAttributes.Margins.NO_MARGINS)
+                .build()
+            printManager.print("Document", printAdapter, attribues)
+//            printManager.print("Document", printAdapter, PrintAttributes.Builder().build())
+
+        }
+
     }
 
     internal inner class SendTask : AsyncTask<String, String, String>() {
@@ -349,6 +368,16 @@ class LoginAcitivty : AppCompatActivity() {
             }
 
         }
+    }
+
+    @RequiresApi(Build.VERSION_CODES.KITKAT)
+    private fun doPrint()
+    {
+        val printManager = applicationContext
+            .getSystemService(Context.PRINT_SERVICE) as PrintManager
+        val str = "test"
+
+
     }
 
 }

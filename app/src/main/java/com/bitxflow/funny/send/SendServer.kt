@@ -51,7 +51,7 @@ class SendServer {
     }
 
     fun requestGET(_url: String?): String {
-        val url = URL(localhost + _url)
+        val url = URL(_url)
         val conn: HttpURLConnection = url.openConnection() as HttpURLConnection
         return try {
             conn.inputStream.bufferedReader().readText()
