@@ -84,15 +84,5 @@
         app:layout_constraintVertical_bias="0.3"
         />
 
-    <Button
-        android:id="@+id/print_test_bt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="프린트 테스트"
-        app:layout_constraintTop_toBottomOf="@id/reload_bt"
-        app:layout_constraintEnd_toEndOf="@+id/password"
-        app:layout_constraintStart_toStartOf="@+id/password"
-        app:layout_constraintVertical_bias="0.3"
-        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

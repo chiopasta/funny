@@ -11,10 +11,10 @@ class RuleActivity : AppCompatActivity() {
         setContentView(R.layout.activity_rule)
 
         val intent = intent
-        val engName = intent.extras!!.getString("engName").toString()
+        val name = intent.extras!!.getString("name").toString()
         val memo = intent.extras!!.getString("memo").toString()
 
-        val pagerAdapter = RulePagerAdapter(this,engName,memo)
+        val pagerAdapter = RulePagerAdapter(this,name,memo)
         viewpager.adapter = pagerAdapter
         indicator.setViewPager(viewpager)
 

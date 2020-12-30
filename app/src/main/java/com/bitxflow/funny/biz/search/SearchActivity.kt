@@ -134,16 +134,16 @@ class SearchActivity : AppCompatActivity() {
 
                 when(level_rg.checkedRadioButtonId){
                     R.id.level0_radio_bt -> level= ""
-                    R.id.level1_radio_bt -> level= "쉬움"
+                    R.id.level1_radio_bt -> level= "낮음"
                     R.id.level2_radio_bt -> level= "중간"
-                    R.id.level3_radio_bt -> level= "어려움"
+                    R.id.level3_radio_bt -> level= "높음"
                 }
 
                 when(type_rg.checkedRadioButtonId){
                     R.id.type0_radio_bt -> type= ""
-                    R.id.type_gura -> type= "구라"
-                    R.id.type_inference -> type= "추리"
-                    R.id.type_speed -> type= "순발력"
+                    R.id.type_clue -> type= "추리"
+                    R.id.type_simri -> type= "심리"
+                    R.id.type_strategy -> type= "전략"
                 }
 
                 search_gameList = gameList.filter{it.people.contains(ppl)}

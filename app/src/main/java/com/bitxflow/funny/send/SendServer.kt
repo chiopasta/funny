@@ -31,8 +31,8 @@ import javax.net.ssl.X509TrustManager
 
 class SendServer {
 
-//    private val localhost = "https://m.sungmin-i.com/"
-    private val localhost = "https://m.bitxdev.com/"
+    private val localhost = "https://m.sungmin-i.com/"
+//    private val localhost = "https://m.bitxdev.com/"
 
     @Throws(IOException::class)
     private fun encodeParams(params: JSONObject): String? {

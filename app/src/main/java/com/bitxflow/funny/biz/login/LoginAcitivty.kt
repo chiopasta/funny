@@ -92,22 +92,22 @@ class LoginAcitivty : AppCompatActivity() {
         }
 
 
-        print_test_bt.setOnClickListener{
-            val printManager = LoginAcitivty@this
-                .getSystemService(Context.PRINT_SERVICE) as PrintManager
-            val fileName =  Environment.getExternalStorageDirectory().absolutePath +"/Pictures/test.pdf"
-            val file = File(fileName)
-            val printAdapter = PdfDocumentAdapter(LoginAcitivty@this,file.absolutePath)
-            val attribues = PrintAttributes.Builder()
-                .setMediaSize(PrintAttributes.MediaSize.ISO_A4)
-                .setResolution(PrintAttributes.Resolution("id",Context.PRINT_SERVICE,200,200))
-                .setColorMode(PrintAttributes.COLOR_MODE_COLOR)
-                .setMinMargins(PrintAttributes.Margins.NO_MARGINS)
-                .build()
-            printManager.print("Document", printAdapter, attribues)
-//            printManager.print("Document", printAdapter, PrintAttributes.Builder().build())
-
-        }
+//        print_test_bt.setOnClickListener{
+////            val printManager = LoginAcitivty@this
+////                .getSystemService(Context.PRINT_SERVICE) as PrintManager
+////            val fileName =  Environment.getExternalStorageDirectory().absolutePath +"/Pictures/test.pdf"
+////            val file = File(fileName)
+////            val printAdapter = PdfDocumentAdapter(LoginAcitivty@this,file.absolutePath)
+////            val attribues = PrintAttributes.Builder()
+////                .setMediaSize(PrintAttributes.MediaSize.ISO_A4)
+////                .setResolution(PrintAttributes.Resolution("id",Context.PRINT_SERVICE,200,200))
+////                .setColorMode(PrintAttributes.COLOR_MODE_COLOR)
+////                .setMinMargins(PrintAttributes.Margins.NO_MARGINS)
+////                .build()
+////            printManager.print("Document", printAdapter, attribues)
+////            printManager.print("Document", printAdapter, PrintAttributes.Builder().build())
+//
+//        }
 
     }
 
@@ -242,24 +242,24 @@ class LoginAcitivty : AppCompatActivity() {
                         Log.d("bitx_log", "DB test in")
 
                         val game = GameDB()
-                        game.name = "할리갈리"
-                        game.engName = "Hally Gally"
-                        val str = "순발력,퍼즐"
+                        game.name = "다이아몬드 게임"
+                        game.engName = "Diamond_Game"
+                        val str = "두뇌싸움,머리조금만쓰는"
                         game.type = str
                         game.expUrl =
                             "https://youtu.be/5VkE9fEj7sM"
-                        game.people = "2,3,4,5,6"
+                        game.people = "2,3"
                         game.gameImgUrl ="https://blogfiles.pstatic.net/20151125_256/acolyte_1448463493847DA9xU_PNG/1.png"
                         game.gameTime = "15분"
                         game.expTime = "15:30"
                         game.expImg = "1. 12개를 가지고 오세요 \n2. 카드를 가져오세요"
-                        game.level = "쉬움"
+                        game.level = "낮음"
                         game.recommend = "추천"
                         game.hit=1
                         gameDatabase?.gameDao()?.insert(game)
 
                         val game2 = GameDB()
-                        game2.name = "카탄"
+                        game2.name = "달무티 몬드"
                         game2.engName = "katan"
                         val str2 = "추리,구라,순발력"
                         game2.type = str2

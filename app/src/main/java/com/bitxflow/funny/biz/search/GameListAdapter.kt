@@ -57,8 +57,7 @@ class GameListAdapter(
         val game = member[position]
         val res: Int = R.layout.game_list
         val convertView = mInflater.inflate(res, parent, false)
-
-        val engName = game.engName?.replace(" ","_")
+        val name = game.name?.replace(" ","")
 
         val title_tx =
             convertView.findViewById<View>(R.id.game_list_name) as TextView
@@ -108,7 +107,7 @@ class GameListAdapter(
         content.text = game.expText
         play_time_tx.text = play_time
         exp_time_tx.text = exp_time
-        eng_title.text = engName
+        eng_title.text = game.engName
 
         setting_bt.setOnClickListener {
             val builder = AlertDialog.Builder(_activity)
@@ -133,14 +132,14 @@ class GameListAdapter(
                 val Intent = Intent(_context, RuleActivity::class.java)
                 Intent.setFlags(android.content.Intent.FLAG_ACTIVITY_NEW_TASK)
                 Intent.putExtra("memo", memo)
-                Intent.putExtra("engName", engName)
+                Intent.putExtra("name", name)
                 _context.startActivity(Intent)
             }
         }
 
         expUrl_bt.setOnClickListener {
             try {
-                val fileName =  Environment.getExternalStorageDirectory().absolutePath +"/Movies/"+engName+".mp4"
+                val fileName =  Environment.getExternalStorageDirectory().absolutePath +"/Movies/"+name+".mp4"
                 var file = File(fileName)
                 if(file.exists())
                 {
@@ -163,8 +162,7 @@ class GameListAdapter(
         }
 
         ///////////////// GAME IMG /////////////////////////////
-        //TODO 이거뭔가 이상?
-        if(!engName.isNullOrBlank()) {
+        if(!name.isNullOrBlank()) {
 //            val id = _context.resources.getIdentifier(engName, "drawable", _context.packageName)
 //            if (id > 0) {
 //                img_iv.setImageResource(id)
@@ -172,7 +170,7 @@ class GameListAdapter(
 //                Glide.with(convertView).load(gameImgUrl).placeholder(R.drawable.loading).override(1000, 600).into(img_iv)
 //            }
             var isFileExist = false
-            var fileName =  Environment.getExternalStorageDirectory().absolutePath +"/Pictures/"+ engName +".jpg"
+            var fileName =  Environment.getExternalStorageDirectory().absolutePath +"/Pictures/"+ name +".jpg"
             var file = File(fileName)
             if(file.exists())
             {
@@ -180,7 +178,7 @@ class GameListAdapter(
                 img_iv.setImageBitmap(myBitmap)
                 isFileExist=true
             }
-            fileName =  Environment.getExternalStorageDirectory().absolutePath +"/Pictures/"+ engName +".png"
+            fileName =  Environment.getExternalStorageDirectory().absolutePath +"/Pictures/"+ name +".png"
             file = File(fileName)
             if(file.exists())
             {
@@ -188,7 +186,7 @@ class GameListAdapter(
                 img_iv.setImageBitmap(myBitmap)
                 isFileExist = true
             }
-            fileName =  Environment.getExternalStorageDirectory().absolutePath +"/Pictures/"+ engName +".jpeg"
+            fileName =  Environment.getExternalStorageDirectory().absolutePath +"/Pictures/"+ name +".jpeg"
             file = File(fileName)
             if(file.exists())
             {
@@ -196,7 +194,7 @@ class GameListAdapter(
                 img_iv.setImageBitmap(myBitmap)
                 isFileExist = true
             }
-            fileName =  Environment.getExternalStorageDirectory().absolutePath +"/Pictures/"+ engName +".bmp"
+            fileName =  Environment.getExternalStorageDirectory().absolutePath +"/Pictures/"+ name +".bmp"
             file = File(fileName)
             if(file.exists())
             {

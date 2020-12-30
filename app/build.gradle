@@ -52,4 +52,5 @@ dependencies {
     testImplementation "androidx.room:room-testing:2.2.5"
     implementation 'com.github.MikeOrtiz:TouchImageView:3.0.1'
     implementation 'me.relex:circleindicator:1.2.2'
+    compile 'com.github.Gavras:MultiLineRadioGroup:v1.0.0.6'
 }

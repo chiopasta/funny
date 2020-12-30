@@ -209,7 +209,7 @@
                         android:layout_height="28dp"
                         android:background="@drawable/btn_round"
                         android:button="@android:color/transparent"
-                        android:text="   쉬움"
+                        android:text="   낮음"
                         android:textColor="#3b3b3b"></RadioButton>
 
                     <RadioButton
@@ -231,7 +231,7 @@
                         android:layout_height="28dp"
                         android:background="@drawable/btn_round"
                         android:button="@android:color/transparent"
-                        android:text="   어려움"
+                        android:text="   높음"
                         android:textColor="#3b3b3b"></RadioButton>
                 </RadioGroup>
             </LinearLayout>
@@ -267,6 +267,7 @@
             android:background="#faf9f5"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
+
             <RadioGroup
                 android:layout_marginTop="15dp"
                 android:id="@+id/time_rg"
@@ -324,14 +325,14 @@
 
         <RelativeLayout
             android:layout_width="300dp"
-            android:layout_height="100dp"
+            android:layout_height="150dp"
             android:background="#447184">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="60dp"
                 android:fontFamily="@font/bmdo"
                 android:text="장르선택"
                 android:textColor="#ffffff"></TextView>
@@ -342,47 +343,308 @@
             android:background="#faf9f5"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
+
             <RadioGroup
                 android:layout_marginTop="20dp"
                 android:id="@+id/type_rg"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_marginLeft="10dp"
-                android:orientation="horizontal">
+                android:orientation="vertical">
 
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
                 <RadioButton
                     android:id="@+id/type0_radio_bt"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="80dp"
+                    android:layout_height="28dp"
                     android:background="@drawable/btn_round"
+                    android:onClick="oneRadioButtonClicked"
+                    android:textSize="15sp"
+                    android:layout_gravity="center"
                     android:button="@android:color/transparent"
                     android:checked="true"
                     android:text="   상관없음"
                     android:textColor="#3b3b3b"></RadioButton>
 
                 <RadioButton
+                    android:layout_marginLeft="10dp"
+                    android:id="@+id/type_strategy"
+                    android:background="@drawable/btn_round"
+                    android:button="@android:color/transparent"
+                    android:layout_width="48dp"
+                    android:onClick="oneRadioButtonClicked"
+                    android:layout_height="28dp"
+                    android:textSize="15sp"
+                    android:layout_gravity="center"
+                    android:text="   전략"
+                    android:textColor="#3b3b3b"
+                    ></RadioButton>
+
+                <RadioButton
+                    android:layout_marginLeft="8dp"
+                    android:id="@+id/type_clue"
+                    android:background="@drawable/btn_round"
+                    android:onClick="oneRadioButtonClicked"
+                    android:button="@android:color/transparent"
+                    android:layout_width="48dp"
+                    android:layout_height="28dp"
+                    android:textSize="15sp"
+                    android:layout_gravity="center"
+                    android:text="   추리"
+                    android:textColor="#3b3b3b"
+                    ></RadioButton>
+
+                <RadioButton
+                    android:layout_marginLeft="8dp"
+                    android:id="@+id/type_simri"
+                    android:background="@drawable/btn_round"
+                    android:button="@android:color/transparent"
+                    android:layout_width="48dp"
+                    android:layout_height="28dp"
+                    android:textSize="15sp"
+                    android:layout_gravity="center"
+                    android:text="   심리"
+                    android:textColor="#3b3b3b"
+                    ></RadioButton>
+
+                <RadioButton
+                    android:layout_marginLeft="8dp"
+                    android:id="@+id/type_nego"
+                    android:background="@drawable/btn_round"
+                    android:button="@android:color/transparent"
+                    android:layout_width="90dp"
+                    android:layout_height="28dp"
+                    android:textSize="15sp"
+                    android:layout_gravity="center"
+                    android:text="   협상/경매"
+                    android:textColor="#3b3b3b"
+                    ></RadioButton>
+
+                <RadioButton
+                    android:layout_marginLeft="8dp"
                     android:id="@+id/type_speed"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:background="@drawable/btn_round"
                     android:button="@android:color/transparent"
-                    android:text="순발력"
-                    android:textColor="#3b3b3b"></RadioButton>
+                    android:layout_width="70dp"
+                    android:layout_height="28dp"
+                    android:textSize="15sp"
+                    android:layout_gravity="center"
+                    android:text="   순발력"
+                    android:textColor="#3b3b3b"
+                    ></RadioButton>
 
                 <RadioButton
-                    android:id="@+id/type_inference"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:id="@+id/type_binjung"
                     android:background="@drawable/btn_round"
                     android:button="@android:color/transparent"
-                    android:text="추리"
-                    android:textColor="#3b3b3b"></RadioButton>
+                    android:layout_width="90dp"
+                    android:layout_height="28dp"
+                    android:textSize="15sp"
+                    android:layout_gravity="center"
+                    android:text="    빈정상함"
+                    android:textColor="#3b3b3b"
+                    ></RadioButton>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_marginTop="5dp"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
 
                 <RadioButton
-                    android:id="@+id/type_gura"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="구라"></RadioButton>
+                    android:id="@+id/type_economy"
+                    android:layout_width="50dp"
+                    android:layout_height="28dp"
+                    android:background="@drawable/btn_round"
+                    android:textSize="15sp"
+                    android:layout_gravity="center"
+                    android:button="@android:color/transparent"
+                    android:text="   경제"
+                    android:textColor="#3b3b3b"></RadioButton>
+
+
+                    <RadioButton
+                        android:layout_marginLeft="8dp"
+                        android:id="@+id/type_memory"
+                        android:background="@drawable/btn_round"
+                        android:button="@android:color/transparent"
+                        android:layout_width="70dp"
+                        android:layout_height="28dp"
+                        android:textSize="15sp"
+                        android:layout_gravity="center"
+                        android:text="   기억력"
+                        android:textColor="#3b3b3b"
+                        ></RadioButton>
+
+                    <RadioButton
+                        android:layout_marginLeft="8dp"
+                        android:id="@+id/type_teamplay"
+                        android:background="@drawable/btn_round"
+                        android:button="@android:color/transparent"
+                        android:layout_width="48dp"
+                        android:layout_height="28dp"
+                        android:textSize="15sp"
+                        android:layout_gravity="center"
+                        android:text="   팀플"
+                        android:textColor="#3b3b3b"
+                        ></RadioButton>
+
+                    <RadioButton
+                        android:layout_marginLeft="8dp"
+                        android:id="@+id/type_cowork"
+                        android:background="@drawable/btn_round"
+                        android:button="@android:color/transparent"
+                        android:layout_width="48dp"
+                        android:layout_height="28dp"
+                        android:textSize="15sp"
+                        android:layout_gravity="center"
+                        android:text="   협력"
+                        android:textColor="#3b3b3b"
+                        ></RadioButton>
+
+                    <RadioButton
+                        android:layout_marginLeft="8dp"
+                        android:id="@+id/type_luck"
+                        android:background="@drawable/btn_round"
+                        android:button="@android:color/transparent"
+                        android:layout_width="48dp"
+                        android:layout_height="28dp"
+                        android:textSize="15sp"
+                        android:layout_gravity="center"
+                        android:text="   운빨"
+                        android:textColor="#3b3b3b"
+                        ></RadioButton>
+
+                    <RadioButton
+                        android:layout_marginLeft="8dp"
+                        android:id="@+id/type_mapia"
+                        android:background="@drawable/btn_round"
+                        android:button="@android:color/transparent"
+                        android:layout_width="70dp"
+                        android:layout_height="28dp"
+                        android:textSize="15sp"
+                        android:layout_gravity="center"
+                        android:text="   마피아"
+                        android:textColor="#3b3b3b"
+                        ></RadioButton>
+
+                    <RadioButton
+                        android:layout_marginLeft="8dp"
+                        android:id="@+id/type_brain"
+                        android:background="@drawable/btn_round"
+                        android:button="@android:color/transparent"
+                        android:layout_width="90dp"
+                        android:layout_height="28dp"
+                        android:textSize="15sp"
+                        android:layout_gravity="center"
+                        android:text="   두뇌싸움"
+                        android:textColor="#3b3b3b"
+                        ></RadioButton>
+
+                    <RadioButton
+                        android:layout_marginLeft="8dp"
+                        android:id="@+id/type_betting"
+                        android:background="@drawable/btn_round"
+                        android:button="@android:color/transparent"
+                        android:layout_width="48dp"
+                        android:layout_height="28dp"
+                        android:textSize="15sp"
+                        android:layout_gravity="center"
+                        android:text="   배팅"
+                        android:textColor="#3b3b3b"
+                        ></RadioButton>
+
+                    <RadioButton
+                        android:layout_marginLeft="8dp"
+                        android:id="@+id/type_bluffing"
+                        android:background="@drawable/btn_round"
+                        android:button="@android:color/transparent"
+                        android:layout_width="70dp"
+                        android:layout_height="28dp"
+                        android:textSize="15sp"
+                        android:layout_gravity="center"
+                        android:text="   뻥치기"
+                        android:textColor="#3b3b3b"
+                        ></RadioButton>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_marginTop="5dp"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <RadioButton
+                        android:id="@+id/type_nobrain"
+                        android:layout_width="120dp"
+                        android:layout_height="28dp"
+                        android:background="@drawable/btn_round"
+                        android:textSize="15sp"
+                        android:layout_gravity="center"
+                        android:button="@android:color/transparent"
+                        android:text="   머리조금만쓰는"
+                        android:textColor="#3b3b3b"></RadioButton>
+
+                    <RadioButton
+                        android:layout_marginLeft="8dp"
+                        android:id="@+id/type_party"
+                        android:background="@drawable/btn_round"
+                        android:button="@android:color/transparent"
+                        android:layout_width="48dp"
+                        android:layout_height="28dp"
+                        android:textSize="15sp"
+                        android:layout_gravity="center"
+                        android:text="   파티"
+                        android:textColor="#3b3b3b"
+                        ></RadioButton>
+
+                    <RadioButton
+                        android:layout_marginLeft="8dp"
+                        android:id="@+id/type_tackle"
+                        android:background="@drawable/btn_round"
+                        android:button="@android:color/transparent"
+                        android:layout_width="48dp"
+                        android:layout_height="28dp"
+                        android:textSize="15sp"
+                        android:layout_gravity="center"
+                        android:text="   딴지"
+                        android:textColor="#3b3b3b"
+                        ></RadioButton>
+
+                    <RadioButton
+                        android:layout_marginLeft="8dp"
+                        android:id="@+id/type_knowlege"
+                        android:background="@drawable/btn_round"
+                        android:button="@android:color/transparent"
+                        android:layout_width="48dp"
+                        android:layout_height="28dp"
+                        android:textSize="15sp"
+                        android:layout_gravity="center"
+                        android:text="   지식"
+                        android:textColor="#3b3b3b"
+                        ></RadioButton>
+
+                    <RadioButton
+                        android:layout_marginLeft="8dp"
+                        android:id="@+id/type_puzzle"
+                        android:background="@drawable/btn_round"
+                        android:button="@android:color/transparent"
+                        android:layout_width="48dp"
+                        android:layout_height="28dp"
+                        android:textSize="15sp"
+                        android:layout_gravity="center"
+                        android:text="   퍼즐"
+                        android:textColor="#3b3b3b"
+                        ></RadioButton>
+
+                </LinearLayout>
             </RadioGroup>
         </RelativeLayout>
 
