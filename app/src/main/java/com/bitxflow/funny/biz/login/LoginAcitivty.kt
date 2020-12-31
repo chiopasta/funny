@@ -279,6 +279,7 @@ class LoginAcitivty : AppCompatActivity() {
                         game3.engName= "bang of bang"
                         val str3 = "추리,구라"
                         game3.type = str3
+                        game3.gameTime = "45"
                         game3.gameImgUrl ="https://blogfiles.pstatic.net/20151125_256/acolyte_1448463493847DA9xU_PNG/1.png"
                         game3.people = "6,7,8,9"
                         game3.level = "어려움";
@@ -291,6 +292,7 @@ class LoginAcitivty : AppCompatActivity() {
                         val str4 = "추리,구라,퍼즐,심리"
                         game4.level = "중간";
                         game4.type = str4
+                        game4.gameTime = "60"
                         game4.recommend = "비추천"
                         game4.gameImgUrl ="https://blogfiles.pstatic.net/20151125_256/acolyte_1448463493847DA9xU_PNG/1.png"
                         val numbers4 = intArrayOf(2, 3, 4, 5)

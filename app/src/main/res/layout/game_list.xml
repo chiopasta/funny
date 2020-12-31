@@ -5,6 +5,7 @@
     android:background="#ffffff">
 
     <ImageView
+        android:layout_marginLeft="30dp"
         android:id="@+id/game_list_iv"
         android:layout_width="260dp"
         android:layout_height="260dp"></ImageView>

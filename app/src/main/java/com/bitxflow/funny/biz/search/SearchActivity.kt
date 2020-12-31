@@ -1,26 +1,21 @@
 package com.bitxflow.funny.biz.search
 
-import android.app.Activity
 import android.content.Context
-import android.os.AsyncTask
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.view.MotionEvent
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.ArrayAdapter
+import android.widget.RadioGroup
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.bitxflow.funny.DB.GameDB
 import com.bitxflow.funny.DB.GameDatabase
 import com.bitxflow.funny.R
-import com.bitxflow.funny.biz.video.MemoryVideoView
-import com.bitxflow.funny.send.SendServer
-import com.google.android.youtube.player.internal.i
 import kotlinx.android.synthetic.main.activity_search.*
 import kotlinx.android.synthetic.main.search_header.*
-import org.json.JSONObject
-import java.util.ArrayList
+import java.util.*
+
 
 class SearchActivity : AppCompatActivity() {
     var gameList : ArrayList<Game> = ArrayList()
@@ -30,7 +25,8 @@ class SearchActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_search)
 
-        var ppl = 0;
+        var ppl = 0
+        var time = ""
         var level = ""
         var type = ""
 
@@ -110,6 +106,60 @@ class SearchActivity : AppCompatActivity() {
             finish()
         }
 
+        var isChecking = true
+        var mCheckedId = 0
+
+//        type_rg.setOnCheckedChangeListener { radioGroup, i ->
+//            type_rg2.clearCheck()
+//            type_rg3.clearCheck()
+//        }
+//        type_rg2.setOnCheckedChangeListener { radioGroup, i ->
+//            type_rg.clearCheck()
+//            type_rg3.clearCheck()
+//        }
+//        type_rg3.setOnCheckedChangeListener { radioGroup, i ->
+//            type_rg.clearCheck()
+//            type_rg2.clearCheck()
+//        }
+
+        type_rg.setOnCheckedChangeListener(RadioGroup.OnCheckedChangeListener { group, checkedId ->
+            if (checkedId != -1 && isChecking) {
+                isChecking = false
+                if(type_rg2.checkedRadioButtonId != -1) // checked
+                    type_rg2.clearCheck()
+                if(type_rg3.checkedRadioButtonId != -1)
+                    type_rg3.clearCheck()
+                mCheckedId = checkedId
+            }
+                isChecking = true
+        })
+
+        type_rg2.setOnCheckedChangeListener { _, checkedId ->
+            if (checkedId != -1 && isChecking) {
+                isChecking = false
+                if(type_rg.checkedRadioButtonId != -1)
+                    type_rg.clearCheck()
+                if(type_rg3.checkedRadioButtonId != -1)
+                    type_rg3.clearCheck()
+                mCheckedId = checkedId
+            }
+             isChecking = true
+        }
+
+        type_rg3.setOnCheckedChangeListener { _, checkedId ->
+            if (checkedId != -1 && isChecking) {
+                isChecking = false
+
+                if(type_rg.checkedRadioButtonId != -1)
+                    type_rg.clearCheck()
+                if(type_rg2.checkedRadioButtonId != -1)
+                    type_rg2.clearCheck()
+
+                mCheckedId = checkedId
+            }
+                isChecking = true
+        }
+
         search_bt.setOnClickListener {
 
             it.hideKeyboard()
@@ -132,6 +182,16 @@ class SearchActivity : AppCompatActivity() {
                     R.id.ppl8_radio_bt -> ppl=8
                 }
 
+                when(time_rg.checkedRadioButtonId){
+                    R.id.time0_radio_bt -> time = ""
+                    R.id.time_10 -> time = "10"
+                    R.id.time_15 -> time = "15"
+                    R.id.time_20 -> time = "20"
+                    R.id.time_30 -> time = "30"
+                    R.id.time_45 -> time = "45"
+                    R.id.time_60 -> time = "60"
+                }
+
                 when(level_rg.checkedRadioButtonId){
                     R.id.level0_radio_bt -> level= ""
                     R.id.level1_radio_bt -> level= "낮음"
@@ -144,12 +204,38 @@ class SearchActivity : AppCompatActivity() {
                     R.id.type_clue -> type= "추리"
                     R.id.type_simri -> type= "심리"
                     R.id.type_strategy -> type= "전략"
+                    R.id.type_nego -> type= "협상"
+                    R.id.type_speed -> type= "순발력"
+                    R.id.type_binjung -> type= "빈정상함"
+                }
+
+                when(type_rg2.checkedRadioButtonId){
+                    R.id.type_economy -> type= "경제"
+                    R.id.type_memory -> type= "기억력"
+                    R.id.type_teamplay -> type= "팀플"
+                    R.id.type_cowork -> type= "협력"
+                    R.id.type_luck -> type= "운빨"
+                    R.id.type_mapia -> type= "마피아"
+                    R.id.type_brain -> type= "두뇌싸움"
+                    R.id.type_betting -> type= "배팅"
+                    R.id.type_bluffing -> type= "뻥치기"
+                }
+
+                when(type_rg3.checkedRadioButtonId){
+                    R.id.type_nobrain -> type= "머리조금만쓰는"
+                    R.id.type_party -> type= "파티"
+                    R.id.type_tackle -> type= "딴지"
+                    R.id.type_knowlege -> type= "지식"
+                    R.id.type_puzzle -> type= "퍼즐"
                 }
 
                 search_gameList = gameList.filter{it.people.contains(ppl)}
 
                 if(!level.isNullOrBlank()) {
                     search_gameList = search_gameList.filter { it.level!!.contains(level) }
+                }
+                if(!time.isNullOrBlank()) {
+                    search_gameList = search_gameList.filter { it.gameTime!!.contains(time) }
                 }
                 if(!type.isNullOrBlank()) {
                     search_gameList = search_gameList.filter { it.type.contains(type) }
