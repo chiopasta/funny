@@ -25,6 +25,7 @@ import com.bitxflow.funny.biz.login.LoginAcitivty
 import com.bitxflow.funny.biz.product.ProductActivity
 import com.bitxflow.funny.biz.recommend.RecommendActivity
 import com.bitxflow.funny.biz.search.SearchActivity
+import com.bitxflow.funny.biz.snack.SnackActivity
 import com.bitxflow.funny.send.SendServer
 import kotlinx.android.synthetic.main.activity_coupon.*
 import kotlinx.android.synthetic.main.activity_main.*
@@ -49,7 +50,8 @@ class MainActivity : AppCompatActivity() {
         }
 
         product_bt.setOnClickListener {
-            val intent = Intent(this, ProductActivity::class.java)
+//            val intent = Intent(this, ProductActivity::class.java)
+            val intent = Intent(this, SnackActivity::class.java)
             startActivity(intent)
         }
 
@@ -74,11 +76,6 @@ class MainActivity : AppCompatActivity() {
         }
 
         question_bt.setOnClickListener{
-            Intent(MediaStore.ACTION_IMAGE_CAPTURE).also { takePictureIntent ->
-                takePictureIntent.resolveActivity(packageManager)?.also {
-                    startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE)
-                }
-            }
             Toast.makeText(baseContext,"준비중 입니다",Toast.LENGTH_SHORT).show()
         }
 
@@ -128,9 +125,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onBackPressed() {
-        //TODO 나중에 바꿔야함
-//        Toast.makeText(applicationContext,"종료하실수 없습니다",Toast.LENGTH_SHORT).show()
-        super.onBackPressed()
+        Toast.makeText(applicationContext,"종료하실수 없습니다",Toast.LENGTH_SHORT).show()
+//        super.onBackPressed()
     }
 
     private fun requestPermission() {
@@ -152,11 +148,11 @@ class MainActivity : AppCompatActivity() {
         grantResults: IntArray
     ) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-        if (requestCode == 1 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-            Log.d("TAG", "Permission: " + permissions[0] + "was " + grantResults[0] + "카메라 허가 받음 예이^^")
-        }else{
-            Log.d("TAG","카메라 허가 못받음 ㅠ 젠장!!")
-        }
+//        if (requestCode == 1 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+//            Log.d("TAG", "Permission: " + permissions[0] + "was " + grantResults[0] + "카메라 허가 받음 예이^^")
+//        }else{
+//            Log.d("TAG","카메라 허가 못받음 ㅠ 젠장!!")
+//        }
     }
 
 }

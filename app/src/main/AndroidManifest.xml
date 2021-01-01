@@ -20,6 +20,9 @@
         android:usesCleartextTraffic="true"
         android:windowSoftInputMode="adjustResize">
         <activity
+            android:name=".biz.snack.SnackActivity"
+            android:screenOrientation="landscape" />
+        <activity
             android:name=".biz.product.ProductSelectActivity"
             android:screenOrientation="landscape" />
         <activity
