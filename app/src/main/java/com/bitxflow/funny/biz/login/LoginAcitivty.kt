@@ -2,6 +2,7 @@ package com.bitxflow.funny.biz.login
 
 import android.Manifest
 import android.app.Activity
+import android.app.AlertDialog
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -14,21 +15,26 @@ import android.print.PrintJob
 import android.print.PrintManager
 import android.util.Log
 import android.view.View
+import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import com.bitxflow.funny.DB.GameDB
 import com.bitxflow.funny.DB.GameDatabase
+import com.bitxflow.funny.DB.User
 import com.bitxflow.funny.R
 import com.bitxflow.funny.send.SendServer
 import com.bitxflow.funny.util.PdfDocumentAdapter
 import kotlinx.android.synthetic.main.activity_login.*
+import kotlinx.android.synthetic.main.hidden_dialog.*
 import org.json.JSONObject
 import java.io.File
 
 class LoginAcitivty : AppCompatActivity() {
 
     private var gameDatabase : GameDatabase? = null
+    private var count = 0
 
     @RequiresApi(Build.VERSION_CODES.KITKAT)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -38,11 +44,26 @@ class LoginAcitivty : AppCompatActivity() {
         gameDatabase = GameDatabase.getInstance(baseContext)
 
         login_bt.setOnClickListener{
-            val id = username.text.toString()
-            val pw = password.text.toString()
             login_pbar.visibility = View.VISIBLE
-            SendTask().execute(id,pw)
-            login_bt.isClickable = false
+
+            val getUserRunable = Runnable {
+                val users = gameDatabase?.userDao()?.getUsers()
+                var id = ""
+                var pw = ""
+                id = username.text.toString()
+                pw = password.text.toString()
+                if(id.isNullOrEmpty())
+                {
+                    val user = users!!.last()
+                    id = user.userID.toString()
+                    pw = user.pass.toString()
+                }
+
+                SendTask().execute(id,pw)
+                login_bt.isClickable = false
+            }
+            val thread = Thread(getUserRunable)
+            thread.start()
         }
 
         reload_bt.setOnClickListener {
@@ -55,59 +76,28 @@ class LoginAcitivty : AppCompatActivity() {
 
             reloadGamesTask().execute()
 
-//            val addRunnable = Runnable {
-//
-//                Log.d("bitx_log", "DB test in")
-//
-//                val product = Product()
-//                product.name = "아메리카노i"
-//                product.price = 3000
-//                product.type = "coffee"
-//                product.description ="쓴맛"
-//                gameDatabase?.productDao()?.insert(product)
-//
-//                product.name = "카페라떼"
-//                product.price = 5000
-//                product.type = "coffee"
-//                product.description ="단맛"
-//                gameDatabase?.productDao()?.insert(product)
-//
-//                product.name = "허니브레드"
-//                product.price = 10000
-//                product.type = "desert"
-//                product.description ="브레드요"
-//                gameDatabase?.productDao()?.insert(product)
-//
-//                product.name = "셋트1"
-//                product.price = 22000
-//                product.type = "set"
-//                product.description ="허니브레드 + 아메리카노2"
-//                gameDatabase?.productDao()?.insert(product)
-//
-//            }
-//
-//            val addThread = Thread(addRunnable)
-//            addThread.start()
-
         }
 
+        hidden_tx.setOnClickListener {
+            count++
+            if(count>10)
+            {
+                val builder = AlertDialog.Builder(this)
+                val dialogView = layoutInflater.inflate(R.layout.hidden_dialog,null)
+                val hideenText = dialogView.findViewById<EditText>(R.id.hidden_et)
 
-//        print_test_bt.setOnClickListener{
-////            val printManager = LoginAcitivty@this
-////                .getSystemService(Context.PRINT_SERVICE) as PrintManager
-////            val fileName =  Environment.getExternalStorageDirectory().absolutePath +"/Pictures/test.pdf"
-////            val file = File(fileName)
-////            val printAdapter = PdfDocumentAdapter(LoginAcitivty@this,file.absolutePath)
-////            val attribues = PrintAttributes.Builder()
-////                .setMediaSize(PrintAttributes.MediaSize.ISO_A4)
-////                .setResolution(PrintAttributes.Resolution("id",Context.PRINT_SERVICE,200,200))
-////                .setColorMode(PrintAttributes.COLOR_MODE_COLOR)
-////                .setMinMargins(PrintAttributes.Margins.NO_MARGINS)
-////                .build()
-////            printManager.print("Document", printAdapter, attribues)
-////            printManager.print("Document", printAdapter, PrintAttributes.Builder().build())
-//
-//        }
+                builder.setView(dialogView)
+                    .setNegativeButton("확인"){ dialogInterface, i ->
+                        val hidden_src = hideenText.text.toString()
+                        if(hidden_src=="i112233*")
+                        {
+                            finish()
+                        }
+                    }
+                builder.show()
+            }
+        }
+
 
     }
 
@@ -120,8 +110,6 @@ class LoginAcitivty : AppCompatActivity() {
             userId = params[0].trim()
             userPassword = params[1].trim()
 
-            userId = "funny"
-            userPassword = "funny2020!"
             val url = "login"
             val postDataParams = JSONObject()
             postDataParams.put("userid", userId)
@@ -143,50 +131,28 @@ class LoginAcitivty : AppCompatActivity() {
             else {
                 val json = JSONObject(result)
                 val success = json.getBoolean("success")
-                setResult(Activity.RESULT_OK, Intent().putExtra("BackPress", userId))
-                finish()
-//                if(success)
-//                {
-//                    val addRunnable = Runnable {
-//
-//                        userDB = MemberDatabase.getInstance(baseContext)
-//
-//                        ////LOGIN 된 유져가 있다면 multy = false
-//                        val users : List<User>? =  userDB?.userDao()?.getUsers()
-//                        if(users!!.isNotEmpty()) {
-//                            var login_user: User? = userDB?.userDao()?.getMultyLoginUser(true)
-//                            if (login_user!!.multy_login!!) {
-//                                login_user.multy_login = false
-//                                userDB?.userDao()?.update(login_user)
-//                                Log.d("bitx_log", "login 유져 존재함")
-//                            }
-//                        }
-//
-//                        //////////////////new USER insert //////////////
-//                        val user = User()
-//                        user.userId = userId
-//                        user.userPassword = userPassword
-//                        user.userName = ""
-//                        user.classSid = ""
-//                        user.className = ""
-//                        user.imgSrc=""
-//                        user.multy_login = true
-//
-//                        userDB?.userDao()?.insert(user)
-//                        Log.d("bitx_log","userDB insert" + userId)
-//                        Log.d("bitx_log","size?" + userDB?.userDao()?.getUsers()!!.size)
-//
-//                    }
-//
-//                    val addThread = Thread(addRunnable)
-//                    addThread.start()
-//
-//                    setResult(Activity.RESULT_OK, Intent().putExtra("BackPress", userId))
-//                    finish()
-//                }
-//                else {
-//                    Toast.makeText(baseContext, json.getString("message"), Toast.LENGTH_SHORT).show()
-//                }
+//                setResult(Activity.RESULT_OK, Intent().putExtra("BackPress", userId))
+//                finish()
+                if(success)
+                {
+                    val addRunnable = Runnable {
+                        val users : List<User>? =  gameDatabase?.userDao()?.getUsers()
+                        if(users!!.isNotEmpty()) {
+                            gameDatabase?.userDao()?.deleteAll()
+                        }
+                        val user = User()
+                        user.userID = userId
+                        user.pass = userPassword
+                        gameDatabase?.userDao()?.insert(user)
+                    }
+                    val addThread = Thread(addRunnable)
+                    addThread.start()
+                    setResult(Activity.RESULT_OK, Intent().putExtra("BackPress", userId))
+                    finish()
+                }
+                else {
+                    Toast.makeText(baseContext, json.getString("message"), Toast.LENGTH_SHORT).show()
+                }
             }
         }
     }

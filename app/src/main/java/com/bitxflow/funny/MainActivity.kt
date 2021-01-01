@@ -125,8 +125,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onBackPressed() {
-        Toast.makeText(applicationContext,"종료하실수 없습니다",Toast.LENGTH_SHORT).show()
-//        super.onBackPressed()
+//        Toast.makeText(applicationContext,"종료하실수 없습니다",Toast.LENGTH_SHORT).show()
+        super.onBackPressed()
     }
 
     private fun requestPermission() {

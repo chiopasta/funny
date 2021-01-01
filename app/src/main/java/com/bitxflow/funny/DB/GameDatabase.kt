@@ -5,12 +5,13 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 
-@Database(entities = [GameDB::class,Product::class,Cart::class],version = 5, exportSchema = false)
+@Database(entities = [GameDB::class,Product::class,Cart::class,User::class],version = 6, exportSchema = false)
 abstract class GameDatabase : RoomDatabase()
 {
     abstract fun gameDao():GameDao
     abstract fun productDao():ProductDao
     abstract fun cartDao():CartDao
+    abstract fun userDao():UserDao
 
     companion object{
         private var INSTANCE : GameDatabase? = null
