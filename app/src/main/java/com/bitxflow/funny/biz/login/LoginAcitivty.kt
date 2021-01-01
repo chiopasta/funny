@@ -6,10 +6,7 @@ import android.app.AlertDialog
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
-import android.os.AsyncTask
-import android.os.Build
-import android.os.Bundle
-import android.os.Environment
+import android.os.*
 import android.print.PrintAttributes
 import android.print.PrintJob
 import android.print.PrintManager
@@ -45,25 +42,47 @@ class LoginAcitivty : AppCompatActivity() {
 
         login_bt.setOnClickListener{
             login_pbar.visibility = View.VISIBLE
+            login_bt.isClickable = false
+            var id = ""
+            var pw = ""
+            id = username.text.toString()
+            pw = password.text.toString()
 
-            val getUserRunable = Runnable {
-                val users = gameDatabase?.userDao()?.getUsers()
-                var id = ""
-                var pw = ""
-                id = username.text.toString()
-                pw = password.text.toString()
-                if(id.isNullOrEmpty())
-                {
-                    val user = users!!.last()
-                    id = user.userID.toString()
-                    pw = user.pass.toString()
+            if(id.isNullOrBlank()) {
+                var hasDB = false
+
+                val getUserRunable = Runnable {
+                    val users = gameDatabase?.userDao()?.getUsers()
+
+                    if (id.isNullOrEmpty()) {
+                        if (users!!.isEmpty()) {
+                            hasDB = true
+                            NoIDTask().execute()
+
+                        } else {
+                            val user = users!!.last()
+                            id = user.userID.toString()
+                            pw = user.pass.toString()
+                            Log.d("bitx_log","DB  id $id ... pw : $pw")
+                            SendTask().execute(id, pw)
+                        }
+                    }
+
                 }
 
-                SendTask().execute(id,pw)
-                login_bt.isClickable = false
+                val thread = Thread(getUserRunable)
+                thread.start()
+
             }
-            val thread = Thread(getUserRunable)
-            thread.start()
+            else {
+                if(pw.isNullOrBlank()) {
+                    Toast.makeText(applicationContext, "비밀번호를 입력해주세요", Toast.LENGTH_SHORT).show()
+                    login_pbar.visibility = View.INVISIBLE
+                    login_bt.isClickable = true
+                }
+                else
+                    SendTask().execute(id, pw)
+            }
         }
 
         reload_bt.setOnClickListener {
@@ -112,8 +131,15 @@ class LoginAcitivty : AppCompatActivity() {
 
             val url = "login"
             val postDataParams = JSONObject()
+
+            Log.d("bitx_log","send ID : $userId")
+
+//            userId = "funny"
+//            userPassword = "funny2020!"
+
             postDataParams.put("userid", userId)
             postDataParams.put("pass", userPassword)
+
 
             return su.requestPOST(url,postDataParams)
 
@@ -152,8 +178,28 @@ class LoginAcitivty : AppCompatActivity() {
                 }
                 else {
                     Toast.makeText(baseContext, json.getString("message"), Toast.LENGTH_SHORT).show()
+                    val addRunnable = Runnable {
+                        gameDatabase?.userDao()?.deleteAll()
+                    }
+                    val addThread = Thread(addRunnable)
+                    addThread.start()
                 }
             }
+        }
+    }
+
+    internal inner class NoIDTask : AsyncTask<String, String, String>() {
+
+        override fun doInBackground(vararg params: String): String {
+
+            return "login"
+
+        }
+
+        override fun onPostExecute(result: String) {
+            login_bt.isClickable = true
+            login_pbar.visibility = View.GONE
+            Toast.makeText(baseContext, "아이디를 입력해주세요", Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -338,14 +384,5 @@ class LoginAcitivty : AppCompatActivity() {
         }
     }
 
-    @RequiresApi(Build.VERSION_CODES.KITKAT)
-    private fun doPrint()
-    {
-        val printManager = applicationContext
-            .getSystemService(Context.PRINT_SERVICE) as PrintManager
-        val str = "test"
-
-
-    }
 
 }

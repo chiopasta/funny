@@ -88,8 +88,8 @@
         android:id="@+id/hidden_tx"
         android:layout_width="300dp"
         android:layout_height="200dp"
-        app:layout_contraintTop_toBottomOf="@id/login_bt"
-        app:layout_constraintEnd_toEndOf="@+id/password"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
         />
 
 
