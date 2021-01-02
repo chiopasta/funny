@@ -32,6 +32,7 @@ class RulePagerAdapter (private val context : Context, engName : String? , memo 
         val v = layoutInflater!!.inflate(R.layout.fragment_img_slide, null)
         val image = v.findViewById<View>(R.id.img_slide_iv) as ImageView
 
+        @Suppress("DEPRECATION")
         val fileName =  Environment.getExternalStorageDirectory().absolutePath +"/Pictures/" +engName+ position.toString()+".jpg"
         var file = File(fileName)
         if(file.exists())

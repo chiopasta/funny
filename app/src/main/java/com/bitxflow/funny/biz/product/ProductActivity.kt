@@ -51,7 +51,7 @@ class ProductActivity : AppCompatActivity() {
         arrayOfListView.add("스낵")
         var adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, arrayOfListView)
         type_lv.adapter = adapter
-        type_lv.setOnItemClickListener{parent,view,position,id ->
+        type_lv.setOnItemClickListener{_,_,position,_ ->
             var type = ""
             when (position) {
                 0 -> type = "coffee"
@@ -81,7 +81,7 @@ class ProductActivity : AppCompatActivity() {
             product_lv.adapter = adapter_select_list
         }
 
-        product_lv.setOnItemClickListener{parent,view,position,id ->
+        product_lv.setOnItemClickListener{_,_,position,_ ->
             for(i in 0 until product_lv.childCount)
             {
                 if(position == i )
@@ -102,7 +102,7 @@ class ProductActivity : AppCompatActivity() {
         var adapterAmount = ArrayAdapter(this, android.R.layout.simple_list_item_checked, arrayOfAmount)
         amount_lv.adapter = adapterAmount
         amount_lv.setItemChecked(0,true)
-        amount_lv.setOnItemClickListener{parent,view,position,id ->
+        amount_lv.setOnItemClickListener{_,_,position,_ ->
             when (position) {
                 0 -> amount = 1
                 1 -> amount = 2

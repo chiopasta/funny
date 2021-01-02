@@ -2,14 +2,12 @@ package com.bitxflow.funny.biz.recommend
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import com.bitxflow.funny.DB.GameDB
 import com.bitxflow.funny.DB.GameDatabase
 import com.bitxflow.funny.R
 import com.bitxflow.funny.biz.search.Game
 import com.bitxflow.funny.biz.search.GameListAdapter
 import kotlinx.android.synthetic.main.activity_recommend.*
-import kotlinx.android.synthetic.main.activity_search.*
 import java.util.ArrayList
 
 class RecommendActivity : AppCompatActivity() {
@@ -70,12 +68,11 @@ class RecommendActivity : AppCompatActivity() {
                     gameList.add(game)
                 }
             }
-            var search_gameList : List<Game>
 
-            search_gameList = gameList.filter{it.recommend!!.equals("추천")}
+            val searchGamest = gameList.filter{ it.recommend!! == "추천" }
 
             var searchedList : ArrayList<Game> = ArrayList()
-            searchedList.addAll(search_gameList)
+            searchedList.addAll(searchGamest)
             val adapter = GameListAdapter(applicationContext , searchedList, RecommendActivity@this)
             adapter.notifyDataSetChanged()
             recommend_listview.adapter = adapter
@@ -83,7 +80,6 @@ class RecommendActivity : AppCompatActivity() {
         }
         val addThread = Thread(addRunnable)
         addThread.start()
-
 
 
     }

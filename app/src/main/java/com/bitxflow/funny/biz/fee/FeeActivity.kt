@@ -8,6 +8,7 @@ import com.bitxflow.funny.R
 import kotlinx.android.synthetic.main.activity_fee.*
 import java.io.File
 
+@Suppress("DEPRECATION")
 class FeeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

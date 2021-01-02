@@ -3,17 +3,12 @@ package com.bitxflow.funny.biz.login
 import android.Manifest
 import android.app.Activity
 import android.app.AlertDialog
-import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.*
-import android.print.PrintAttributes
-import android.print.PrintJob
-import android.print.PrintManager
 import android.util.Log
 import android.view.View
 import android.widget.EditText
-import android.widget.TextView
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
@@ -22,11 +17,8 @@ import com.bitxflow.funny.DB.GameDatabase
 import com.bitxflow.funny.DB.User
 import com.bitxflow.funny.R
 import com.bitxflow.funny.send.SendServer
-import com.bitxflow.funny.util.PdfDocumentAdapter
 import kotlinx.android.synthetic.main.activity_login.*
-import kotlinx.android.synthetic.main.hidden_dialog.*
 import org.json.JSONObject
-import java.io.File
 
 class LoginAcitivty : AppCompatActivity() {
 
@@ -43,27 +35,22 @@ class LoginAcitivty : AppCompatActivity() {
         login_bt.setOnClickListener{
             login_pbar.visibility = View.VISIBLE
             login_bt.isClickable = false
-            var id = ""
-            var pw = ""
-            id = username.text.toString()
-            pw = password.text.toString()
+            var id = username.text.toString()
+            var pw = password.text.toString()
 
             if(id.isNullOrBlank()) {
-                var hasDB = false
 
                 val getUserRunable = Runnable {
                     val users = gameDatabase?.userDao()?.getUsers()
 
                     if (id.isNullOrEmpty()) {
                         if (users!!.isEmpty()) {
-                            hasDB = true
                             NoIDTask().execute()
 
                         } else {
-                            val user = users!!.last()
+                            val user = users.last()
                             id = user.userID.toString()
                             pw = user.pass.toString()
-                            Log.d("bitx_log","DB  id $id ... pw : $pw")
                             SendTask().execute(id, pw)
                         }
                     }
@@ -106,9 +93,9 @@ class LoginAcitivty : AppCompatActivity() {
                 val hideenText = dialogView.findViewById<EditText>(R.id.hidden_et)
 
                 builder.setView(dialogView)
-                    .setNegativeButton("확인"){ dialogInterface, i ->
-                        val hidden_src = hideenText.text.toString()
-                        if(hidden_src=="i112233*")
+                    .setNegativeButton("확인"){ _, _ ->
+                        val hiddenSrc = hideenText.text.toString()
+                        if(hiddenSrc=="i112233*")
                         {
                             finish()
                         }
@@ -337,7 +324,7 @@ class LoginAcitivty : AppCompatActivity() {
                             val game = GameDB()
 
                             val json = entities.getJSONObject(i)
-                            val gameID = json.getString("gameID")
+//                            val gameID = json.getString("gameID")
                             val name = json.getString("name")
                             val gameTime = json.getString("gameTime")
                             val expTime = json.getString("expTime")

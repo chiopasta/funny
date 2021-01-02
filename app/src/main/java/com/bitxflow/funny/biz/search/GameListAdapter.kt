@@ -2,7 +2,6 @@ package com.bitxflow.funny.biz.search
 
 import android.app.Activity
 import android.app.AlertDialog
-import android.app.Dialog
 import android.content.Context
 import android.content.Intent
 import android.graphics.BitmapFactory
@@ -12,15 +11,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
-import androidx.viewpager.widget.ViewPager
 import com.bitxflow.funny.R
-import com.bitxflow.funny.biz.intro.ViewPagerAdapter
 import com.bitxflow.funny.biz.video.MemoryVideoView
 import com.bitxflow.funny.biz.video.VideoActivity
 import com.bumptech.glide.Glide
-import kotlinx.android.synthetic.main.activity_beginner.*
-import kotlinx.android.synthetic.main.activity_intro.*
-import me.relex.circleindicator.CircleIndicator
 import java.io.File
 import java.util.*
 
@@ -50,10 +44,9 @@ class GameListAdapter(
 
     override fun getView(
         position: Int,
-        convertView: View?,
+        mView: View?,
         parent: ViewGroup?
     ): View {
-//        var convertView = convertView
         val game = member[position]
         val res: Int = R.layout.game_list
         val convertView = mInflater.inflate(res, parent, false)
@@ -89,17 +82,16 @@ class GameListAdapter(
         val people = game.people
         val gameImgUrl = game.gameImgUrl
 
-        var ppl : String? = null
-        if(people.size>2) {
-            ppl = people.get(0).toString() + " - " + people.get(people.size - 1).toString() + "인"
-        }
-        else{
-            ppl = people.get(0).toString() + "인"
+        var ppl : String?
+        ppl = if(people.size>2) {
+            people[0].toString() + " - " + people[people.size - 1].toString() + "인"
+        } else{
+            people[0].toString() + "인"
         }
         people_tx.text = ppl
 
-        val play_time = game.gameTime
-        val exp_time = game.expTime
+        val playTime = game.gameTime
+        val expTime = game.expTime
         val type = game.type[0]
         val memo = game.memo
 
@@ -107,8 +99,8 @@ class GameListAdapter(
         level_tx.text = game.level
         title_tx.text = game.name
         content.text = game.expText
-        play_time_tx.text = play_time
-        exp_time_tx.text = exp_time
+        play_time_tx.text = playTime
+        exp_time_tx.text = expTime
         eng_title.text = game.engName
 
         if(game.recommend == "추천")
@@ -127,7 +119,7 @@ class GameListAdapter(
                 dialogView.findViewById<View>(R.id.dialog_tx) as TextView
             dialog_tx.text = game.expImg
             builder.setView(dialogView)
-                .setNeutralButton("확인"){dialogInterface, i ->
+                .setNeutralButton("확인"){_, _ ->
 
                 }
                 .show()
@@ -147,7 +139,7 @@ class GameListAdapter(
                 _context.startActivity(Intent)
             }
         }
-
+        @Suppress("DEPRECATION")
         expUrl_bt.setOnClickListener {
             try {
                 val fileName =  Environment.getExternalStorageDirectory().absolutePath +"/Movies/"+name+".mp4"
@@ -173,6 +165,7 @@ class GameListAdapter(
         }
 
         ///////////////// GAME IMG /////////////////////////////
+        @Suppress("DEPRECATION")
         if(!name.isNullOrBlank()) {
 //            val id = _context.resources.getIdentifier(engName, "drawable", _context.packageName)
 //            if (id > 0) {

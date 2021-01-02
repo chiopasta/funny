@@ -30,8 +30,7 @@ class ProductListActivity : AppCompatActivity() {
             adapter.notifyDataSetChanged()
             product_lv.adapter = adapter
             
-            product_lv.setOnItemClickListener{parent,view,position,id ->
-                Log.d("bitx_log","position ?" + position)
+            product_lv.setOnItemClickListener{_,_,position,_ ->
                 val intent = Intent(this, ProductSelectActivity::class.java)
                 intent.putExtra("productID",productList[position].productID)
                 intent.putExtra("name",productList[position].name)

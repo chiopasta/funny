@@ -40,6 +40,7 @@ class ProductListAdapter(
     ): View {
         val product = productList[position]
         val res: Int = R.layout.product_list
+        @Suppress("NAME_SHADOWING")
         val convertView = mInflater.inflate(res, parent, false)
 
         val nameTx =
