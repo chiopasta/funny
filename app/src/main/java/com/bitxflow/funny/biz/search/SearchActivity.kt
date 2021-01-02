@@ -35,7 +35,6 @@ class SearchActivity : AppCompatActivity() {
         val addRunnable = Runnable {
 
             val games : List<GameDB>? = gameDatabase?.gameDao()?.getGames()
-            Log.d("bitx_log","games " + games.toString())
             if(games!!.isNotEmpty())
             {
                 for(item in games)
@@ -107,20 +106,6 @@ class SearchActivity : AppCompatActivity() {
         }
 
         var isChecking = true
-        var mCheckedId = 0
-
-//        type_rg.setOnCheckedChangeListener { radioGroup, i ->
-//            type_rg2.clearCheck()
-//            type_rg3.clearCheck()
-//        }
-//        type_rg2.setOnCheckedChangeListener { radioGroup, i ->
-//            type_rg.clearCheck()
-//            type_rg3.clearCheck()
-//        }
-//        type_rg3.setOnCheckedChangeListener { radioGroup, i ->
-//            type_rg.clearCheck()
-//            type_rg2.clearCheck()
-//        }
 
         type_rg.setOnCheckedChangeListener(RadioGroup.OnCheckedChangeListener { group, checkedId ->
             if (checkedId != -1 && isChecking) {
@@ -129,7 +114,6 @@ class SearchActivity : AppCompatActivity() {
                     type_rg2.clearCheck()
                 if(type_rg3.checkedRadioButtonId != -1)
                     type_rg3.clearCheck()
-                mCheckedId = checkedId
             }
                 isChecking = true
         })
@@ -141,7 +125,6 @@ class SearchActivity : AppCompatActivity() {
                     type_rg.clearCheck()
                 if(type_rg3.checkedRadioButtonId != -1)
                     type_rg3.clearCheck()
-                mCheckedId = checkedId
             }
              isChecking = true
         }
@@ -155,7 +138,6 @@ class SearchActivity : AppCompatActivity() {
                 if(type_rg2.checkedRadioButtonId != -1)
                     type_rg2.clearCheck()
 
-                mCheckedId = checkedId
             }
                 isChecking = true
         }

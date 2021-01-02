@@ -83,6 +83,8 @@ class GameListAdapter(
             convertView.findViewById<View>(R.id.level_tx) as TextView
         val content =
             convertView.findViewById<View>(R.id.content) as TextView
+        val game_list_hit =
+            convertView.findViewById<View>(R.id.game_list_hit) as ImageView
 
         val people = game.people
         val gameImgUrl = game.gameImgUrl
@@ -108,6 +110,15 @@ class GameListAdapter(
         play_time_tx.text = play_time
         exp_time_tx.text = exp_time
         eng_title.text = game.engName
+
+        if(game.recommend == "추천")
+        {
+            game_list_hit.visibility = View.VISIBLE
+        }
+        else
+        {
+            game_list_hit.visibility = View.GONE
+        }
 
         setting_bt.setOnClickListener {
             val builder = AlertDialog.Builder(_activity)
@@ -169,6 +180,8 @@ class GameListAdapter(
 //            } else {
 //                Glide.with(convertView).load(gameImgUrl).placeholder(R.drawable.loading).override(1000, 600).into(img_iv)
 //            }
+            Log.d("bitx_log","name : $name")
+
             var isFileExist = false
             var fileName =  Environment.getExternalStorageDirectory().absolutePath +"/Pictures/"+ name +".jpg"
             var file = File(fileName)
