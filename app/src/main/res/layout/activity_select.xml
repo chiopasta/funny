@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:background="@drawable/background"
+    >
+
+    <RelativeLayout
+        android:id="@+id/nav_rl"
+        android:background="@drawable/background"
+        android:layout_alignParentTop="true"
+        android:layout_width="match_parent"
+        android:layout_height="100dp">
+
+        <ImageView
+            android:layout_alignParentLeft="true"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/logo"
+            android:layout_width="100dp"
+            android:layout_height="100dp"></ImageView>
+
+    </RelativeLayout>
+
+    <TextView
+        android:layout_centerInParent="true"
+        android:id="@+id/center_tx"
+        android:layout_width="1dp"
+        android:layout_height="1dp">
+    </TextView>
+
+    <ImageView
+        android:layout_marginTop="120dp"
+        android:layout_toLeftOf="@+id/center_tx"
+        android:layout_marginRight="5dp"
+        android:id="@+id/sns_coupon_bt"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:src="@drawable/sns_coupon"></ImageView>
+
+    <ImageView
+        android:layout_marginTop="120dp"
+        android:layout_toRightOf="@+id/center_tx"
+        android:layout_marginLeft="5dp"
+        android:id="@+id/req_coupon_bt"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:src="@drawable/reg_coupon"></ImageView>
+
+
+</RelativeLayout>

@@ -26,7 +26,7 @@ class ViewPagerAdapter(private val context : Context) : PagerAdapter() {
     }
 
     override fun getCount(): Int {
-        return 3
+        return 4
     }
 
 

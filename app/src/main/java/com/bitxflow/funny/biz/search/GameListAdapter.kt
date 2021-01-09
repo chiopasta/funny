@@ -173,7 +173,6 @@ class GameListAdapter(
 //            } else {
 //                Glide.with(convertView).load(gameImgUrl).placeholder(R.drawable.loading).override(1000, 600).into(img_iv)
 //            }
-            Log.d("bitx_log","name : $name")
 
             var isFileExist = false
             var fileName =  Environment.getExternalStorageDirectory().absolutePath +"/Pictures/"+ name +".jpg"

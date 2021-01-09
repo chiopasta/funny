@@ -19,6 +19,7 @@ import com.bitxflow.funny.DB.GameDB
 import com.bitxflow.funny.DB.GameDatabase
 import com.bitxflow.funny.biz.beginner.BeginnerActivity
 import com.bitxflow.funny.biz.coupon.CouponActivity
+import com.bitxflow.funny.biz.coupon.SelectActivity
 import com.bitxflow.funny.biz.fee.FeeActivity
 import com.bitxflow.funny.biz.intro.IntroActivity
 import com.bitxflow.funny.biz.login.LoginAcitivty
@@ -71,7 +72,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         coupon.setOnClickListener {
-            val intent = Intent(this, CouponActivity::class.java)
+            val intent = Intent(this, SelectActivity::class.java)
             startActivity(intent)
         }
 

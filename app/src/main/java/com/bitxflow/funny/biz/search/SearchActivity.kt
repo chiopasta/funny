@@ -223,7 +223,7 @@ class SearchActivity : AppCompatActivity() {
                     search_gameList = search_gameList.filter { it.type.contains(type) }
                 }
                 var searchedList : ArrayList<Game> = ArrayList()
-                searchedList.addAll(search_gameList)
+                searchedList.addAll(search_gameList.sortedBy { it.name })
                 val adapter = GameListAdapter(applicationContext , searchedList, SearchActivity@this)
                 adapter.notifyDataSetChanged()
                 game_listview.adapter = adapter
