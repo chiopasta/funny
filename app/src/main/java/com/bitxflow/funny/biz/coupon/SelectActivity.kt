@@ -12,6 +12,10 @@ class SelectActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_select)
 
+        select_backpress_bt.setOnClickListener {
+            finish()
+        }
+
         req_coupon_bt.setOnClickListener {
             val intent = Intent(this, CouponActivity::class.java)
             startActivity(intent)

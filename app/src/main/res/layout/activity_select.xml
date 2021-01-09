@@ -23,6 +23,16 @@
 
     </RelativeLayout>
 
+    <ImageView
+        android:layout_below="@id/nav_rl"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="30dp"
+        android:id="@+id/select_backpress_bt"
+        android:src="@drawable/backarrow_grey"
+        android:layout_width="30dp"
+        android:layout_height="60dp">
+    </ImageView>
+
     <TextView
         android:layout_centerInParent="true"
         android:id="@+id/center_tx"
