@@ -35,7 +35,7 @@ class CouponActivity : AppCompatActivity() {
         cal.add(Calendar.MONTH,3)
         val exp_date =  df.format(cal.time)
 
-        coupon_tx2.text = "사용기한 : "+ tomorrow + " ~ " + exp_date
+        coupon_tx2.text = "사용기한 : "+ tomorrow + " ~"
 
         make_coupon_bt.setOnClickListener {
             coupon_pbar.visibility = View.VISIBLE
