@@ -3,18 +3,34 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@drawable/background"
     android:layout_height="match_parent"
     tools:context=".biz.beginner.BeginnerActivity">
 
+    <RelativeLayout
+        android:id="@+id/main_nav_rl"
+        android:layout_width="match_parent"
+        android:layout_height="100dp">
+
+        <ImageView
+            android:layout_marginLeft="30dp"
+            android:src="@drawable/logo"
+            android:layout_width="200dp"
+            android:layout_height="80dp"></ImageView>
+    </RelativeLayout>
+
     <com.ortiz.touchview.TouchImageView
+        android:layout_below="@id/main_nav_rl"
         android:id="@+id/beginner_iv"
         android:layout_centerInParent="true"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
     <ImageView
         android:id="@+id/beginner_back_bt"
-        android:layout_marginLeft="15dp"
+        android:layout_marginLeft="190dp"
         android:layout_marginTop="15dp"
+        android:layout_alignLeft="@id/beginner_iv"
+        android:layout_alignTop="@id/beginner_iv"
         android:src="@drawable/backarrow"
         android:layout_width="30dp"
         android:layout_height="60dp">

@@ -371,5 +371,9 @@ class LoginAcitivty : AppCompatActivity() {
         }
     }
 
+    override fun onBackPressed() {
+        setResult(Activity.RESULT_OK, Intent().putExtra("BackPress", "BackPress"))
+        super.onBackPressed()
+    }
 
 }

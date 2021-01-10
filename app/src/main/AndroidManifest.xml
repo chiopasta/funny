@@ -46,7 +46,7 @@
             android:screenOrientation="landscape" />
         <activity
             android:name=".biz.intro.IntroActivity"
-            android:screenOrientation="landscape" />
+            />
         <activity android:name=".biz.fee.FeeActivity" />
         <activity
             android:name=".biz.video.VideoActivity"
