@@ -35,7 +35,6 @@ import org.json.JSONObject
 
 class MainActivity : AppCompatActivity() {
     private val LOGIN_ACTIVITY : Int = 0
-    private val REQUEST_IMAGE_CAPTURE = 1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

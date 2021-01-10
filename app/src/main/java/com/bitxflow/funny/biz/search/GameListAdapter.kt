@@ -143,6 +143,7 @@ class GameListAdapter(
         expUrl_bt.setOnClickListener {
             try {
                 val fileName =  Environment.getExternalStorageDirectory().absolutePath +"/Movies/"+name+".mp4"
+
                 var file = File(fileName)
                 if(file.exists())
                 {

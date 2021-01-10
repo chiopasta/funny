@@ -222,7 +222,9 @@ class LoginAcitivty : AppCompatActivity() {
             val url = "games"
             val postDataParams = JSONObject()
 
-            return su.requestPOST(url,postDataParams)
+            Log.d("bitx_log","in")
+
+            return su.requestGET("https://funtime.kr/games")
 
         }
 

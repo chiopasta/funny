@@ -72,10 +72,10 @@
             android:layout_marginTop="10dp"
             android:id="@+id/coupon_tx1"
             android:layout_below="@id/coupon_intro"
-            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="40dp"
             android:fontFamily="@font/bmdo"
             android:textColor="#ffffff"
-            android:text="- 본 쿠폰은 1매당 1인에 적용됩니다"
+            android:text="본 쿠폰은 1매당 1인에 적용됩니다"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             ></TextView>
@@ -84,8 +84,9 @@
             android:layout_marginTop="5dp"
             android:id="@+id/coupon_tx2"
             android:layout_below="@id/coupon_tx1"
-            android:layout_centerHorizontal="true"
+            android:layout_alignLeft="@id/coupon_tx1"
             android:fontFamily="@font/bmdo"
+            android:text="사용기한"
             android:textColor="#FFBB00"
             android:textSize="15sp"
             android:layout_width="wrap_content"
@@ -96,10 +97,10 @@
             android:layout_marginTop="5dp"
             android:id="@+id/coupon_tx3"
             android:layout_below="@id/coupon_tx2"
-            android:layout_centerHorizontal="true"
+            android:layout_alignLeft="@id/coupon_tx1"
             android:fontFamily="@font/bmdo"
             android:textColor="#ffffff"
-            android:text="- 사진을 찍어주세요"
+            android:text="타 쿠폰과 중복 적용은 불가합니다"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
         </TextView>
@@ -108,10 +109,10 @@
             android:layout_marginTop="5dp"
             android:id="@+id/coupon_tx4"
             android:layout_below="@id/coupon_tx3"
-            android:layout_centerHorizontal="true"
+            android:layout_alignLeft="@id/coupon_tx1"
             android:fontFamily="@font/bmdo"
             android:textColor="#ffffff"
-            android:text="- 타 쿠폰과 중복 적용은 불가합니다"
+            android:text="정액제 등 이벤트 요금제에는 사용불가합니다"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
         </TextView>
@@ -120,10 +121,10 @@
             android:layout_marginTop="5dp"
             android:id="@+id/coupon_tx5"
             android:layout_below="@id/coupon_tx4"
-            android:layout_centerHorizontal="true"
             android:fontFamily="@font/bmdo"
-            android:textColor="#ffffff"
-            android:text="- 정액제 등 이벤트 요금제에는 사용불가합니다"
+            android:layout_alignLeft="@id/coupon_tx1"
+            android:textColor="#FFBB00"
+            android:text="사진을 찍어주세요"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
         </TextView>
@@ -132,11 +133,11 @@
             android:layout_marginTop="5dp"
             android:id="@+id/coupon_code"
             android:layout_below="@id/coupon_tx5"
-            android:layout_centerHorizontal="true"
+            android:layout_alignLeft="@id/coupon_tx1"
             android:fontFamily="@font/bmdo"
             android:textColor="#ffffff"
             android:textSize="15sp"
-            android:text="- 쿠폰발급을 눌러주세요"
+            android:text="쿠폰발급을 눌러주세요"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
         </TextView>
