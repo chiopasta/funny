@@ -7,11 +7,20 @@
     tools:context=".biz.fee.FeeActivity">
 
 
-    <com.ortiz.touchview.TouchImageView
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <ImageView
+        android:adjustViewBounds="true"
         android:id="@+id/fee_iv"
         android:layout_centerInParent="true"
+        android:src="@drawable/fee"
+        android:scaleType="fitXY"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="wrap_content"/>
+
+    </ScrollView>
 
     <ImageView
         android:id="@+id/back_bt"

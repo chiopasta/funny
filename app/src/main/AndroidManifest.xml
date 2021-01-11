@@ -25,7 +25,9 @@
         <activity
             android:name=".biz.coupon.SelectActivity"
             android:screenOrientation="landscape" />
-        <activity android:name=".biz.snack.SnackActivity" />
+        <activity
+            android:name=".biz.snack.SnackActivity"
+            android:screenOrientation="landscape"/>
         <activity
             android:name=".biz.product.ProductSelectActivity"
             android:screenOrientation="landscape" />
@@ -46,8 +48,10 @@
             android:screenOrientation="landscape" />
         <activity
             android:name=".biz.intro.IntroActivity"
+            android:screenOrientation="landscape"
             />
-        <activity android:name=".biz.fee.FeeActivity" />
+        <activity android:name=".biz.fee.FeeActivity"
+            android:screenOrientation="landscape"/>
         <activity
             android:name=".biz.video.VideoActivity"
             android:screenOrientation="landscape" />

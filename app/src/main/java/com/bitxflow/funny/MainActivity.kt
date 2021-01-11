@@ -77,6 +77,10 @@ class MainActivity : AppCompatActivity() {
 
         question_bt.setOnClickListener{
             Toast.makeText(baseContext,"준비중 입니다",Toast.LENGTH_SHORT).show()
+//            kr.stiel.onenight
+//            val Intent = packageManager.getLaunchIntentForPackage("kr.stiel.onenight")
+//            if(intent !=null)
+//                startActivity(Intent)
         }
 
         beginner.setOnClickListener {
