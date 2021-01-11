@@ -42,7 +42,7 @@ class ViewPagerAdapter(private val context : Context) : PagerAdapter() {
             val myBitmap = BitmapFactory.decodeFile(file.getAbsolutePath())
             image.setImageBitmap(myBitmap)
         }
-        fileName =  Environment.getExternalStorageDirectory().absolutePath +"/Pictures/intro" + position.toString()+".png"
+        fileName =  Environment.getExternalStorageDirectory().absolutePath +"/Download/intro" + position.toString()+".png"
         file = File(fileName)
         if(file.exists())
         {

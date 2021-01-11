@@ -3,9 +3,15 @@ package com.bitxflow.funny.biz.login
 import android.Manifest
 import android.app.Activity
 import android.app.AlertDialog
+import android.app.DownloadManager
+import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
-import android.os.*
+import android.net.Uri
+import android.os.AsyncTask
+import android.os.Build
+import android.os.Bundle
+import android.os.Environment
 import android.util.Log
 import android.view.View
 import android.widget.EditText
@@ -16,9 +22,15 @@ import com.bitxflow.funny.DB.GameDB
 import com.bitxflow.funny.DB.GameDatabase
 import com.bitxflow.funny.DB.User
 import com.bitxflow.funny.R
+import com.bitxflow.funny.biz.saveImg.SaveImgActivity
+import com.bitxflow.funny.biz.snack.SnackActivity
 import com.bitxflow.funny.send.SendServer
 import kotlinx.android.synthetic.main.activity_login.*
 import org.json.JSONObject
+import java.io.File
+import java.io.FileOutputStream
+import java.net.URL
+
 
 class LoginAcitivty : AppCompatActivity() {
 
@@ -104,7 +116,10 @@ class LoginAcitivty : AppCompatActivity() {
             }
         }
 
-
+        intro_down_bt.setOnClickListener{
+            val intent = Intent(this, SaveImgActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     internal inner class SendTask : AsyncTask<String, String, String>() {
@@ -374,6 +389,22 @@ class LoginAcitivty : AppCompatActivity() {
     override fun onBackPressed() {
         setResult(Activity.RESULT_OK, Intent().putExtra("BackPress", "BackPress"))
         super.onBackPressed()
+    }
+
+    fun download(link: String, path: String) {
+        URL(link).openStream().use { input ->
+            FileOutputStream(File(path)).use { output ->
+                input.copyTo(output)
+            }
+        }
+    }
+
+    fun String.saveTo(path: String) {
+        URL(this).openStream().use { input ->
+            FileOutputStream(File(path)).use { output ->
+                input.copyTo(output)
+            }
+        }
     }
 
 }
