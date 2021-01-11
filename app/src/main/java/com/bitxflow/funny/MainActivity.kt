@@ -23,6 +23,7 @@ import com.bitxflow.funny.biz.coupon.SelectActivity
 import com.bitxflow.funny.biz.fee.FeeActivity
 import com.bitxflow.funny.biz.intro.IntroActivity
 import com.bitxflow.funny.biz.login.LoginAcitivty
+import com.bitxflow.funny.biz.product.ImgLinkActivity
 import com.bitxflow.funny.biz.product.ProductActivity
 import com.bitxflow.funny.biz.recommend.RecommendActivity
 import com.bitxflow.funny.biz.search.SearchActivity
@@ -44,6 +45,12 @@ class MainActivity : AppCompatActivity() {
 
         setContentView(R.layout.activity_main)
         hideSystemUI()
+
+        test_bt.setOnClickListener {
+            val intent = Intent(this, ImgLinkActivity::class.java)
+            startActivity(intent)
+        }
+
         search_bt.setOnClickListener {
             val intent = Intent(this, SearchActivity::class.java)
             startActivity(intent)
