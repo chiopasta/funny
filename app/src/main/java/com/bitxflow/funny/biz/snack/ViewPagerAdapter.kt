@@ -35,28 +35,28 @@ class ViewPagerAdapter(private val context : Context) : PagerAdapter() {
         val v = layoutInflater!!.inflate(R.layout.fragment_img_slide, null)
         val image = v.findViewById<View>(R.id.img_slide_iv) as ImageView
 
-        var fileName =  Environment.getExternalStorageDirectory().absolutePath +"/Pictures/snack" + position.toString()+".jpg"
+        var fileName =  Environment.getExternalStorageDirectory().absolutePath +"/Download/snack" + position.toString()+".jpg"
         var file = File(fileName)
         if(file.exists())
         {
             val myBitmap = BitmapFactory.decodeFile(file.getAbsolutePath())
             image.setImageBitmap(myBitmap)
         }
-        fileName =  Environment.getExternalStorageDirectory().absolutePath +"/Pictures/snack" + position.toString()+".png"
+        fileName =  Environment.getExternalStorageDirectory().absolutePath +"/Download/snack" + position.toString()+".png"
         file = File(fileName)
         if(file.exists())
         {
             val myBitmap = BitmapFactory.decodeFile(file.getAbsolutePath())
             image.setImageBitmap(myBitmap)
         }
-        fileName =  Environment.getExternalStorageDirectory().absolutePath +"/Pictures/snack" + position.toString()+".jpeg"
+        fileName =  Environment.getExternalStorageDirectory().absolutePath +"/Download/snack" + position.toString()+".jpeg"
         file = File(fileName)
         if(file.exists())
         {
             val myBitmap = BitmapFactory.decodeFile(file.getAbsolutePath())
             image.setImageBitmap(myBitmap)
         }
-        fileName =  Environment.getExternalStorageDirectory().absolutePath +"/Pictures/snack" + position.toString()+".bmp"
+        fileName =  Environment.getExternalStorageDirectory().absolutePath +"/Download/snack" + position.toString()+".bmp"
         file = File(fileName)
         if(file.exists())
         {

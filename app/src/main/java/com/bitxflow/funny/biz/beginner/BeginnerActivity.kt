@@ -13,28 +13,28 @@ class BeginnerActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_beginner)
 
-        var fileName =  Environment.getExternalStorageDirectory().absolutePath +"/Pictures/easy.jpg"
+        var fileName =  Environment.getExternalStorageDirectory().absolutePath +"/Download/easy.jpg"
         var file = File(fileName)
         if(file.exists())
         {
             val myBitmap = BitmapFactory.decodeFile(file.getAbsolutePath())
             beginner_iv.setImageBitmap(myBitmap)
         }
-        fileName =  Environment.getExternalStorageDirectory().absolutePath +"/Pictures/easy.png"
+        fileName =  Environment.getExternalStorageDirectory().absolutePath +"/Download/easy.png"
         file = File(fileName)
         if(file.exists())
         {
             val myBitmap = BitmapFactory.decodeFile(file.getAbsolutePath())
             beginner_iv.setImageBitmap(myBitmap)
         }
-        fileName =  Environment.getExternalStorageDirectory().absolutePath +"/Pictures/easy.jpeg"
+        fileName =  Environment.getExternalStorageDirectory().absolutePath +"/Download/easy.jpeg"
         file = File(fileName)
         if(file.exists())
         {
             val myBitmap = BitmapFactory.decodeFile(file.getAbsolutePath())
             beginner_iv.setImageBitmap(myBitmap)
         }
-        fileName =  Environment.getExternalStorageDirectory().absolutePath +"/Pictures/easy.bmp"
+        fileName =  Environment.getExternalStorageDirectory().absolutePath +"/Download/easy.bmp"
         file = File(fileName)
         if(file.exists())
         {

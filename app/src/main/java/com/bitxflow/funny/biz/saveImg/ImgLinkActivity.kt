@@ -22,44 +22,41 @@ class ImgLinkActivity : AppCompatActivity() {
             {
                 val imgLink = ImgLink()
                 imgLink.name = "intro0"
-                imgLink.link = "http://naver.me/x1e9yTAN"
+                imgLink.link = "http://naver.me/5MUZmmq9"
                 gameDatabase?.imgLinkDao()?.insert(imgLink)
 
                 imgLink.name = "intro1"
-                imgLink.link = "http://naver.me/x1e9yTAN"
+                imgLink.link = "http://naver.me/x7voCCJf"
                 gameDatabase?.imgLinkDao()?.insert(imgLink)
 
                 imgLink.name = "intro2"
-                imgLink.link = "http://naver.me/x1e9yTAN"
+                imgLink.link = "http://naver.me/GWFUMMq6"
                 gameDatabase?.imgLinkDao()?.insert(imgLink)
 
                 imgLink.name = "fee"
-                imgLink.link = "http://naver.me/x1e9yTAN"
+                imgLink.link = "http://naver.me/G3JfRRjD"
                 gameDatabase?.imgLinkDao()?.insert(imgLink)
 
                 imgLink.name = "beginner"
-                imgLink.link = "http://naver.me/x1e9yTAN"
+                imgLink.link = "http://naver.me/F8KjUE7F"
                 gameDatabase?.imgLinkDao()?.insert(imgLink)
 
                 imgLink.name = "snack0"
-                imgLink.link = "http://naver.me/x1e9yTAN"
+                imgLink.link = "http://naver.me/xPIkFFYb"
                 gameDatabase?.imgLinkDao()?.insert(imgLink)
 
                 imgLink.name = "snack1"
-                imgLink.link = "http://naver.me/x1e9yTAN"
+                imgLink.link = "http://naver.me/FzHO00Hw"
                 gameDatabase?.imgLinkDao()?.insert(imgLink)
 
                 imgLink.name = "snack2"
-                imgLink.link = "http://naver.me/x1e9yTAN"
+                imgLink.link = "http://naver.me/FNmNeCJY"
                 gameDatabase?.imgLinkDao()?.insert(imgLink)
 
                 imgLink.name = "snack3"
-                imgLink.link = "http://naver.me/x1e9yTAN"
+                imgLink.link = "http://naver.me/5wf7lRiM"
                 gameDatabase?.imgLinkDao()?.insert(imgLink)
 
-                imgLink.name = "apk"
-                imgLink.link = "http://naver.me/x1e9yTAN"
-                gameDatabase?.imgLinkDao()?.insert(imgLink)
 
             }
             else
@@ -77,7 +74,7 @@ class ImgLinkActivity : AppCompatActivity() {
                         "snack1" -> snack1_et.setText(imgLink.link)
                         "snack2" -> snack2_et.setText(imgLink.link)
                         "snack3" -> snack3_et.setText(imgLink.link)
-                        "apk" -> apk_et.setText(imgLink.link)
+//                        "apk" -> apk_et.setText(imgLink.link)
                     }
                 }
             }
@@ -285,27 +282,27 @@ class ImgLinkActivity : AppCompatActivity() {
             settingThread.start()
         }
 
-        apk_change_bt.setOnClickListener {
-            val changeRunnable = Runnable {
-                val imgLink = gameDatabase?.imgLinkDao()?.getImgLink("apk")
-                val link = apk_et.text
-                imgLink!!.link = link.toString()
-                gameDatabase?.imgLinkDao()?.update(imgLink)
-                ChangeComplateTask().execute()
-            }
-            val settingThread = Thread(changeRunnable)
-            settingThread.start()
-
-        }
-
-        apk_get_bt.setOnClickListener {
-            val changeRunnable = Runnable {
-                val imgLink = gameDatabase?.imgLinkDao()?.getImgLink("apk")
-                getTask().execute(imgLink!!.link)
-            }
-            val settingThread = Thread(changeRunnable)
-            settingThread.start()
-        }
+//        apk_change_bt.setOnClickListener {
+//            val changeRunnable = Runnable {
+//                val imgLink = gameDatabase?.imgLinkDao()?.getImgLink("apk")
+//                val link = apk_et.text
+//                imgLink!!.link = link.toString()
+//                gameDatabase?.imgLinkDao()?.update(imgLink)
+//                ChangeComplateTask().execute()
+//            }
+//            val settingThread = Thread(changeRunnable)
+//            settingThread.start()
+//
+//        }
+//
+//        apk_get_bt.setOnClickListener {
+//            val changeRunnable = Runnable {
+//                val imgLink = gameDatabase?.imgLinkDao()?.getImgLink("apk")
+//                getTask().execute(imgLink!!.link)
+//            }
+//            val settingThread = Thread(changeRunnable)
+//            settingThread.start()
+//        }
     }
 
 
