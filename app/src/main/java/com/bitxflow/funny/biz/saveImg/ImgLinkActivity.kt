@@ -1,15 +1,13 @@
-package com.bitxflow.funny.biz.product
+package com.bitxflow.funny.biz.saveImg
 
 import android.os.AsyncTask
 import android.os.Bundle
-import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.bitxflow.funny.DB.GameDatabase
 import com.bitxflow.funny.DB.ImgLink
 import com.bitxflow.funny.R
 import kotlinx.android.synthetic.main.activity_img_link.*
-import kotlinx.android.synthetic.main.activity_login.*
 
 class ImgLinkActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -58,15 +56,16 @@ class ImgLinkActivity : AppCompatActivity() {
                 imgLink.name = "snack3"
                 imgLink.link = "http://naver.me/x1e9yTAN"
                 gameDatabase?.imgLinkDao()?.insert(imgLink)
+
+                imgLink.name = "apk"
+                imgLink.link = "http://naver.me/x1e9yTAN"
+                gameDatabase?.imgLinkDao()?.insert(imgLink)
+
             }
             else
             {
                 for(imgLink in links)
                 {
-//                    if(imgLink.name=="intro1")
-//                    {
-//                        intro1_et.setText(imgLink.link)
-//                    }
                     when(imgLink.name)
                     {
                         "intro0" -> intro0_et.setText(imgLink.link)
@@ -78,6 +77,7 @@ class ImgLinkActivity : AppCompatActivity() {
                         "snack1" -> snack1_et.setText(imgLink.link)
                         "snack2" -> snack2_et.setText(imgLink.link)
                         "snack3" -> snack3_et.setText(imgLink.link)
+                        "apk" -> apk_et.setText(imgLink.link)
                     }
                 }
             }
@@ -279,6 +279,28 @@ class ImgLinkActivity : AppCompatActivity() {
         snack3_get_bt.setOnClickListener {
             val changeRunnable = Runnable {
                 val imgLink = gameDatabase?.imgLinkDao()?.getImgLink("snack3")
+                getTask().execute(imgLink!!.link)
+            }
+            val settingThread = Thread(changeRunnable)
+            settingThread.start()
+        }
+
+        apk_change_bt.setOnClickListener {
+            val changeRunnable = Runnable {
+                val imgLink = gameDatabase?.imgLinkDao()?.getImgLink("apk")
+                val link = apk_et.text
+                imgLink!!.link = link.toString()
+                gameDatabase?.imgLinkDao()?.update(imgLink)
+                ChangeComplateTask().execute()
+            }
+            val settingThread = Thread(changeRunnable)
+            settingThread.start()
+
+        }
+
+        apk_get_bt.setOnClickListener {
+            val changeRunnable = Runnable {
+                val imgLink = gameDatabase?.imgLinkDao()?.getImgLink("apk")
                 getTask().execute(imgLink!!.link)
             }
             val settingThread = Thread(changeRunnable)

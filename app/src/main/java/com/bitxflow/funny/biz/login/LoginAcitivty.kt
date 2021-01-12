@@ -22,8 +22,7 @@ import com.bitxflow.funny.DB.GameDB
 import com.bitxflow.funny.DB.GameDatabase
 import com.bitxflow.funny.DB.User
 import com.bitxflow.funny.R
-import com.bitxflow.funny.biz.saveImg.SaveImgActivity
-import com.bitxflow.funny.biz.snack.SnackActivity
+import com.bitxflow.funny.biz.saveImg.ImgLinkActivity
 import com.bitxflow.funny.send.SendServer
 import kotlinx.android.synthetic.main.activity_login.*
 import org.json.JSONObject
@@ -117,7 +116,7 @@ class LoginAcitivty : AppCompatActivity() {
         }
 
         intro_down_bt.setOnClickListener{
-            val intent = Intent(this, SaveImgActivity::class.java)
+            val intent = Intent(this, ImgLinkActivity::class.java)
             startActivity(intent)
         }
     }

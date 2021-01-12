@@ -3,35 +3,24 @@ package com.bitxflow.funny
 import android.Manifest.permission.CAMERA
 import android.Manifest.permission.READ_EXTERNAL_STORAGE
 import android.app.Activity
-import android.content.ComponentName
 import android.content.Intent
 import android.content.pm.PackageManager
-import android.os.AsyncTask
 import android.os.Bundle
-import android.provider.MediaStore
-import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import com.bitxflow.funny.DB.GameDB
-import com.bitxflow.funny.DB.GameDatabase
 import com.bitxflow.funny.biz.beginner.BeginnerActivity
-import com.bitxflow.funny.biz.coupon.CouponActivity
 import com.bitxflow.funny.biz.coupon.SelectActivity
 import com.bitxflow.funny.biz.fee.FeeActivity
 import com.bitxflow.funny.biz.intro.IntroActivity
 import com.bitxflow.funny.biz.login.LoginAcitivty
-import com.bitxflow.funny.biz.product.ImgLinkActivity
-import com.bitxflow.funny.biz.product.ProductActivity
+import com.bitxflow.funny.biz.saveImg.ImgLinkActivity
 import com.bitxflow.funny.biz.recommend.RecommendActivity
 import com.bitxflow.funny.biz.search.SearchActivity
 import com.bitxflow.funny.biz.snack.SnackActivity
-import com.bitxflow.funny.send.SendServer
-import kotlinx.android.synthetic.main.activity_coupon.*
 import kotlinx.android.synthetic.main.activity_main.*
-import org.json.JSONObject
 
 
 class MainActivity : AppCompatActivity() {
@@ -45,11 +34,6 @@ class MainActivity : AppCompatActivity() {
 
         setContentView(R.layout.activity_main)
         hideSystemUI()
-
-        test_bt.setOnClickListener {
-            val intent = Intent(this, ImgLinkActivity::class.java)
-            startActivity(intent)
-        }
 
         search_bt.setOnClickListener {
             val intent = Intent(this, SearchActivity::class.java)

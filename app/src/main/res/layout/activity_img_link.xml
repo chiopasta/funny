@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".biz.product.ImgLinkActivity">
+    tools:context=".biz.saveImg.ImgLinkActivity">
 
 
     <WebView
@@ -299,6 +299,37 @@
 
         <Button
             android:id="@+id/snack3_get_bt"
+            android:text="저장하기"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"></Button>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_below="@id/ll9"
+        android:id="@+id/ll10"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:text="어플받기"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        </TextView>
+
+        <EditText
+            android:id="@+id/apk_et"
+            android:layout_width="370dp"
+            android:layout_height="wrap_content"></EditText>
+
+        <Button
+            android:id="@+id/apk_change_bt"
+            android:text="url바꾸기"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"></Button>
+
+        <Button
+            android:id="@+id/apk_get_bt"
             android:text="저장하기"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"></Button>
