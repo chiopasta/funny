@@ -262,7 +262,7 @@
             android:layout_below="@id/exp_url_bt"
             android:id="@+id/exp_txt_bt"
             android:layout_marginTop="5dp"
-            android:background="@drawable/exp_txt_bt"
+            android:background="@drawable/rule_book"
             android:layout_width="70dp"
             android:layout_height="50dp">
         </Button>
