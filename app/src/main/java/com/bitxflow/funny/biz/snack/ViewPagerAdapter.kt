@@ -32,7 +32,7 @@ class ViewPagerAdapter(private val context : Context) : PagerAdapter() {
 
     override fun instantiateItem(container: ViewGroup, position: Int): Any {
         layoutInflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
-        val v = layoutInflater!!.inflate(R.layout.fragment_img_slide, null)
+        val v = layoutInflater!!.inflate(R.layout.snack_img_slide, null)
         val image = v.findViewById<View>(R.id.img_slide_iv) as ImageView
 
         var fileName =  Environment.getExternalStorageDirectory().absolutePath +"/Download/snack" + position.toString()+".jpg"
