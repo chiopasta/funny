@@ -69,9 +69,33 @@
             android:layout_height="40dp"></ImageView>
 
         <TextView
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="40dp"
             android:id="@+id/coupon_tx1"
             android:layout_below="@id/coupon_intro"
+            android:fontFamily="@font/bmdo"
+            android:textColor="#ffffff"
+            android:text="1. 쿠폰발급을 눌러주세요"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        </TextView>
+
+        <TextView
+            android:layout_marginTop="5dp"
+            android:id="@+id/coupon_tx2"
+            android:layout_below="@id/coupon_tx1"
+            android:layout_alignLeft="@id/coupon_tx1"
+            android:fontFamily="@font/bmdo"
+            android:textColor="#FFBB00"
+            android:textSize="15sp"
+            android:text="2. 사진을 찍어주세요"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        </TextView>
+        <TextView
+            android:layout_marginTop="5dp"
+            android:id="@+id/coupon_tx3"
+            android:layout_below="@id/coupon_tx2"
             android:layout_marginLeft="40dp"
             android:fontFamily="@font/bmdo"
             android:textColor="#ffffff"
@@ -82,8 +106,8 @@
 
         <TextView
             android:layout_marginTop="5dp"
-            android:id="@+id/coupon_tx2"
-            android:layout_below="@id/coupon_tx1"
+            android:id="@+id/coupon_tx4"
+            android:layout_below="@id/coupon_tx3"
             android:layout_alignLeft="@id/coupon_tx1"
             android:fontFamily="@font/bmdo"
             android:text="사용기한"
@@ -95,8 +119,8 @@
 
         <TextView
             android:layout_marginTop="5dp"
-            android:id="@+id/coupon_tx3"
-            android:layout_below="@id/coupon_tx2"
+            android:id="@+id/coupon_tx5"
+            android:layout_below="@id/coupon_tx4"
             android:layout_alignLeft="@id/coupon_tx1"
             android:fontFamily="@font/bmdo"
             android:textColor="#ffffff"
@@ -107,8 +131,8 @@
 
         <TextView
             android:layout_marginTop="5dp"
-            android:id="@+id/coupon_tx4"
-            android:layout_below="@id/coupon_tx3"
+            android:id="@+id/coupon_tx6"
+            android:layout_below="@id/coupon_tx5"
             android:layout_alignLeft="@id/coupon_tx1"
             android:fontFamily="@font/bmdo"
             android:textColor="#ffffff"
@@ -117,27 +141,16 @@
             android:layout_height="wrap_content">
         </TextView>
 
-        <TextView
-            android:layout_marginTop="5dp"
-            android:id="@+id/coupon_tx5"
-            android:layout_below="@id/coupon_tx4"
-            android:fontFamily="@font/bmdo"
-            android:layout_alignLeft="@id/coupon_tx1"
-            android:textColor="#FFBB00"
-            android:text="사진을 찍어주세요"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-        </TextView>
 
         <TextView
             android:layout_marginTop="5dp"
             android:id="@+id/coupon_code"
-            android:layout_below="@id/coupon_tx5"
+            android:layout_below="@id/coupon_tx6"
             android:layout_alignLeft="@id/coupon_tx1"
             android:fontFamily="@font/bmdo"
             android:textColor="#ffffff"
             android:textSize="15sp"
-            android:text="쿠폰발급을 눌러주세요"
+            android:text="CODE"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
         </TextView>

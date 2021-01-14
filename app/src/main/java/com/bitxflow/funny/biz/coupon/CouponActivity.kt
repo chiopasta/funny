@@ -11,16 +11,11 @@ import android.widget.Toast
 import com.bitxflow.funny.R
 import com.bitxflow.funny.send.SendServer
 import kotlinx.android.synthetic.main.activity_coupon.*
-import kotlinx.android.synthetic.main.activity_coupon.coupon_back_bt
-import kotlinx.android.synthetic.main.activity_coupon.coupon_code
-import kotlinx.android.synthetic.main.activity_coupon.coupon_tx2
-import kotlinx.android.synthetic.main.activity_coupon.make_coupon_bt
-import kotlinx.android.synthetic.main.activity_login.*
-import kotlinx.android.synthetic.main.activity_sns_coupon.*
 import org.json.JSONObject
 import java.text.DateFormat
 import java.text.SimpleDateFormat
 import java.util.*
+import kotlinx.android.synthetic.main.activity_sns_coupon.coupon_tx4 as coupon_tx41
 
 class CouponActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,9 +28,8 @@ class CouponActivity : AppCompatActivity() {
         val df : DateFormat = SimpleDateFormat("yyyy년MM월dd일")
         val tomorrow =  df.format(cal.time)
         cal.add(Calendar.MONTH,3)
-        val exp_date =  df.format(cal.time)
 
-        coupon_tx2.text = "사용기한 : "+ tomorrow + " ~"
+        coupon_tx4.text = "사용기한 : "+ tomorrow + " ~"
 
         make_coupon_bt.setOnClickListener {
             coupon_pbar.visibility = View.VISIBLE

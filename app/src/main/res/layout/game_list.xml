@@ -240,7 +240,6 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/show_tx"
         android:layout_alignLeft="@id/game_list_name"
-        android:fontFamily="@font/malgun"
         android:text="손이 빠르다고 소문난 어쩌고"
         android:textColor="#383838"></TextView>
 
