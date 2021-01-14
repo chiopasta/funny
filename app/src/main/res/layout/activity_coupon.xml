@@ -150,7 +150,6 @@
             android:fontFamily="@font/bmdo"
             android:textColor="#ffffff"
             android:textSize="15sp"
-            android:text="CODE"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
         </TextView>
