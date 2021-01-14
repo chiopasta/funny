@@ -193,6 +193,10 @@ class RecommendActivity : AppCompatActivity() {
 //                }
                 if(!type.isNullOrBlank()) {
                     search_gameList = search_gameList.filter { it.type.contains(type) }
+                    for(item in search_gameList)
+                    {
+                        item.type = type.split(",")
+                    }
                 }
                 var searchedList : ArrayList<Game> = ArrayList()
                 searchedList.addAll(search_gameList.sortedBy { it.name })
