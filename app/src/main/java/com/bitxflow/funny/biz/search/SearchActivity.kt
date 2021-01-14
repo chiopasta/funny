@@ -221,6 +221,13 @@ class SearchActivity : AppCompatActivity() {
                 }
                 if(!type.isNullOrBlank()) {
                     search_gameList = search_gameList.filter { it.type.contains(type) }
+                    for(item in search_gameList)
+                    {
+                        Log.d("bitx_log","type :" + item.type)
+                        Log.d("bitx_log","split" + type.split(","))
+                        item.type = type.split(",")
+
+                    }
                 }
                 var searchedList : ArrayList<Game> = ArrayList()
                 searchedList.addAll(search_gameList.sortedBy { it.name })

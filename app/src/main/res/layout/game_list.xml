@@ -79,9 +79,8 @@
                 android:layout_above="@+id/people_tx"
                 android:layout_centerHorizontal="true"
                 android:layout_marginBottom="3dp"
-                android:fontFamily="@font/malgun"
+                android:textStyle="bold"
                 android:text="인원"
-                android:textColor="#BDBDBD"
                 android:textSize="10sp"></TextView>
         </RelativeLayout>
 
@@ -114,8 +113,8 @@
                 android:layout_centerHorizontal="true"
                 android:layout_marginBottom="3dp"
                 android:fontFamily="@font/malgun"
+                android:textStyle="bold"
                 android:text="플레이"
-                android:textColor="#BDBDBD"
                 android:textSize="10sp"></TextView>
         </RelativeLayout>
 
@@ -148,8 +147,8 @@
                 android:layout_centerHorizontal="true"
                 android:layout_marginBottom="3dp"
                 android:fontFamily="@font/malgun"
+                android:textStyle="bold"
                 android:text="게임설명"
-                android:textColor="#BDBDBD"
                 android:textSize="10sp"></TextView>
         </RelativeLayout>
 
@@ -182,8 +181,8 @@
                 android:layout_centerHorizontal="true"
                 android:layout_marginBottom="3dp"
                 android:fontFamily="@font/malgun"
+                android:textStyle="bold"
                 android:text="장르"
-                android:textColor="#BDBDBD"
                 android:textSize="10sp"></TextView>
         </RelativeLayout>
 
@@ -216,8 +215,8 @@
                 android:layout_centerHorizontal="true"
                 android:layout_marginBottom="3dp"
                 android:fontFamily="@font/malgun"
+                android:textStyle="bold"
                 android:text="난이도"
-                android:textColor="#BDBDBD"
                 android:textSize="10sp"></TextView>
         </RelativeLayout>
 
