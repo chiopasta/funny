@@ -85,13 +85,16 @@ class LoginAcitivty : AppCompatActivity() {
 
         reload_bt.setOnClickListener {
 
-            val deleteRunnable = Runnable {
-                gameDatabase?.gameDao()?.deleteAll()
-            }
-            val deleteThread = Thread(deleteRunnable)
-            deleteThread.start()
+            val builder = AlertDialog.Builder(this)
+            val dialogView = layoutInflater.inflate(R.layout.check_dialog,null)
+            val dialog_id = dialogView.findViewById<EditText>(R.id.dialog_id_et)
+            val dialog_pw = dialogView.findViewById<EditText>(R.id.dialog_pw_et)
 
-            reloadGamesTask().execute()
+            builder.setView(dialogView)
+                .setNegativeButton("확인"){ _, _ ->
+                    checkTask().execute(dialog_id.text.toString(),dialog_pw.text.toString())
+                }
+            builder.show()
 
         }
 
@@ -116,8 +119,17 @@ class LoginAcitivty : AppCompatActivity() {
         }
 
         intro_down_bt.setOnClickListener{
-            val intent = Intent(this, ImgLinkActivity::class.java)
-            startActivity(intent)
+            val builder = AlertDialog.Builder(this)
+            val dialogView = layoutInflater.inflate(R.layout.check_dialog,null)
+            val dialog_id = dialogView.findViewById<EditText>(R.id.dialog_id_et)
+            val dialog_pw = dialogView.findViewById<EditText>(R.id.dialog_pw_et)
+
+            builder.setView(dialogView)
+                .setNegativeButton("확인"){ _, _ ->
+                    check2Task().execute(dialog_id.text.toString(),dialog_pw.text.toString())
+                }
+            builder.show()
+
         }
     }
 
@@ -390,18 +402,82 @@ class LoginAcitivty : AppCompatActivity() {
         super.onBackPressed()
     }
 
-    fun download(link: String, path: String) {
-        URL(link).openStream().use { input ->
-            FileOutputStream(File(path)).use { output ->
-                input.copyTo(output)
+    internal inner class checkTask : AsyncTask<String, String, String>() {
+
+        override fun doInBackground(vararg params: String): String {
+
+            val su = SendServer()
+            val userId = params[0].trim()
+            val userPassword = params[1].trim()
+
+            val url = "login"
+            val postDataParams = JSONObject()
+
+            postDataParams.put("userid", userId)
+            postDataParams.put("pass", userPassword)
+
+            return su.requestPOST(url,postDataParams)
+
+        }
+
+        override fun onPostExecute(result: String) {
+            if(result =="")
+            {
+                Toast.makeText(baseContext, "서버 통신오류, 다시 시도해주세요", Toast.LENGTH_SHORT).show()
+            }
+            else {
+                val json = JSONObject(result)
+                val success = json.getBoolean("success")
+                if (success) {
+
+                    val deleteRunnable = Runnable {
+                        gameDatabase?.gameDao()?.deleteAll()
+                        }
+
+                    val deleteThread = Thread(deleteRunnable)
+                    deleteThread.start()
+                    reloadGamesTask().execute()
+                }
+                else{
+                    Toast.makeText(baseContext, "아이디 비번을 다시 확인해주세요", Toast.LENGTH_SHORT).show()
+                }
             }
         }
     }
 
-    fun String.saveTo(path: String) {
-        URL(this).openStream().use { input ->
-            FileOutputStream(File(path)).use { output ->
-                input.copyTo(output)
+    internal inner class check2Task : AsyncTask<String, String, String>() {
+
+        override fun doInBackground(vararg params: String): String {
+
+            val su = SendServer()
+            val userId = params[0].trim()
+            val userPassword = params[1].trim()
+
+            val url = "login"
+            val postDataParams = JSONObject()
+
+            postDataParams.put("userid", userId)
+            postDataParams.put("pass", userPassword)
+
+            return su.requestPOST(url,postDataParams)
+
+        }
+
+        override fun onPostExecute(result: String) {
+            if(result =="")
+            {
+                Toast.makeText(baseContext, "서버 통신오류, 다시 시도해주세요", Toast.LENGTH_SHORT).show()
+            }
+            else {
+                val json = JSONObject(result)
+                val success = json.getBoolean("success")
+                if (success) {
+                    val intent = Intent(applicationContext, ImgLinkActivity::class.java)
+                    startActivity(intent)
+                }
+                else{
+                    Toast.makeText(baseContext, "아이디 비번을 다시 확인해주세요", Toast.LENGTH_SHORT).show()
+                }
             }
         }
     }
