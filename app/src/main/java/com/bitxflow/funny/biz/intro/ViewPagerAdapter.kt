@@ -15,10 +15,11 @@ import java.io.File
 class ViewPagerAdapter(private val context : Context) : PagerAdapter() {
 
     private var layoutInflater : LayoutInflater? = null
-//    val Image = arrayOf(
-//        R.drawable.intro1,
-//        R.drawable.intro2
-//    )
+    val Image = arrayOf(
+        R.drawable.intro0,
+        R.drawable.intro1,
+        R.drawable.intro2
+    )
 
 
     override fun isViewFromObject(view: View, `object`: Any): Boolean {
@@ -35,34 +36,36 @@ class ViewPagerAdapter(private val context : Context) : PagerAdapter() {
         val v = layoutInflater!!.inflate(R.layout.fragment_img_slide, null)
         val image = v.findViewById<View>(R.id.img_slide_iv) as ImageView
 
-        var fileName =  Environment.getExternalStorageDirectory().absolutePath +"/Download/intro" + position.toString()+".jpg"
-        var file = File(fileName)
-        if(file.exists())
-        {
-            val myBitmap = BitmapFactory.decodeFile(file.getAbsolutePath())
-            image.setImageBitmap(myBitmap)
-        }
-        fileName =  Environment.getExternalStorageDirectory().absolutePath +"/Download/intro" + position.toString()+".png"
-        file = File(fileName)
-        if(file.exists())
-        {
-            val myBitmap = BitmapFactory.decodeFile(file.getAbsolutePath())
-            image.setImageBitmap(myBitmap)
-        }
-        fileName =  Environment.getExternalStorageDirectory().absolutePath +"/Download/intro" + position.toString()+".jpeg"
-        file = File(fileName)
-        if(file.exists())
-        {
-            val myBitmap = BitmapFactory.decodeFile(file.getAbsolutePath())
-            image.setImageBitmap(myBitmap)
-        }
-        fileName =  Environment.getExternalStorageDirectory().absolutePath +"/Download/intro" + position.toString()+".bmp"
-        file = File(fileName)
-        if(file.exists())
-        {
-            val myBitmap = BitmapFactory.decodeFile(file.getAbsolutePath())
-            image.setImageBitmap(myBitmap)
-        }
+        image.setImageResource(Image[position])
+
+//        var fileName =  Environment.getExternalStorageDirectory().absolutePath +"/Download/intro" + position.toString()+".jpg"
+//        var file = File(fileName)
+//        if(file.exists())
+//        {
+//            val myBitmap = BitmapFactory.decodeFile(file.getAbsolutePath())
+//            image.setImageBitmap(myBitmap)
+//        }
+//        fileName =  Environment.getExternalStorageDirectory().absolutePath +"/Download/intro" + position.toString()+".png"
+//        file = File(fileName)
+//        if(file.exists())
+//        {
+//            val myBitmap = BitmapFactory.decodeFile(file.getAbsolutePath())
+//            image.setImageBitmap(myBitmap)
+//        }
+//        fileName =  Environment.getExternalStorageDirectory().absolutePath +"/Download/intro" + position.toString()+".jpeg"
+//        file = File(fileName)
+//        if(file.exists())
+//        {
+//            val myBitmap = BitmapFactory.decodeFile(file.getAbsolutePath())
+//            image.setImageBitmap(myBitmap)
+//        }
+//        fileName =  Environment.getExternalStorageDirectory().absolutePath +"/Download/intro" + position.toString()+".bmp"
+//        file = File(fileName)
+//        if(file.exists())
+//        {
+//            val myBitmap = BitmapFactory.decodeFile(file.getAbsolutePath())
+//            image.setImageBitmap(myBitmap)
+//        }
 
         val vp = container as ViewPager
         vp.addView(v , 0)

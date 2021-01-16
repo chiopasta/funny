@@ -11,6 +11,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import com.bitxflow.funny.DB.GameDatabase
 import com.bitxflow.funny.biz.beginner.BeginnerActivity
 import com.bitxflow.funny.biz.coupon.SelectActivity
 import com.bitxflow.funny.biz.fee.FeeActivity
@@ -34,6 +35,19 @@ class MainActivity : AppCompatActivity() {
 
         setContentView(R.layout.activity_main)
         hideSystemUI()
+
+        val gameDatabase = GameDatabase.getInstance(baseContext)
+
+        val changeRunnable = Runnable {
+            val wifi_name = gameDatabase?.imgLinkDao()?.getImgLink("wifi_name")
+            val wifi_pw = gameDatabase?.imgLinkDao()?.getImgLink("wifi_pw")
+
+            wifi_name_tx.text = wifi_name?.link
+            wifi_pw_tx.text = wifi_pw?.link
+        }
+
+        val settingThread = Thread(changeRunnable)
+        settingThread.start()
 
         search_bt.setOnClickListener {
             val intent = Intent(this, SearchActivity::class.java)

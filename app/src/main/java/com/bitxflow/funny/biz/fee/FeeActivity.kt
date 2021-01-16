@@ -18,33 +18,33 @@ class FeeActivity : AppCompatActivity() {
             finish()
         }
 
-        var fileName =  Environment.getExternalStorageDirectory().absolutePath +"/Download/fee.jpg"
-        var file = File(fileName)
-        if(file.exists())
-        {
-            val myBitmap = BitmapFactory.decodeFile(file.getAbsolutePath())
-            fee_iv.setImageBitmap(myBitmap)
-        }
-        fileName =  Environment.getExternalStorageDirectory().absolutePath +"/Download/fee.png"
-        file = File(fileName)
-        if(file.exists())
-        {
-            val myBitmap = BitmapFactory.decodeFile(file.getAbsolutePath())
-            fee_iv.setImageBitmap(myBitmap)
-        }
-        fileName =  Environment.getExternalStorageDirectory().absolutePath +"/Download/fee.jpeg"
-        file = File(fileName)
-        if(file.exists())
-        {
-            val myBitmap = BitmapFactory.decodeFile(file.getAbsolutePath())
-            fee_iv.setImageBitmap(myBitmap)
-        }
-        fileName =  Environment.getExternalStorageDirectory().absolutePath +"/Download/fee.bmp"
-        file = File(fileName)
-        if(file.exists())
-        {
-            val myBitmap = BitmapFactory.decodeFile(file.getAbsolutePath())
-            fee_iv.setImageBitmap(myBitmap)
-        }
+//        var fileName =  Environment.getExternalStorageDirectory().absolutePath +"/Download/fee.jpg"
+//        var file = File(fileName)
+//        if(file.exists())
+//        {
+//            val myBitmap = BitmapFactory.decodeFile(file.getAbsolutePath())
+//            fee_iv.setImageBitmap(myBitmap)
+//        }
+//        fileName =  Environment.getExternalStorageDirectory().absolutePath +"/Download/fee.png"
+//        file = File(fileName)
+//        if(file.exists())
+//        {
+//            val myBitmap = BitmapFactory.decodeFile(file.getAbsolutePath())
+//            fee_iv.setImageBitmap(myBitmap)
+//        }
+//        fileName =  Environment.getExternalStorageDirectory().absolutePath +"/Download/fee.jpeg"
+//        file = File(fileName)
+//        if(file.exists())
+//        {
+//            val myBitmap = BitmapFactory.decodeFile(file.getAbsolutePath())
+//            fee_iv.setImageBitmap(myBitmap)
+//        }
+//        fileName =  Environment.getExternalStorageDirectory().absolutePath +"/Download/fee.bmp"
+//        file = File(fileName)
+//        if(file.exists())
+//        {
+//            val myBitmap = BitmapFactory.decodeFile(file.getAbsolutePath())
+//            fee_iv.setImageBitmap(myBitmap)
+//        }
     }
 }

@@ -2,62 +2,45 @@ package com.bitxflow.funny.biz.saveImg
 
 import android.os.AsyncTask
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.bitxflow.funny.DB.GameDatabase
 import com.bitxflow.funny.DB.ImgLink
 import com.bitxflow.funny.R
+import com.bitxflow.funny.biz.search.Game
 import kotlinx.android.synthetic.main.activity_img_link.*
+import java.util.ArrayList
 
 class ImgLinkActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_img_link)
 
         val gameDatabase = GameDatabase.getInstance(baseContext)
-
         val getRunnable = Runnable {
             val links = gameDatabase?.imgLinkDao()?.getImgLink()
             if(links.isNullOrEmpty())
             {
                 val imgLink = ImgLink()
-                imgLink.name = "intro0"
-                imgLink.link = "http://naver.me/5MUZmmq9"
+                imgLink.name = "wifi_name"
+                imgLink.link = "funtime"
                 gameDatabase?.imgLinkDao()?.insert(imgLink)
 
-                imgLink.name = "intro1"
-                imgLink.link = "http://naver.me/x7voCCJf"
+                imgLink.name = "wifi_pw"
+                imgLink.link = "123456"
                 gameDatabase?.imgLinkDao()?.insert(imgLink)
 
-                imgLink.name = "intro2"
-                imgLink.link = "http://naver.me/GWFUMMq6"
-                gameDatabase?.imgLinkDao()?.insert(imgLink)
-
-                imgLink.name = "fee"
-                imgLink.link = "http://naver.me/G3JfRRjD"
-                gameDatabase?.imgLinkDao()?.insert(imgLink)
-
-                imgLink.name = "beginner"
-                imgLink.link = "http://naver.me/F8KjUE7F"
-                gameDatabase?.imgLinkDao()?.insert(imgLink)
-
-                imgLink.name = "snack0"
-                imgLink.link = "http://naver.me/xPIkFFYb"
-                gameDatabase?.imgLinkDao()?.insert(imgLink)
-
-                imgLink.name = "snack1"
-                imgLink.link = "http://naver.me/FzHO00Hw"
-                gameDatabase?.imgLinkDao()?.insert(imgLink)
-
-                imgLink.name = "snack2"
-                imgLink.link = "http://naver.me/FNmNeCJY"
-                gameDatabase?.imgLinkDao()?.insert(imgLink)
-
-                imgLink.name = "snack3"
-                imgLink.link = "http://naver.me/5wf7lRiM"
-                gameDatabase?.imgLinkDao()?.insert(imgLink)
-
-
+                val links2 = gameDatabase?.imgLinkDao()?.getImgLink()
+                for(imgLink in links2!!)
+                {
+                    when(imgLink.name)
+                    {
+                        "wifi_name" -> wifi_name_et.setText(imgLink.link)
+                        "wifi_pw" -> wifi_pw_et.setText(imgLink.link)
+                    }
+                }
             }
             else
             {
@@ -65,16 +48,8 @@ class ImgLinkActivity : AppCompatActivity() {
                 {
                     when(imgLink.name)
                     {
-                        "intro0" -> intro0_et.setText(imgLink.link)
-                        "intro1" -> intro1_et.setText(imgLink.link)
-                        "intro2" -> intro2_et.setText(imgLink.link)
-                        "fee" -> fee_et.setText(imgLink.link)
-                        "beginner" -> beginner_et.setText(imgLink.link)
-                        "snack0" -> snack0_et.setText(imgLink.link)
-                        "snack1" -> snack1_et.setText(imgLink.link)
-                        "snack2" -> snack2_et.setText(imgLink.link)
-                        "snack3" -> snack3_et.setText(imgLink.link)
-//                        "apk" -> apk_et.setText(imgLink.link)
+                        "wifi_name" -> wifi_name_et.setText(imgLink.link)
+                        "wifi_pw" -> wifi_pw_et.setText(imgLink.link)
                     }
                 }
             }
@@ -83,10 +58,24 @@ class ImgLinkActivity : AppCompatActivity() {
         val settingThread = Thread(getRunnable)
         settingThread.start()
 
-        intro0_change_bt.setOnClickListener {
+        delete_bt.setOnClickListener{
+
+            val deleteRunnable = Runnable {
+                gameDatabase?.imgLinkDao()?.deleteAll()
+            }
+
+            val settingThread = Thread(deleteRunnable)
+            settingThread.start()
+
+            Toast.makeText(applicationContext,"삭제되었습니다",Toast.LENGTH_SHORT).show()
+
+        }
+
+
+        wifi_name_change_bt.setOnClickListener {
             val changeRunnable = Runnable {
-                val imgLink = gameDatabase?.imgLinkDao()?.getImgLink("intro0")
-                val link = intro0_et.text
+                val imgLink = gameDatabase?.imgLinkDao()?.getImgLink("wifi_name")
+                val link = wifi_name_et.text
                 imgLink!!.link = link.toString()
                 gameDatabase?.imgLinkDao()?.update(imgLink)
                 ChangeComplateTask().execute()
@@ -96,19 +85,10 @@ class ImgLinkActivity : AppCompatActivity() {
 
         }
 
-        intro0_get_bt.setOnClickListener {
+        wifi_pw_change_bt.setOnClickListener {
             val changeRunnable = Runnable {
-                val imgLink = gameDatabase?.imgLinkDao()?.getImgLink("intro0")
-                getTask().execute(imgLink!!.link)
-            }
-            val settingThread = Thread(changeRunnable)
-            settingThread.start()
-        }
-
-        intro1_change_bt.setOnClickListener {
-            val changeRunnable = Runnable {
-                val imgLink = gameDatabase?.imgLinkDao()?.getImgLink("intro1")
-                val link = intro1_et.text
+                val imgLink = gameDatabase?.imgLinkDao()?.getImgLink("wifi_pw")
+                val link = wifi_pw_et.text
                 imgLink!!.link = link.toString()
                 gameDatabase?.imgLinkDao()?.update(imgLink)
                 ChangeComplateTask().execute()
@@ -118,191 +98,6 @@ class ImgLinkActivity : AppCompatActivity() {
 
         }
 
-        intro1_get_bt.setOnClickListener {
-            val changeRunnable = Runnable {
-                val imgLink = gameDatabase?.imgLinkDao()?.getImgLink("intro1")
-                getTask().execute(imgLink!!.link)
-            }
-            val settingThread = Thread(changeRunnable)
-            settingThread.start()
-        }
-
-        intro2_change_bt.setOnClickListener {
-            val changeRunnable = Runnable {
-                val imgLink = gameDatabase?.imgLinkDao()?.getImgLink("intro2")
-                val link = intro2_et.text
-                imgLink!!.link = link.toString()
-                gameDatabase?.imgLinkDao()?.update(imgLink)
-                ChangeComplateTask().execute()
-            }
-            val settingThread = Thread(changeRunnable)
-            settingThread.start()
-
-        }
-
-        intro2_get_bt.setOnClickListener {
-            val changeRunnable = Runnable {
-                val imgLink = gameDatabase?.imgLinkDao()?.getImgLink("intro2")
-                getTask().execute(imgLink!!.link)
-            }
-            val settingThread = Thread(changeRunnable)
-            settingThread.start()
-        }
-
-        fee_change_bt.setOnClickListener {
-            val changeRunnable = Runnable {
-                val imgLink = gameDatabase?.imgLinkDao()?.getImgLink("fee")
-                val link = fee_et.text
-                imgLink!!.link = link.toString()
-                gameDatabase?.imgLinkDao()?.update(imgLink)
-                ChangeComplateTask().execute()
-            }
-            val settingThread = Thread(changeRunnable)
-            settingThread.start()
-
-        }
-
-        fee_get_bt.setOnClickListener {
-            val changeRunnable = Runnable {
-                val imgLink = gameDatabase?.imgLinkDao()?.getImgLink("fee")
-                getTask().execute(imgLink!!.link)
-            }
-            val settingThread = Thread(changeRunnable)
-            settingThread.start()
-        }
-
-        beginner_change_bt.setOnClickListener {
-            val changeRunnable = Runnable {
-                val imgLink = gameDatabase?.imgLinkDao()?.getImgLink("beginner")
-                val link = beginner_et.text
-                imgLink!!.link = link.toString()
-                gameDatabase?.imgLinkDao()?.update(imgLink)
-                ChangeComplateTask().execute()
-            }
-            val settingThread = Thread(changeRunnable)
-            settingThread.start()
-
-        }
-
-        beginner_get_bt.setOnClickListener {
-            val changeRunnable = Runnable {
-                val imgLink = gameDatabase?.imgLinkDao()?.getImgLink("beginner")
-                getTask().execute(imgLink!!.link)
-            }
-            val settingThread = Thread(changeRunnable)
-            settingThread.start()
-        }
-
-        snack0_change_bt.setOnClickListener {
-            val changeRunnable = Runnable {
-                val imgLink = gameDatabase?.imgLinkDao()?.getImgLink("snack0")
-                val link = snack0_et.text
-                imgLink!!.link = link.toString()
-                gameDatabase?.imgLinkDao()?.update(imgLink)
-                ChangeComplateTask().execute()
-            }
-            val settingThread = Thread(changeRunnable)
-            settingThread.start()
-
-        }
-
-        snack0_get_bt.setOnClickListener {
-            val changeRunnable = Runnable {
-                val imgLink = gameDatabase?.imgLinkDao()?.getImgLink("snack0")
-                getTask().execute(imgLink!!.link)
-            }
-            val settingThread = Thread(changeRunnable)
-            settingThread.start()
-        }
-
-        snack1_change_bt.setOnClickListener {
-            val changeRunnable = Runnable {
-                val imgLink = gameDatabase?.imgLinkDao()?.getImgLink("snack1")
-                val link = snack1_et.text
-                imgLink!!.link = link.toString()
-                gameDatabase?.imgLinkDao()?.update(imgLink)
-                ChangeComplateTask().execute()
-            }
-            val settingThread = Thread(changeRunnable)
-            settingThread.start()
-
-        }
-
-        snack1_get_bt.setOnClickListener {
-            val changeRunnable = Runnable {
-                val imgLink = gameDatabase?.imgLinkDao()?.getImgLink("snack1")
-                getTask().execute(imgLink!!.link)
-            }
-            val settingThread = Thread(changeRunnable)
-            settingThread.start()
-        }
-
-
-        snack2_change_bt.setOnClickListener {
-            val changeRunnable = Runnable {
-                val imgLink = gameDatabase?.imgLinkDao()?.getImgLink("snack2")
-                val link = snack2_et.text
-                imgLink!!.link = link.toString()
-                gameDatabase?.imgLinkDao()?.update(imgLink)
-                ChangeComplateTask().execute()
-            }
-            val settingThread = Thread(changeRunnable)
-            settingThread.start()
-
-        }
-
-        snack2_get_bt.setOnClickListener {
-            val changeRunnable = Runnable {
-                val imgLink = gameDatabase?.imgLinkDao()?.getImgLink("snack2")
-                getTask().execute(imgLink!!.link)
-            }
-            val settingThread = Thread(changeRunnable)
-            settingThread.start()
-        }
-
-        snack3_change_bt.setOnClickListener {
-            val changeRunnable = Runnable {
-                val imgLink = gameDatabase?.imgLinkDao()?.getImgLink("snack3")
-                val link = snack3_et.text
-                imgLink!!.link = link.toString()
-                gameDatabase?.imgLinkDao()?.update(imgLink)
-                ChangeComplateTask().execute()
-            }
-            val settingThread = Thread(changeRunnable)
-            settingThread.start()
-
-        }
-
-        snack3_get_bt.setOnClickListener {
-            val changeRunnable = Runnable {
-                val imgLink = gameDatabase?.imgLinkDao()?.getImgLink("snack3")
-                getTask().execute(imgLink!!.link)
-            }
-            val settingThread = Thread(changeRunnable)
-            settingThread.start()
-        }
-
-//        apk_change_bt.setOnClickListener {
-//            val changeRunnable = Runnable {
-//                val imgLink = gameDatabase?.imgLinkDao()?.getImgLink("apk")
-//                val link = apk_et.text
-//                imgLink!!.link = link.toString()
-//                gameDatabase?.imgLinkDao()?.update(imgLink)
-//                ChangeComplateTask().execute()
-//            }
-//            val settingThread = Thread(changeRunnable)
-//            settingThread.start()
-//
-//        }
-//
-//        apk_get_bt.setOnClickListener {
-//            val changeRunnable = Runnable {
-//                val imgLink = gameDatabase?.imgLinkDao()?.getImgLink("apk")
-//                getTask().execute(imgLink!!.link)
-//            }
-//            val settingThread = Thread(changeRunnable)
-//            settingThread.start()
-//        }
     }
 
 
@@ -319,17 +114,5 @@ class ImgLinkActivity : AppCompatActivity() {
         }
     }
 
-    internal inner class getTask : AsyncTask<String, String, String>() {
-
-        override fun doInBackground(vararg params: String): String {
-
-            return params[0]
-
-        }
-
-        override fun onPostExecute(result: String) {
-            link_wv.loadUrl(result)
-        }
-    }
 
 }

@@ -22,6 +22,7 @@
     <com.ortiz.touchview.TouchImageView
         android:layout_below="@id/main_nav_rl"
         android:id="@+id/beginner_iv"
+        android:src="@drawable/easy"
         android:layout_centerInParent="true"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>

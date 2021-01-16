@@ -7,332 +7,63 @@
     tools:context=".biz.saveImg.ImgLinkActivity">
 
 
-    <WebView
-        android:id="@+id/link_wv"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"></WebView>
+    <Button
+        android:id="@+id/delete_bt"
+        android:text="와이파이삭제"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"></Button>
 
-    <TextView
-        android:id="@+id/txt1"
-        android:textSize="25sp"
-        android:text="다운을 받기전 DownLoad 폴더에 있는 그림 파일을 삭제해주세요"
-        android:textColor="@android:color/holo_red_light"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"></TextView>
 
     <LinearLayout
-        android:layout_below="@id/link_wv"
-        android:id="@+id/ll1"
+        android:layout_below="@id/delete_bt"
+        android:id="@+id/ll11"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
         <TextView
-            android:text="이용안내0"
+            android:text="와이파이이름"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
         </TextView>
 
         <EditText
-            android:id="@+id/intro0_et"
+            android:id="@+id/wifi_name_et"
             android:layout_width="370dp"
             android:layout_height="wrap_content"></EditText>
 
         <Button
-            android:id="@+id/intro0_change_bt"
-            android:text="url바꾸기"
+            android:id="@+id/wifi_name_change_bt"
+            android:text="이름바꾸기"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"></Button>
 
-        <Button
-            android:id="@+id/intro0_get_bt"
-            android:text="저장하기"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"></Button>
-    </LinearLayout>
-
-
-    <LinearLayout
-        android:layout_below="@id/ll1"
-        android:id="@+id/ll2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <TextView
-            android:text="이용안내1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-        </TextView>
-
-        <EditText
-            android:id="@+id/intro1_et"
-            android:layout_width="370dp"
-            android:layout_height="wrap_content"></EditText>
-
-        <Button
-            android:id="@+id/intro1_change_bt"
-            android:text="url바꾸기"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"></Button>
-
-        <Button
-            android:id="@+id/intro1_get_bt"
-            android:text="저장하기"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"></Button>
-    </LinearLayout>
-
-
-    <LinearLayout
-        android:layout_below="@id/ll2"
-        android:id="@+id/ll3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <TextView
-            android:text="이용안내2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-        </TextView>
-
-        <EditText
-            android:id="@+id/intro2_et"
-            android:layout_width="370dp"
-            android:layout_height="wrap_content"></EditText>
-
-        <Button
-            android:id="@+id/intro2_change_bt"
-            android:text="url바꾸기"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"></Button>
-
-        <Button
-            android:id="@+id/intro2_get_bt"
-            android:text="저장하기"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"></Button>
-    </LinearLayout>
-
-
-    <LinearLayout
-        android:layout_below="@id/ll3"
-        android:id="@+id/ll4"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <TextView
-            android:text="게임비"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-        </TextView>
-
-        <EditText
-            android:id="@+id/fee_et"
-            android:layout_width="370dp"
-            android:layout_height="wrap_content"></EditText>
-
-        <Button
-            android:id="@+id/fee_change_bt"
-            android:text="url바꾸기"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"></Button>
-
-        <Button
-            android:id="@+id/fee_get_bt"
-            android:text="저장하기"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"></Button>
     </LinearLayout>
 
     <LinearLayout
-        android:layout_below="@id/ll4"
-        android:id="@+id/ll5"
+        android:layout_below="@id/ll11"
+        android:id="@+id/ll12"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
         <TextView
-            android:text="초심자"
+            android:text="와이파이 비번"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
         </TextView>
 
         <EditText
-            android:id="@+id/beginner_et"
+            android:id="@+id/wifi_pw_et"
             android:layout_width="370dp"
             android:layout_height="wrap_content"></EditText>
 
         <Button
-            android:id="@+id/beginner_change_bt"
-            android:text="url바꾸기"
+            android:id="@+id/wifi_pw_change_bt"
+            android:text="비번바꾸기"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"></Button>
 
-        <Button
-            android:id="@+id/beginner_get_bt"
-            android:text="저장하기"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"></Button>
-    </LinearLayout>
-
-
-    <LinearLayout
-        android:layout_below="@id/ll5"
-        android:id="@+id/ll6"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <TextView
-            android:text="스낵0"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-        </TextView>
-
-        <EditText
-            android:id="@+id/snack0_et"
-            android:layout_width="370dp"
-            android:layout_height="wrap_content"></EditText>
-
-        <Button
-            android:id="@+id/snack0_change_bt"
-            android:text="url바꾸기"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"></Button>
-
-        <Button
-            android:id="@+id/snack0_get_bt"
-            android:text="저장하기"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"></Button>
-    </LinearLayout>
-
-
-    <LinearLayout
-        android:layout_below="@id/ll6"
-        android:id="@+id/ll7"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <TextView
-            android:text="스낵1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-        </TextView>
-
-        <EditText
-            android:id="@+id/snack1_et"
-            android:layout_width="370dp"
-            android:layout_height="wrap_content"></EditText>
-
-        <Button
-            android:id="@+id/snack1_change_bt"
-            android:text="url바꾸기"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"></Button>
-
-        <Button
-            android:id="@+id/snack1_get_bt"
-            android:text="저장하기"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"></Button>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_below="@id/ll7"
-        android:id="@+id/ll8"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <TextView
-            android:text="스낵2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-        </TextView>
-
-        <EditText
-            android:id="@+id/snack2_et"
-            android:layout_width="370dp"
-            android:layout_height="wrap_content"></EditText>
-
-        <Button
-            android:id="@+id/snack2_change_bt"
-            android:text="url바꾸기"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"></Button>
-
-        <Button
-            android:id="@+id/snack2_get_bt"
-            android:text="저장하기"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"></Button>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_below="@id/ll8"
-        android:id="@+id/ll9"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <TextView
-            android:text="스낵3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-        </TextView>
-
-        <EditText
-            android:id="@+id/snack3_et"
-            android:layout_width="370dp"
-            android:layout_height="wrap_content"></EditText>
-
-        <Button
-            android:id="@+id/snack3_change_bt"
-            android:text="url바꾸기"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"></Button>
-
-        <Button
-            android:id="@+id/snack3_get_bt"
-            android:text="저장하기"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"></Button>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_below="@id/ll9"
-        android:id="@+id/ll10"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <TextView
-            android:text="어플받기"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-        </TextView>
-
-        <EditText
-            android:id="@+id/apk_et"
-            android:layout_width="370dp"
-            android:layout_height="wrap_content"></EditText>
-
-        <Button
-            android:id="@+id/apk_change_bt"
-            android:text="url바꾸기"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"></Button>
-
-        <Button
-            android:id="@+id/apk_get_bt"
-            android:text="저장하기"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"></Button>
     </LinearLayout>
 
 </RelativeLayout>

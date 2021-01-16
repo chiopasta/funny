@@ -85,7 +85,8 @@
         android:layout_width="200dp"
         android:layout_height="100dp"></Button>
 
-    <Button
+    <ImageView
+        android:id="@+id/wifi"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_alignTop="@id/coupon"
@@ -94,7 +95,28 @@
         android:layout_marginLeft="15dp"
         android:layout_marginTop="0dp"
         android:layout_marginRight="1dp"
-        android:layout_toRightOf="@+id/coupon"></Button>
+        android:layout_toRightOf="@+id/coupon"></ImageView>
+
+    <TextView
+        android:id="@+id/wifi_name_tx"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/wifi"
+        android:layout_alignBottom="@+id/wifi"
+        android:layout_marginLeft="5dp"
+        android:layout_marginBottom="28dp"
+        android:text="funtime"
+        android:textColor="#ffffff"></TextView>
+
+    <TextView
+        android:id="@+id/wifi_pw_tx"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/wifi_name_tx"
+        android:layout_alignBottom="@+id/wifi"
+        android:textColor="#FFBB00"
+        android:layout_marginBottom="6dp"
+        android:text="12345678"></TextView>
 
     <Button
         android:layout_marginLeft="15dp"
