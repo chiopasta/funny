@@ -244,10 +244,36 @@
                     android:layout_height="28dp"
                     android:textSize="15sp"
                     android:layout_gravity="center"
-                    android:text="   팀플"
+                    android:text="   전략"
                     android:textColor="#3b3b3b"
                     ></RadioButton>
 
+
+                <RadioButton
+                    android:layout_marginLeft="8dp"
+                    android:id="@+id/type_3"
+                    android:background="@drawable/btn_round"
+                    android:button="@android:color/transparent"
+                    android:layout_width="80dp"
+                    android:layout_height="28dp"
+                    android:textSize="15sp"
+                    android:layout_gravity="center"
+                    android:text="   두뇌싸움"
+                    android:textColor="#3b3b3b"
+                    ></RadioButton>
+
+                <RadioButton
+                    android:layout_marginLeft="8dp"
+                    android:id="@+id/type_4"
+                    android:background="@drawable/btn_round"
+                    android:button="@android:color/transparent"
+                    android:layout_width="48dp"
+                    android:layout_height="28dp"
+                    android:textSize="15sp"
+                    android:layout_gravity="center"
+                    android:text="   심리"
+                    android:textColor="#3b3b3b"
+                    ></RadioButton>
 
             </RadioGroup>
 

@@ -47,6 +47,7 @@
             android:textColor="@color/design_default_color_error"
             android:layout_alignBottom="@id/search_et"
             android:layout_toRightOf="@id/search_bt"
+            android:textSize="16sp"
             android:text=" ← 조건 선택후 반드시 눌러주세요"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">

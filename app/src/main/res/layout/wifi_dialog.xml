@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_alignParentTop="true"
+        android:id="@+id/wifi_name_tx"
+        android:text="와이파이 이름 : "
+        android:textSize="17sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"></TextView>
+
+    <TextView
+        android:layout_toRightOf="@id/wifi_name_tx"
+        android:layout_marginTop="10dp"
+        android:id="@+id/wifi_name"
+        android:layout_marginLeft="15dp"
+        android:textSize="17sp"
+        android:text="funtime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"></TextView>
+
+
+    <TextView
+        android:layout_marginTop="10dp"
+        android:layout_alignLeft="@id/wifi_name_tx"
+        android:layout_below="@id/wifi_name_tx"
+        android:id="@+id/wifi_pw_tx"
+        android:textSize="17sp"
+        android:text="비밀번호 : "
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+    </TextView>
+
+    <TextView
+        android:layout_alignTop="@+id/wifi_pw_tx"
+        android:layout_toRightOf="@id/wifi_pw_tx"
+        android:id="@+id/wifi_pw"
+        android:textSize="17sp"
+        android:text="1234567"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"></TextView>
+
+</RelativeLayout>

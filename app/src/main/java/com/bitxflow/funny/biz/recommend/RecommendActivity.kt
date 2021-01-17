@@ -160,7 +160,9 @@ class RecommendActivity : AppCompatActivity() {
                 when(type_rg.checkedRadioButtonId){
                     R.id.type0_radio_bt -> type= ""
                     R.id.type_1 -> type= "파티"
-                    R.id.type_2 -> type= "팀플"
+                    R.id.type_2 -> type= "전략"
+                    R.id.type_3 -> type= "두뇌싸움"
+                    R.id.type_4 -> type= "심리"
                 }
 
 //                when(type_rg2.checkedRadioButtonId){
