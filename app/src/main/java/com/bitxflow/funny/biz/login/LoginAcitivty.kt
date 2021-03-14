@@ -22,6 +22,7 @@ import com.bitxflow.funny.DB.GameDB
 import com.bitxflow.funny.DB.GameDatabase
 import com.bitxflow.funny.DB.User
 import com.bitxflow.funny.R
+import com.bitxflow.funny.biz.appdown.AppDownActivity
 import com.bitxflow.funny.biz.saveImg.ImgLinkActivity
 import com.bitxflow.funny.send.SendServer
 import kotlinx.android.synthetic.main.activity_login.*
@@ -130,6 +131,11 @@ class LoginAcitivty : AppCompatActivity() {
                 }
             builder.show()
 
+        }
+
+        app_down_bt.setOnClickListener {
+            val intent = Intent(applicationContext, AppDownActivity::class.java)
+            startActivity(intent)
         }
     }
 

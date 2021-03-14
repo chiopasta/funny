@@ -127,6 +127,7 @@ class MainActivity : AppCompatActivity() {
         intro_bt.setOnClickListener {
             val intent = Intent(this, IntroActivity::class.java)
             startActivity(intent)
+
         }
 
         recommend_game_bt.setOnClickListener {

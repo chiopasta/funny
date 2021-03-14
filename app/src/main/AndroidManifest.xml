@@ -19,7 +19,8 @@
         android:theme="@style/Theme.AppCompat.NoActionBar"
         android:usesCleartextTraffic="true"
         android:windowSoftInputMode="adjustResize">
-        <activity android:name=".biz.saveImg.ImgLinkActivity"></activity>
+        <activity android:name=".biz.appdown.AppDownActivity"></activity>
+        <activity android:name=".biz.saveImg.ImgLinkActivity" />
         <activity
             android:name=".biz.coupon.SnsCouponActivity"
             android:screenOrientation="landscape" />
