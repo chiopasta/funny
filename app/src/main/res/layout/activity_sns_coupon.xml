@@ -51,7 +51,7 @@
             android:id="@+id/make_coupon_bt"
             android:layout_below="@id/coupon_title"
             android:background="@drawable/new_coupon"
-            android:text="30% off"
+            android:text="1,000\\ D/C"
             android:fontFamily="@font/bmdo"
             android:textSize="25sp"
             android:textColor="#000000"
@@ -99,8 +99,20 @@
             android:layout_marginTop="4dp"
             android:layout_alignLeft="@+id/coupon_tx3"
             android:fontFamily="@font/bmdo"
-            android:text="카운터에 보여주시면 쿠폰을 드립니다"
+            android:text="카운터에 보여주시면 즉시 할인해 드립니다"
             android:textColor="#ffffff"></TextView>
+
+        <TextView
+            android:layout_marginTop="5dp"
+            android:id="@+id/coupon_tx5"
+            android:layout_below="@id/coupon_tx4"
+            android:layout_alignLeft="@id/coupon_tx4"
+            android:fontFamily="@font/bmdo"
+            android:textColor="#FFBB00"
+            android:textSize="15sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        </TextView>
 
         <TextView
             android:layout_marginTop="5dp"

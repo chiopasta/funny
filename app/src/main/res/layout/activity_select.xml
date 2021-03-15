@@ -47,7 +47,7 @@
         android:id="@+id/sns_coupon_bt"
         android:layout_width="300dp"
         android:layout_height="300dp"
-        android:src="@drawable/sns_coupon"></ImageView>
+        android:src="@drawable/sns_coupon_2"></ImageView>
 
     <ImageView
         android:layout_marginTop="120dp"
